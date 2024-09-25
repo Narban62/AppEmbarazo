@@ -42,14 +42,10 @@ class MyApp extends StatelessWidget {
       //const EstimulacionOportunaPage()
       //const EstimulacionTactilPage()
       //const RespiracionPage(),
-<<<<<<< HEAD
-      const DietaPage(),
-=======
-      const RegistroPage(),
       //const DietaPage(),
->>>>>>> ac0cc59a95a7767a896a9d1d528d1eb24bd30ab3
       //const ProyectoVidaPage()
-      //const CalidadVidaPage()
+      //const CalidadVidaPage(),
+      const RegistroPage()
     );
   }
 }

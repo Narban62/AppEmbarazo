@@ -21,7 +21,8 @@ class _RegistroPageState extends State<RegistroPage> {
   final TextEditingController _telefonoController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _confirmPasswordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -31,69 +32,80 @@ class _RegistroPageState extends State<RegistroPage> {
     return Scaffold(
       backgroundColor: const Color(0xffFCDEE7),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              const HeaderWidget(
-                color: Color(0xffF75B89),
-                text: 'Registro de Usuario',
-                isSubtitle: false,
-                showButton: false,
-              ),
-              const SizedBox(height: 20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            const HeaderWidget(
+              color: Color(0xffF75B89),
+              text: 'Registro de Usuario',
+              isSubtitle: false,
+              showButton: false,
+            ),
+            const SizedBox(height: 15),
 
-              // Texto descriptivo
-              const TextWidget(
-                  text:
-                  "Registra tus datos para continuar con la aplicación."),
-              const SizedBox(height: 20),
+            // Texto descriptivo
+            const TextWidget(
+                text:
+                    "Por favor, registre sus datos para continuar con el proceso de la aplicación."),
+            const SizedBox(height: 15),
 
-              // Campos de entrada
-              _buildTextField('Nombres', _nombreController),
-              const SizedBox(height: 10),
-              _buildTextField('Apellidos', _apellidoController),
-              const SizedBox(height: 10),
-              _buildTextField('Cédula', _cedulaController, keyboardType: TextInputType.number),
-              const SizedBox(height: 10),
-              _buildTextField('Dirección', _direccionController),
-              const SizedBox(height: 10),
-              _buildTextField('Teléfono', _telefonoController, keyboardType: TextInputType.phone),
-              const SizedBox(height: 10),
-              _buildTextField('Correo Electrónico', _emailController, keyboardType: TextInputType.emailAddress),
-              const SizedBox(height: 10),
-              _buildTextField('Contraseña', _passwordController, isPassword: true),
-              const SizedBox(height: 10),
-              _buildTextField('Confirmar Contraseña', _confirmPasswordController, isPassword: true),
-              const SizedBox(height: 20),
+            // Campos de entrada
+            _buildTextField('Nombres', _nombreController),
+            const SizedBox(height: 10),
+            _buildTextField('Apellidos', _apellidoController),
+            const SizedBox(height: 10),
+            _buildTextField('Cédula', _cedulaController,
+                keyboardType: TextInputType.number),
+            const SizedBox(height: 10),
+            _buildTextField('Dirección', _direccionController),
+            const SizedBox(height: 10),
+            _buildTextField('Teléfono', _telefonoController,
+                keyboardType: TextInputType.phone),
+            const SizedBox(height: 10),
+            _buildTextField('Correo Electrónico', _emailController,
+                keyboardType: TextInputType.emailAddress),
+            const SizedBox(height: 10),
+            _buildTextField('Contraseña', _passwordController,
+                isPassword: true),
+            const SizedBox(height: 10),
+            _buildTextField('Confirmar Contraseña', _confirmPasswordController,
+                isPassword: true),
+            const SizedBox(height: 20),
 
-              // Botón de Registro
-              Button(
-                buttonName: "Registrar",
-                buttonColor: const Color(0xffF75B89),
-                onPressed: _registerUser,
-              ),
-            ],
-          ),
+            // Botón de Registro
+            Button(
+              buttonName: "Registrar",
+              buttonColor: const Color(0xffF75B89),
+              onPressed: _registerUser,
+            ),
+          ],
         ),
       ),
-    );
+    ); //,
+    //);
   }
 
   // Método para construir campos de entrada
-  Widget _buildTextField(String labelText, TextEditingController controller, {bool isPassword = false, TextInputType keyboardType = TextInputType.text}) {
-    return TextField(
-      controller: controller,
-      obscureText: isPassword,
-      keyboardType: keyboardType,
-      decoration: InputDecoration(
-        labelText: labelText,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-      ),
-    );
+  Widget _buildTextField(String labelText, TextEditingController controller,
+      {bool isPassword = false,
+      TextInputType keyboardType = TextInputType.text}) {
+    return Padding(
+        padding: const EdgeInsets.symmetric(vertical: 10),
+        child: FractionallySizedBox(
+            widthFactor: 0.85,
+            child: TextField(
+              controller: controller,
+              obscureText: isPassword,
+              keyboardType: keyboardType,
+              decoration: InputDecoration(
+                labelText: labelText,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                filled: true,
+                fillColor: Colors.white,
+              ),
+            )));
   }
 
   // Método para registrar un nuevo usuario
@@ -116,7 +128,8 @@ class _RegistroPageState extends State<RegistroPage> {
 
     try {
       // Registro de usuario en Firebase Authentication
-      UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
+      UserCredential userCredential =
+          await _auth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
@@ -132,7 +145,7 @@ class _RegistroPageState extends State<RegistroPage> {
           'direccion': direccion,
           'telefono': telefono,
           'correo': email,
-          'uid': user.uid,  // ID del usuario generado por Firebase
+          'uid': user.uid, // ID del usuario generado por Firebase
         });
 
         ScaffoldMessenger.of(context).showSnackBar(
