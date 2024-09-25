@@ -33,9 +33,9 @@ class MyApp extends StatelessWidget {
       //const EstimulacionOportunaPage()
       //const EstimulacionTactilPage()
       //const RespiracionPage(),
-      //const DietaPage(),
+      const DietaPage(),
       //const ProyectoVidaPage()
-      const CalidadVidaPage()
+      //const CalidadVidaPage()
     );
   }
 }

@@ -26,23 +26,29 @@ class _ProyectoVidaPageState extends State<ProyectoVidaPage> {
             isSubtitle: true,
             showButton: true,
           ),
-          //ImagenWidget(imagesrc: imagesrc, isPrincipal: isPrincipal),
-          
+          Padding(padding: EdgeInsets.only(bottom: 20.0)),
+          ImagenWidget(
+              imagesrc: 'assets/images/proyecto_de_vida/calidadVida2.jpg',
+              isPrincipal: false),
+          Padding(padding: EdgeInsets.only(bottom: 20.0)),
           TextWidget(
               text:
                   'Es un ejercicio necesario para las adolescentes, ya que contribuye a su desarrollo integral y permite trazar las rutas para alcanzar las metas que se propongan.'),
-          //ImagenWidget(imagesrc: imagesrc, isPrincipal: isPrincipal),
+          Padding(padding: EdgeInsets.only(bottom: 20.0)),
+          ImagenWidget(
+              imagesrc: 'assets/images/proyecto_de_vida/Calidad de vida.jpg',
+              isPrincipal: false),
+          Padding(padding: EdgeInsets.only(bottom: 20.0)),
           TextWidget(
               text:
                   'El proyecto de vida favorece el autoconocimiento y autocuidado a través de:'),
+          Padding(padding: EdgeInsets.only(bottom: 20.0)),
           Button(
             buttonName: 'saltar',
             buttonColor: colorButton,
             onPressed: test,
           ),
-        ])
-        )
-        );
+        ])));
   }
 }
 

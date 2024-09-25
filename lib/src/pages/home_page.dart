@@ -25,7 +25,7 @@ class _HomePageState extends State<HomePage> {
             showButton: false,
           ),
           const ImagenWidget(
-              imagesrc: 'assets/images/test.jpg',
+              imagesrc: 'assets/images/psicoprofilaxis/Psico 1.jpg',
               borderRadius: 15.0,
               isPrincipal: true),
           const TextWidget(

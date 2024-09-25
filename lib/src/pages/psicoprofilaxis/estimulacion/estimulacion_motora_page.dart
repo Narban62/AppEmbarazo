@@ -22,7 +22,7 @@ class _EstimulacionMotoraPageState extends State<EstimulacionMotoraPage> {
         child: Column(
           children: [
             HeaderWidget(
-              text: 'Estimulación Motora              ',
+              text: 'Estimulación Motora',
               color: colorButton,
               isSubtitle: true,
               showButton: true,
@@ -30,7 +30,7 @@ class _EstimulacionMotoraPageState extends State<EstimulacionMotoraPage> {
             TextWidget(
                 text:
                     'Técnicas y actividades desde las 20 semanas de gestación para promover el desarrollo neuromotor del feto. Estas incluyen paseos y ejercicios suaves que estimulan el sistema vestibular y el sentido del equilibrio del bebé.'),
-            //ImagenWidget(imagesrc: 'imagesrc', isPrincipal: false),
+            ImagenWidget(imagesrc: 'assets/images/psicoprofilaxis/Psico motora.jpg', isPrincipal: false),
 
             HeaderWidget(
               text: 'Ejercicios:',

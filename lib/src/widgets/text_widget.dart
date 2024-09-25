@@ -6,7 +6,9 @@ class TextWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FractionallySizedBox(
+    return Padding(
+      padding: const EdgeInsets.only(top: 25.0, bottom: 25.0),
+      child: FractionallySizedBox(
             widthFactor: 0.75,
             child: Text(
               text,
@@ -16,6 +18,6 @@ class TextWidget extends StatelessWidget {
                   fontWeight: FontWeight.normal,
                   height: 1.2,
                   color: Colors.black),
-            ));
+            )));
   }
 }

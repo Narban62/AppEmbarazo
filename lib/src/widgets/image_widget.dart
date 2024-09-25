@@ -9,7 +9,7 @@ class ImagenWidget extends StatelessWidget {
     super.key,
     required this.imagesrc,
     required this.isPrincipal,
-    this.borderRadius = 5.0,
+    this.borderRadius = 25.0,
   });
 
   @override
