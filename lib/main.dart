@@ -1,4 +1,5 @@
 import 'package:app_embarazo/src/pages/calidad_vida/calidad_vida.dart';
+import 'package:app_embarazo/src/pages/inicio_sesion_registro/inicio_sesion.dart';
 import 'package:app_embarazo/src/pages/inicio_sesion_registro/registro_page.dart';
 import 'package:app_embarazo/src/pages/proyecto_vida/proyecto_vida.dart';
 import 'package:app_embarazo/src/pages/dieta/dieta.dart';
@@ -35,17 +36,13 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         fontFamily: 'Calibri'
       ),
-      home: 
-      //const HomePage(),
-      //const ModulosPage(),
-      //const HomePsicoPage()
-      //const EstimulacionOportunaPage()
-      //const EstimulacionTactilPage()
-      //const RespiracionPage(),
-      //const DietaPage(),
-      //const ProyectoVidaPage()
-      //const CalidadVidaPage(),
-      const RegistroPage()
+
+      routes: {
+        '/': (context) => const LoginPage(),  // Pantalla principal (Login)
+        '/home': (context) => const HomePage(),
+        '/registro': (context) => const RegistroPage(),
+      },
+      initialRoute: '/',  // Define la ruta inicial (login)
     );
   }
 }
