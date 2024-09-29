@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ImagenWidget extends StatelessWidget {
-  final String imagesrc;
+  final String imagesrc; // Fuente de la imagen (puede ser un asset o una URL remota)
   final double borderRadius;
   final bool isPrincipal;
 
@@ -33,12 +33,42 @@ class ImagenWidget extends StatelessWidget {
         width: imageWidth,
         height: imageHeight,
         child: FittedBox(
-          fit: BoxFit.contain,
-          child: Image.asset(
-            imagesrc,
-          ),
+          fit: BoxFit.cover,
+          child: _loadImage(imagesrc), // Usamos la nueva función para cargar la imagen
         ),
       ),
     );
+  }
+
+  // Función para decidir si cargar desde assets o una URL remota
+  Widget _loadImage(String src) {
+    if (src.startsWith('http')) {
+      // Si es una URL remota (Firebase Storage)
+      return Image.network(
+        src,
+        fit: BoxFit.cover,
+        loadingBuilder: (BuildContext context, Widget child,
+            ImageChunkEvent? loadingProgress) {
+          if (loadingProgress == null) return child;
+          return Center(
+            child: CircularProgressIndicator(
+              value: loadingProgress.expectedTotalBytes != null
+                  ? loadingProgress.cumulativeBytesLoaded /
+                  (loadingProgress.expectedTotalBytes!)
+                  : null,
+            ),
+          );
+        },
+        errorBuilder: (context, error, stackTrace) {
+          return const Icon(Icons.error, size: 50, color: Colors.red); // Mostrar icono de error si falla
+        },
+      );
+    } else {
+      // Si es un asset local
+      return Image.asset(
+        src,
+        fit: BoxFit.cover,
+      );
+    }
   }
 }

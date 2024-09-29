@@ -26,9 +26,11 @@ class _HomePageState extends State<HomePage> {
             showButton: false,
           ),
           const ImagenWidget(
-              imagesrc: 'assets/images/psicoprofilaxis/Psico 1.jpg',
-              borderRadius: 15.0,
-              isPrincipal: true),
+            imagesrc: 'https://firebasestorage.googleapis.com/v0/b/test-drive-fc508.appspot.com/o/Prueba%20de%20logo.webp?alt=media&token=eabe6e2e-d892-474a-8b33-2df84b9a30a4', // Firebase URL o local
+            borderRadius: 15.0,
+            isPrincipal: true,
+          ),
+
           const TextWidget(
               text:
                   "¡Bienvenida a la aplicación, mamita! Estamos aquí para acompañarte y brindarte todo el apoyo necesario durante esta etapa tan especial. ¡Comencemos!"),
