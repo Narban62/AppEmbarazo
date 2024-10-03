@@ -44,7 +44,7 @@ class _RegistroPageState extends State<RegistroPage> {
           children: [
             const HeaderWidget(
               color: color2,
-              text: 'Registro de Usuario',
+              text: 'Información:',
               isSubtitle: false,
               showButton: false,
             ),

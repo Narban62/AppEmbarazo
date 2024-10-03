@@ -41,12 +41,12 @@ class _LoginPageState extends State<LoginPage> {
 
             ImagenWidget(
                 imagesrc: 'assets/images/proyecto_de_vida/Calidad de vida.jpg',
-                isPrincipal: true),
+                isPrincipal: false),
             // Texto descriptivo
-            const TextWidget(
+            /*const TextWidget(
               text:
                   "Ingresa tu correo electrónico y contraseña para continuar.",
-            ),
+            ),*/
 
             // Campos de entrada utilizando CustomTextField
             FractionallySizedBox(

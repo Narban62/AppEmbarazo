@@ -1,6 +1,9 @@
+import 'package:app_embarazo/src/pages/actividad_fisica/actividad_fisica_page.dart';
 import 'package:app_embarazo/src/pages/calidad_vida/calidad_vida.dart';
+import 'package:app_embarazo/src/pages/inicio_sesion_registro/bienvenida_page.dart';
 import 'package:app_embarazo/src/pages/inicio_sesion_registro/inicio_sesion.dart';
 import 'package:app_embarazo/src/pages/inicio_sesion_registro/registro_page.dart';
+import 'package:app_embarazo/src/pages/inicio_sesion_registro/terminos_condiciones_page.dart';
 import 'package:app_embarazo/src/pages/proyecto_vida/proyecto_vida.dart';
 import 'package:app_embarazo/src/pages/dieta/dieta.dart';
 import 'package:app_embarazo/src/pages/home_page.dart';
@@ -36,13 +39,25 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         fontFamily: 'Calibri'
       ),
-
+      //home: //TerminosCondicionesPaget()
+      //WelcomePage(),
       routes: {
         '/': (context) => const LoginPage(),  // Pantalla principal (Login)
         '/home': (context) => const HomePage(),
         '/registro': (context) => const RegistroPage(),
+        '/terminos': (context) => const TerminosCondicionesPaget(),
+        '/welcome': (context) => const WelcomePage(),
+        '/modulos': (context) => const ModulosPage(),
+        '/calidad_vida': (context) => const CalidadVidaPage(),
+        '/proyecto_vida': (context) => const ProyectoVidaPage(),
+        '/dieta': (context) => const DietaPage(),
+        '/psicoprofilaxis': (context) => const HomePsicoPage(),
+        '/respiracion': (context) => const RespiracionPage(),
+        '/estimulacion_tactil': (context) => const EstimulacionTactilPage(),
+        '/estimulacion_oportuna': (context) => const EstimulacionOportunaPage(),
+        '/actividad_fisica': (context) => const ActividadFisicaPage(),
       },
-      initialRoute: '/',  // Define la ruta inicial (login)
+      initialRoute: '/home',  
     );
   }
 }

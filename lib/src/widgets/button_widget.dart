@@ -4,12 +4,14 @@ class Button extends StatelessWidget {
   final String buttonName;
   final Color buttonColor;
   final VoidCallback onPressed;
+  final bool isEnabled;
 
   const Button({
     super.key,
     required this.buttonName,
     required this.buttonColor,
     required this.onPressed,
+    this.isEnabled = true,
   });
 
   @override
@@ -19,9 +21,9 @@ class Button extends StatelessWidget {
       child: FractionallySizedBox(
         widthFactor: 0.9,
         child: ElevatedButton(
-          onPressed: onPressed,
+          onPressed: isEnabled ? onPressed : null,
           style: ElevatedButton.styleFrom(
-            backgroundColor: buttonColor,
+            backgroundColor: isEnabled ? buttonColor : Colors.grey,
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8),

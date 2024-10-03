@@ -30,31 +30,31 @@ class _ModulosPageState extends State<ModulosPage> {
               buttonName: "calidad de vida",
               buttonColor: const Color(0xffF75B89),
               onPressed: () {
-                test();
+                Navigator.pushNamed(context, '/calidad_vida');
               }),
           Button(
               buttonName: "proyecto de vida",
               buttonColor: const Color(0xffF75B89),
               onPressed: () {
-                test();
+                Navigator.pushNamed(context, '/proyecto_vida');
               }),
           Button(
               buttonName: "dieta",
               buttonColor: const Color(0xffF75B89),
               onPressed: () {
-                test();
+                Navigator.pushNamed(context, '/dieta');
               }),
           Button(
               buttonName: "actividad física",
               buttonColor: const Color(0xffF75B89),
               onPressed: () {
-                test();
+                Navigator.pushNamed(context, '/actividad_fisica');
               }),
           Button(
               buttonName: "psicoprofilaxis",
               buttonColor: const Color(0xffF75B89),
               onPressed: () {
-                test();
+                Navigator.pushNamed(context, '/psicoprofilaxis');
               }),
         ],
       ),
