@@ -41,28 +41,28 @@ class _EstimulacionOportunaPageState extends State<EstimulacionOportunaPage> {
                   text:
                       '• Desarrollo físico y mental  \n• Crear un vínculo afectivo\n• Desarrollar los sentidos\n• Desarrollo emocional y social del niño\n• Desarrollo del sistema nervioso del feto'),
               Button(
-                  buttonName: "Estimulación Táctil",
-                  buttonColor: colorButton,
-                  onPressed: () {
-                    test();
-                  }),
-              Button(
                   buttonName: "Estimulación Auditiva",
-                  buttonColor: colorButton,
+                  buttonColor: const Color(0xffF75B89),
                   onPressed: () {
-                    test();
-                  }),
-              Button(
-                  buttonName: "Estimulación Visual",
-                  buttonColor: colorButton,
-                  onPressed: () {
-                    test();
+                    Navigator.pushNamed(context, '/estimulacion_auditiva');
                   }),
               Button(
                   buttonName: "Estimulación Motora",
-                  buttonColor: colorButton,
+                  buttonColor: const Color(0xffF75B89),
                   onPressed: () {
-                    test();
+                    Navigator.pushNamed(context, '/estimulacion_motora');
+                  }),
+              Button(
+                  buttonName: "Estimulación Táctil",
+                  buttonColor: const Color(0xffF75B89),
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/estimulacion_tactil');
+                  }),
+              Button(
+                  buttonName: "Estimulación Visual",
+                  buttonColor: const Color(0xffF75B89),
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/estimulacion_visual');
                   }),
             ],
           ),

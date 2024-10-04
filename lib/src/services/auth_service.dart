@@ -36,7 +36,7 @@ class AuthService {
 
       return null;
     } catch (e) {
-      return 'Error al registrar usuario: Campos vacios';
+      return 'Error al registrar usuario: ' + e.toString();
     }
   }
 

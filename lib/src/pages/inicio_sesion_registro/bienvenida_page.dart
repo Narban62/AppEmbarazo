@@ -14,8 +14,8 @@ class WelcomePage extends StatefulWidget {
 class _WelcomePageState extends State<WelcomePage> {
   @override
   Widget build(BuildContext context) {
-    Color colorBackground = Color(0xffAEDAFE);
-    Color colorButton = Color(0xff226EAD);
+    Color colorBackground = Color.fromARGB(255, 241, 218, 180);
+    Color colorButton = Color.fromARGB(255, 223, 147, 24);
 
     return Scaffold(
       backgroundColor: colorBackground,
@@ -24,12 +24,12 @@ class _WelcomePageState extends State<WelcomePage> {
           children: [
             HeaderWidget(
               color: colorBackground,
-              text: 'Bienbenida a Wakuna',
+              text: 'Bienvenida a Wakuna',
               isSubtitle: false,
               showButton: false,
             ),
             ImagenWidget(
-                imagesrc: 'assets/images/proyecto_de_vida/calidadVida2.jpg',
+                imagesrc: 'assets/images/Test.jpeg',
                 isPrincipal: true),
             TextWidget(
               text:
@@ -39,7 +39,7 @@ class _WelcomePageState extends State<WelcomePage> {
                 buttonName: 'Continuar',
                 buttonColor: colorButton,
                 onPressed: () {
-                  Navigator.pushNamed(context, '/registro');
+                  Navigator.pushNamed(context, '/terminos');
                 })
           ],
         ),

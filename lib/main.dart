@@ -8,11 +8,13 @@ import 'package:app_embarazo/src/pages/proyecto_vida/proyecto_vida.dart';
 import 'package:app_embarazo/src/pages/dieta/dieta.dart';
 import 'package:app_embarazo/src/pages/home_page.dart';
 import 'package:app_embarazo/src/pages/modulos_page.dart';
+import 'package:app_embarazo/src/pages/psicoprofilaxis/estimulacion/estimulacion_auditiva_page.dart';
+import 'package:app_embarazo/src/pages/psicoprofilaxis/estimulacion/estimulacion_motora_page.dart';
 import 'package:app_embarazo/src/pages/psicoprofilaxis/estimulacion/estimulacion_tactil_page.dart';
+import 'package:app_embarazo/src/pages/psicoprofilaxis/estimulacion/estimulacion_visual_page.dart';
 import 'package:app_embarazo/src/pages/psicoprofilaxis/home_psico_page.dart';
 import 'package:app_embarazo/src/pages/psicoprofilaxis/estimulacion/estimulacion_oportuna_page.dart';
 import 'package:app_embarazo/src/pages/psicoprofilaxis/respiracion/respiracion_page.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -56,8 +58,11 @@ class MyApp extends StatelessWidget {
         '/estimulacion_tactil': (context) => const EstimulacionTactilPage(),
         '/estimulacion_oportuna': (context) => const EstimulacionOportunaPage(),
         '/actividad_fisica': (context) => const ActividadFisicaPage(),
+        '/estimulacion_auditiva': (context) => const EstimulacionAuditivaPage(),
+        '/estimulacion_motora': (context) => const EstimulacionMotoraPage(),
+        '/estimulacion_visual': (context) => const EstimulacionVisualPage(),
       },
-      initialRoute: '/home',  
+      initialRoute: '/',
     );
   }
 }

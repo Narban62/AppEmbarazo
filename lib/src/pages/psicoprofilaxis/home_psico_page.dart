@@ -30,20 +30,20 @@ class _HomePsicoPageState extends State<HomePsicoPage> {
                 showButton: false,
               ),
               const ImagenWidget(
-                  imagesrc: 'assets/images/test.jpg',
+                  imagesrc: 'assets/images/psicoprofilaxis/Psico 1.jpg',
                   borderRadius: 15.0,
                   isPrincipal: true),
               Button(
                   buttonName: "Estimulación Oportuna",
                   buttonColor: colorButton,
                   onPressed: () {
-                    test();
+                    Navigator.pushNamed(context, '/estimulacion_oportuna');
                   }),
               Button(
                   buttonName: "Mejorando tu Respiración",
                   buttonColor: colorButton,
                   onPressed: () {
-                    test();
+                    Navigator.pushNamed(context, '/respiracion');
                   }),
             ],
           ),
