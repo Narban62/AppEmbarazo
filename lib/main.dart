@@ -17,6 +17,7 @@ import 'package:app_embarazo/src/pages/psicoprofilaxis/estimulacion/estimulacion
 import 'package:app_embarazo/src/pages/psicoprofilaxis/respiracion/respiracion_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import 'firebase_options.dart';
 
@@ -41,10 +42,19 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         fontFamily: 'Calibri'
       ),
-      //home: //TerminosCondicionesPaget()
-      //WelcomePage(),
       routes: {
-        '/': (context) => const LoginPage(),  // Pantalla principal (Login)
+        '/': (context) => StreamBuilder<User?>(
+              stream: FirebaseAuth.instance.authStateChanges(),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return Center(child: CircularProgressIndicator());
+                } else if (snapshot.hasData) {
+                  return HomePage();
+                } else {
+                  return LoginPage();
+                }
+              },
+            ),  // Pantalla principal (Login)
         '/home': (context) => const HomePage(),
         '/registro': (context) => const RegistroPage(),
         '/terminos': (context) => const TerminosCondicionesPaget(),
@@ -65,4 +75,6 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
     );
   }
+
+
 }

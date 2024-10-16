@@ -60,4 +60,8 @@ class AuthService {
 
     return 'Error desconocido';
   }
+
+  Future<void> signOut() async {
+    await _auth.signOut();
+  }
 }
