@@ -3,6 +3,8 @@ import 'package:app_embarazo/src/widgets/header_widget.dart';
 import 'package:app_embarazo/src/widgets/image_widget.dart';
 import 'package:app_embarazo/src/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -12,16 +14,45 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+   String? firstName;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadUserData();
+  }
+
+  Future<void> _loadUserData() async {
+    try {
+      User? user = FirebaseAuth.instance.currentUser;
+
+      if (user != null) {
+        DocumentSnapshot userDoc = await FirebaseFirestore.instance
+            .collection('usuarios')
+            .doc(user.uid)
+            .get();
+
+        setState(() {
+          firstName = userDoc['nombres'].split(' ')[0]; 
+        });
+      }
+    } catch (e) {
+      print('Error al cargar el nombre del usuario: $e');
+    }
+  }
   @override
   Widget build(BuildContext context) {
+    const Color bgColor = const Color(0xffFCDEE7);
+    const Color buttonColor = const Color(0xffF75B89);
+
     return Scaffold(
-      backgroundColor: const Color(0xffFCDEE7),
+      backgroundColor: bgColor,
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const HeaderWidget(
-              color: Color(0xffF75B89),
-              text: 'Hola',
+            HeaderWidget(
+              color: buttonColor,
+              text: 'Hola ${firstName ?? ''}',
               isSubtitle: false,
               showButton: false,
             ),
@@ -36,7 +67,7 @@ class _HomePageState extends State<HomePage> {
                     "¡Bienvenida a la aplicación, mamita! Estamos aquí para acompañarte y brindarte todo el apoyo necesario durante esta etapa tan especial. ¡Comencemos!"),
             Button(
                 buttonName: "siguiente",
-                buttonColor: const Color(0xffF75B89),
+                buttonColor: buttonColor,
                 onPressed: () {
                   Navigator.pushNamed(context, '/modulos');
                 }),
