@@ -1,4 +1,3 @@
-import 'package:app_embarazo/src/pages/full_screen_page.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
@@ -7,17 +6,8 @@ import 'package:video_player/video_player.dart';
 class VideoWidget extends StatefulWidget {
   final String videoUrl;
   final String videoImage;
-  final double width;
-  final double height;
-  final Color bgColor;
 
-  VideoWidget(
-      {required this.videoUrl,
-      required this.videoImage,
-      required this.bgColor,
-      this.width = 1,
-      this.height = .8,
-      });
+  VideoWidget({required this.videoUrl, required this.videoImage});
 
   @override
   State<VideoWidget> createState() => _VideoWidgetState();
@@ -54,73 +44,53 @@ class _VideoWidgetState extends State<VideoWidget> {
     super.dispose();
   }
 
-  void _openFullscreenVideo(BuildContext context, String videoUrl) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => FullscreenVideoPage(videoUrl: videoUrl),
-      ),
-    );
+  void _togglePlayPause() {
+    if (_isPlaying) {
+      _controller.pause();
+    } else {
+      _controller.play();
+    }
+
+    setState(() {
+      _isPlaying = !_isPlaying;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-
-    final screenWidth = MediaQuery.of(context).size.width;
-    //final screenHeight = MediaQuery.of(context).size.height;
-    return Container(
-        width: widget.width*screenWidth,
-        height: widget.height*screenWidth,
-        color: widget.bgColor,
-        child: _isVideoReady
-            ? GestureDetector(
-                onTap: () async{
-                  final videoUrl = await FirebaseStorage.instance.ref(widget.videoUrl).getDownloadURL();
-                  _openFullscreenVideo(context, videoUrl);
-                },
-                child: Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    AspectRatio(
-                        aspectRatio: _controller.value.aspectRatio,
-                        child: VideoPlayer(_controller)),
-                    if (!_isPlaying)
-                      Icon(Icons.play_arrow, size: 100, color: Colors.white)
-                  ],
+    return _isVideoReady
+        ? GestureDetector(
+            onTap: _togglePlayPause,
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                AspectRatio(
+                    aspectRatio: _controller.value.aspectRatio,
+                    child: VideoPlayer(_controller)),
+                if (!_isPlaying)
+                  Icon(Icons.play_arrow, size: 100, color: Colors.white)
+              ],
+            ),
+          )
+        : GestureDetector(
+            onTap: _togglePlayPause,
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                // Mostrar la imagen del thumbnail mientras se carga el video
+                CachedNetworkImage(
+                  imageUrl: widget.videoImage,
+                  placeholder: (context, url) => CircularProgressIndicator(),
+                  errorWidget: (context, url, error) => Icon(Icons.error),
                 ),
-              )
-            : GestureDetector(
-                onTap: () async {
-                // Obtener la URL del video y abrir en pantalla completa
-                final videoUrl = await FirebaseStorage.instance
-                    .ref(widget.videoImage)
-                    .getDownloadURL();
-                _openFullscreenVideo(context, videoUrl);
-              },
-                child: Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    // Mostrar la imagen del thumbnail mientras se carga el video
-                    CachedNetworkImage(
-                      imageUrl: widget.videoImage,
-                      placeholder: (context, url) =>
-                          CircularProgressIndicator(),
-                      errorWidget: (context, url, error) => Icon(Icons.error),
-                    ),
-                    // Mostrar el botón de play sobre la imagen del thumbnail
-                    Icon(
-                      Icons.play_arrow,
-                      color: Colors.white,
-                      size: 64.0,
-                    ),
-                  ],
+                // Mostrar el botón de play sobre la imagen del thumbnail
+                Icon(
+                  Icons.play_arrow,
+                  color: Colors.white,
+                  size: 64.0,
                 ),
-              ),
-              padding: EdgeInsets.all(10.0),
-      
-  );
-
-
+              ],
+            ),
+          );
   }
-
 }
