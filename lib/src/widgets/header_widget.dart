@@ -50,7 +50,7 @@ class HeaderWidget extends StatelessWidget {
           if (showButton)
             IconButton(
                 onPressed: () {
-                  print("Home Button");
+                  Navigator.pushNamed(context, '/modulos');
                 },
                 style: ButtonStyle(
                   backgroundColor: WidgetStateProperty.all(color),
