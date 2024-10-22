@@ -12,7 +12,7 @@ class TextWidget extends StatelessWidget {
             widthFactor: 0.75,
             child: Text(
               text,
-              textAlign: TextAlign.justify,
+              textAlign: TextAlign.left,
               style: const TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.normal,

@@ -26,7 +26,7 @@ class _CalidadVidaPageState extends State<CalidadVidaPage> {
                 color: colorButton,
                 text: 'Actividad física:\nVamos a ejercitar',
                 isSubtitle: true,
-                showButton: false,
+                showButton: true,
               ),
               //ImagenWidget(imagesrc: imagesrc, isPrincipal: isPrincipal),
               HeaderWidget(
