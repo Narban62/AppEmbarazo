@@ -16,38 +16,39 @@ class _ProyectoVidaPageState extends State<ProyectoVidaPage> {
   Widget build(BuildContext context) {
     const Color color = Color(0xffB4FF9A);
     const Color colorButton = Color(0xff007900);
-    return const Scaffold(
+    return Scaffold(
         backgroundColor: color,
         body: SingleChildScrollView(
             child: Column(children: [
-          HeaderWidget(
+          const HeaderWidget(
             color: colorButton,
             text: 'Proyecto de vida:\nMi proyecto de vida',
             isSubtitle: true,
             showButton: true,
           ),
-          Padding(padding: EdgeInsets.only(bottom: 20.0)),
-          ImagenWidget(
+          const Padding(padding: EdgeInsets.only(bottom: 20.0)),
+          const ImagenWidget(
               imagesrc: 'assets/images/proyecto_de_vida/calidadVida2.jpg',
               isPrincipal: false),
-          Padding(padding: EdgeInsets.only(bottom: 20.0)),
-          TextWidget(
+          const Padding(padding: EdgeInsets.only(bottom: 20.0)),
+          const TextWidget(
               text:
                   'Es un ejercicio necesario para las adolescentes, ya que contribuye a su desarrollo integral y permite trazar las rutas para alcanzar las metas que se propongan.'),
-          Padding(padding: EdgeInsets.only(bottom: 20.0)),
-          ImagenWidget(
+          const Padding(padding: EdgeInsets.only(bottom: 20.0)),
+          const ImagenWidget(
               imagesrc: 'assets/images/proyecto_de_vida/Calidad de vida.jpg',
               isPrincipal: false),
-          Padding(padding: EdgeInsets.only(bottom: 20.0)),
-          TextWidget(
+          const Padding(padding: EdgeInsets.only(bottom: 20.0)),
+          const TextWidget(
               text:
                   'El proyecto de vida favorece el autoconocimiento y autocuidado a través de:'),
-          Padding(padding: EdgeInsets.only(bottom: 20.0)),
+          const Padding(padding: EdgeInsets.only(bottom: 20.0)),
           Button(
             buttonName: 'saltar',
             buttonColor: colorButton,
-            onPressed: test,
-          ),
+            onPressed: () {
+        Navigator.pushNamed(context, '/info_proyecto_vida');
+        }),
         ])));
   }
 }

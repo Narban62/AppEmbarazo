@@ -4,6 +4,8 @@ import 'package:app_embarazo/src/pages/inicio_sesion_registro/bienvenida_page.da
 import 'package:app_embarazo/src/pages/inicio_sesion_registro/inicio_sesion.dart';
 import 'package:app_embarazo/src/pages/inicio_sesion_registro/registro_page.dart';
 import 'package:app_embarazo/src/pages/inicio_sesion_registro/terminos_condiciones_page.dart';
+import 'package:app_embarazo/src/pages/proyecto_vida/guardar_proyecto_vida.dart';
+import 'package:app_embarazo/src/pages/proyecto_vida/informacion_proyecto_vida.dart';
 import 'package:app_embarazo/src/pages/proyecto_vida/proyecto_vida.dart';
 import 'package:app_embarazo/src/pages/dieta/dieta.dart';
 import 'package:app_embarazo/src/pages/home_page.dart';
@@ -62,6 +64,9 @@ class MyApp extends StatelessWidget {
         '/modulos': (context) => const ModulosPage(),
         '/calidad_vida': (context) => const CalidadVidaPage(),
         '/proyecto_vida': (context) => const ProyectoVidaPage(),
+        '/info_proyecto_vida': (context) => const InfoProyectoVidaPage(),
+        '/guardar_proyecto_vida': (context) => const GuardarProyectoVidaPage(),
+
         '/dieta': (context) => const DietaPage(),
         '/psicoprofilaxis': (context) => const HomePsicoPage(),
         '/respiracion': (context) => const RespiracionPage(),
