@@ -16,7 +16,11 @@ class _EstimulacionAuditivaPageState extends State<EstimulacionAuditivaPage> {
   Widget build(BuildContext context) {
     const bgColor = Color(0xffFCDEE7);
     const Color colorButton = Color(0xffF75B89);
+    const Color bgVideoColor = Color.fromARGB(255, 248, 140, 172);
     const String videoImage = '';
+    const String video1 = 'videos/psicoprofilaxis/estimulacion/Auditiva1.mp4';
+    const String video2 = 'videos/psicoprofilaxis/estimulacion/Auditiva2-Padre.mp4';
+    
     return Scaffold(
       backgroundColor: bgColor,
       
@@ -35,7 +39,8 @@ class _EstimulacionAuditivaPageState extends State<EstimulacionAuditivaPage> {
             const ImagenWidget(imagesrc: 'assets/images/psicoprofilaxis/Psico auditiva.jpg', isPrincipal: false),
             
             const HeaderWidget(text: 'Ejercicios:', color: Color(0xffFCDEE7), isSubtitle: true, showButton: false,),
-            VideoWidget(videoUrl: 'videos/psicoprofilaxis/estimulacion/Auditiva1.mp4',videoImage: videoImage,)
+            VideoWidget(videoUrl:video1 ,videoImage: videoImage,bgColor: bgVideoColor,),
+            VideoWidget(videoUrl:video2 ,videoImage: videoImage,bgColor: bgVideoColor,)
           ],
         ),
       ),
