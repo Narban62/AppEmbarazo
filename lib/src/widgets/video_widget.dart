@@ -9,13 +9,14 @@ class VideoWidget extends StatefulWidget {
   final String videoImage;
   final double width;
   final double height;
-  
+  final Color bgColor;
 
   VideoWidget(
       {required this.videoUrl,
       required this.videoImage,
-      this.width = 400.0,
-      this.height = 200.0,
+      required this.bgColor,
+      this.width = 1,
+      this.height = .8,
       });
 
   @override
@@ -64,11 +65,13 @@ class _VideoWidgetState extends State<VideoWidget> {
 
   @override
   Widget build(BuildContext context) {
-    Color bgColor= Color(0xffF75B89);
+
+    final screenWidth = MediaQuery.of(context).size.width;
+    //final screenHeight = MediaQuery.of(context).size.height;
     return Container(
-        width: widget.width,
-        height: widget.height,
-        color: bgColor,
+        width: widget.width*screenWidth,
+        height: widget.height*screenWidth,
+        color: widget.bgColor,
         child: _isVideoReady
             ? GestureDetector(
                 onTap: () async{

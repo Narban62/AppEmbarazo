@@ -31,7 +31,7 @@ class HeaderWidget extends StatelessWidget {
 
     return Padding(
       padding: const EdgeInsets.only(
-          top: 60.0, left: 25.0, right: 20.0, bottom: 10.0),
+          top: 40.0, left: 25.0, right: 20.0, bottom: 10.0),
       child: Row(
         mainAxisAlignment: showButton
             ? MainAxisAlignment.spaceBetween

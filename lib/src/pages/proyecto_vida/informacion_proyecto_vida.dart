@@ -12,7 +12,7 @@ class InfoProyectoVidaPage extends StatefulWidget {
 }
 
 class _InfoProyectoVidaPageState extends State<InfoProyectoVidaPage> {
-  String nombreUsuario = 'Usuario'; // Aquí se almacenará el nombre del usuario
+  String nombreUsuario = ''; // Aquí se almacenará el nombre del usuario
   final UserService _userService = UserService(); // Instancia de UserService
 
   @override

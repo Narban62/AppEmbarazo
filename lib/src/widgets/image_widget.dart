@@ -21,10 +21,10 @@ class ImagenWidget extends StatelessWidget {
 
     if (isPrincipal) {
       imageWidth = screenWidth * 0.8;
-      imageHeight = screenHeight * 0.4;
+      imageHeight = imageWidth * .8;
     } else {
       imageWidth = screenWidth * 0.6;
-      imageHeight = screenHeight * 0.3;
+      imageHeight = imageWidth * 0.8;
     }
 
     return ClipRRect(

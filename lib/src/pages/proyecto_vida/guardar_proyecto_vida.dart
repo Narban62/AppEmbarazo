@@ -19,7 +19,7 @@ class _GuardarProyectoVidaPageState extends State<GuardarProyectoVidaPage> {
   final TextEditingController autoconocimientoController = TextEditingController(); // Controlador para Autoconocimiento
   final TextEditingController visualizacionController = TextEditingController(); // Controlador para Visualización
   final TextEditingController metasController = TextEditingController(); // Controlador para Metas
-  String nombreUsuario = 'Usuario'; // Aquí se almacenará el nombre del usuario
+  String nombreUsuario = ''; // Aquí se almacenará el nombre del usuario
 
   @override
   void initState() {
