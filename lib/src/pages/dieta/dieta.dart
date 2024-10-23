@@ -26,7 +26,7 @@ class _DietaPageState extends State<DietaPage> {
                 color: colorButton,
                 text: 'Dieta:\nCada bocado cuenta',
                 isSubtitle: true,
-                showButton: false,
+                showButton: true,
               ),
               ImagenWidget(imagesrc: 'assets/images/dieta/dieta 1.jpg', isPrincipal: true),
               HeaderWidget(

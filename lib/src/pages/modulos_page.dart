@@ -25,6 +25,7 @@ class _ModulosPageState extends State<ModulosPage> {
             isSubtitle: false,
             showButton: false,
           ),
+          
           const TextWidget(text: "Juntas hacia tu autocuidado"),
           Button(
               buttonName: "calidad de vida",
