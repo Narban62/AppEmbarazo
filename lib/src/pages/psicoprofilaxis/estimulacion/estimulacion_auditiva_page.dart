@@ -16,7 +16,7 @@ class _EstimulacionAuditivaPageState extends State<EstimulacionAuditivaPage> {
   Widget build(BuildContext context) {
     const bgColor = Color(0xffFCDEE7);
     const Color colorButton = Color(0xffF75B89);
-    const String videoImage = 'https://th.bing.com/th/id/R.515457eda03d1d1bbd7785b96dd2c0a8?rik=br3BYl26aCOt7Q&riu=http%3a%2f%2fwww.textalibrarian.com%2fmobileref%2fwp-content%2fuploads%2f2013%2f08%2fVideo.jpg&ehk=SnSbNnhwqFuki7CL1b8aLQ8Jb%2fRk%2fn0W8hmANq95yas%3d&risl=&pid=ImgRaw&r=0';
+    const String videoImage = '';
     return Scaffold(
       backgroundColor: bgColor,
       
