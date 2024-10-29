@@ -39,7 +39,7 @@ class _EstimulacionOportunaPageState extends State<EstimulacionOportunaPage> {
               ),
               const TextWidget(
                   text:
-                      '• Desarrollo físico y mental  \n• Crear un vínculo afectivo\n• Desarrollar los sentidos\n• Desarrollo emocional y social del niño\n• Desarrollo del sistema nervioso del feto'),
+                      '• Desarrollo físico y mental  \n• Crear un vínculo afectivo\n• Desarrollar los sentidos\n• Desarrollo emocional y social de tu bebé\n• Desarrollo del sistema nervioso de tú bebé'),
               Button(
                   buttonName: "Estimulación Auditiva",
                   buttonColor: const Color(0xffF75B89),

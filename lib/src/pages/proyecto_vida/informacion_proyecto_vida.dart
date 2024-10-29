@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:app_embarazo/src/widgets/menu_widget.dart'; // Importamos MenuWidget
 import 'package:app_embarazo/src/widgets/button_widget.dart';
 import 'package:app_embarazo/src/widgets/header_widget.dart';
-import 'package:app_embarazo/src/services/user_service.dart'; // Importamos UserService
+import 'package:app_embarazo/src/services/user_service.dart';
+
+import '../../widgets/textfield_widget.dart'; // Importamos UserService
 
 class InfoProyectoVidaPage extends StatefulWidget {
   const InfoProyectoVidaPage({super.key});
@@ -14,6 +16,9 @@ class InfoProyectoVidaPage extends StatefulWidget {
 class _InfoProyectoVidaPageState extends State<InfoProyectoVidaPage> {
   String nombreUsuario = ''; // Aquí se almacenará el nombre del usuario
   final UserService _userService = UserService(); // Instancia de UserService
+  final TextEditingController autoconocimientoController = TextEditingController(); // Controlador para Autoconocimiento
+  final TextEditingController visualizacionController = TextEditingController(); // Controlador para Visualización
+  final TextEditingController metasController = TextEditingController(); // Controlador para Metas
 
   @override
   void initState() {
@@ -31,7 +36,7 @@ class _InfoProyectoVidaPageState extends State<InfoProyectoVidaPage> {
 
   @override
   Widget build(BuildContext context) {
-    const Color color = Color(0xffB4FF9A);
+    const Color color = Color(0xffd6f8ca);
     const Color colorButton = Color(0xff007900);
 
     return Scaffold(
@@ -51,26 +56,47 @@ class _InfoProyectoVidaPageState extends State<InfoProyectoVidaPage> {
             // Implementamos el widget de menú con la nueva funcionalidad
             MenuWidget(
               titulo: 'Autoconocimiento',
-              contenido: 'Identificar gustos, preferencias, recursos, habilidades y valores.',
-              informacionAdicional: 'Esta es una oportunidad para reflexionar sobre lo que quiere para su futuro y para conseguir las metas que se proponga.',
+              contenido: 'Identifica tus gustos, preferencias, recursos, habilidades y valores.',
+              informacionAdicional: 'Esta es una oportunidad para reflexionar sobre lo que quieres para tu futuro y para conseguir las metas que te propongas.',
+            ),
+            const Padding(padding: EdgeInsets.only(bottom: 20.0)),
+            CustomTextField(
+              labelText: 'Autoconocimiento',
+              controller: autoconocimientoController,
+              isPassword: false,
+              keyboardType: TextInputType.text,
             ),
             const Padding(padding: EdgeInsets.only(bottom: 20.0)),
             MenuWidget(
               titulo: 'Visualización',
-              contenido: 'Visualizar cómo se puede llegar a esa meta.',
-              informacionAdicional: 'Permite poder imaginar cómo lograr sus metas y ser personas positivas para alcanzarlas',
+              contenido: 'Visualiza cómo puedes llegar a tu meta.',
+              informacionAdicional: 'Puedes imaginar cómo lograr tus metas y ser una mujer positiva para alcanzarlas.',
+            ),
+            const Padding(padding: EdgeInsets.only(bottom: 20.0)),
+            CustomTextField(
+              labelText: 'Visualización',
+              controller: visualizacionController,
+              isPassword: false,
+              keyboardType: TextInputType.text,
             ),
             const Padding(padding: EdgeInsets.only(bottom: 20.0)),
             MenuWidget(
               titulo: 'Metas y Propósitos',
-              contenido: 'Realizar acciones para llegar a la meta.',
-              informacionAdicional: 'En el camino se pueden identificar barreras que retrasen el cumplimiento de los objetivos, se requiere tener tolerancia a la frustración, mantener una actitud positiva y tener autoconfianza en que las cosas se pueden lograr.',
+              contenido: 'Realiza acciones para llegar a tu meta.',
+              informacionAdicional: 'En tu camino se pueden identificar barreras que retrasen el cumplimiento de tus objetivos, mantenen una actitud positiva y ten autoconfianza en que las cosas se pueden lograr.',
+            ),
+            const Padding(padding: EdgeInsets.only(bottom: 20.0)),
+            CustomTextField(
+              labelText: 'Metas y Propósitos',
+              controller: metasController,
+              isPassword: false,
+              keyboardType: TextInputType.text,
             ),
             const Padding(padding: EdgeInsets.only(bottom: 80.0)),
 
             // Botón de saltar
             Button(
-              buttonName: 'Saltar',
+              buttonName: 'Guardar',
               buttonColor: colorButton,
               onPressed: () {
                 Navigator.pushNamed(context, '/guardar_proyecto_vida');

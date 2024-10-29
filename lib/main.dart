@@ -28,6 +28,7 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
   runApp(const MyApp());
 }
 
@@ -58,6 +59,7 @@ class MyApp extends StatelessWidget {
               },
             ),  // Pantalla principal (Login)
         '/home': (context) => const HomePage(),
+        '/inicio_sesion':(context)=>const LoginPage(),
         '/registro': (context) => const RegistroPage(),
         '/terminos': (context) => const TerminosCondicionesPaget(),
         '/welcome': (context) => const WelcomePage(),
@@ -77,9 +79,8 @@ class MyApp extends StatelessWidget {
         '/estimulacion_motora': (context) => const EstimulacionMotoraPage(),
         '/estimulacion_visual': (context) => const EstimulacionVisualPage(),
       },
-      initialRoute: '/',
+      initialRoute: '/inicio_sesion',
     );
   }
-
-
 }
+

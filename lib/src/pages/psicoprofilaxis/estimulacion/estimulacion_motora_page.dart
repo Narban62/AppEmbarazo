@@ -33,7 +33,7 @@ class _EstimulacionMotoraPageState extends State<EstimulacionMotoraPage> {
             ),
             const TextWidget(
                 text:
-                    'Técnicas y actividades desde las 20 semanas de gestación para promover el desarrollo neuromotor del feto. Estas incluyen paseos y ejercicios suaves que estimulan el sistema vestibular y el sentido del equilibrio del bebé.'),
+                    'Técnicas y actividades desde las 20 semanas de gestación para promover el desarrollo neuromotor de tu bebé. Estas incluyen paseos y ejercicios suaves que estimulan el sistema vestibular y el sentido del equilibrio de tú bebé.'),
             const ImagenWidget(
                 imagesrc: 'assets/images/psicoprofilaxis/Psico motora.jpg',
                 isPrincipal: false),
@@ -43,6 +43,7 @@ class _EstimulacionMotoraPageState extends State<EstimulacionMotoraPage> {
               isSubtitle: true,
               showButton: false,
             ),
+            //Aqui agregar nombfres de los videos en un nuevo textfield
             VideoWidget(
               videoUrl: video1,
               videoImage: '',

@@ -7,7 +7,10 @@ import 'package:app_embarazo/src/widgets/text_widget.dart';
 import 'package:app_embarazo/src/widgets/textfield_widget.dart';
 import 'package:app_embarazo/src/services/auth_service.dart'; // Servicio de autenticación
 import 'package:app_embarazo/src/services/validators_service.dart'; // Validadores
-import 'package:app_embarazo/src/services/snackbars_service.dart'; // Helper para snackbars
+import 'package:app_embarazo/src/services/snackbars_service.dart';
+
+import '../../widgets/background_widget.dart';
+import '../../widgets/bubble_widget.dart'; // Helper para snackbars
 
 class RegistroPage extends StatefulWidget {
   const RegistroPage({super.key});
@@ -42,6 +45,8 @@ class _RegistroPageState extends State<RegistroPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            const AnimatedBackground(color: color1), // Fondo animado
+            const AnimatedBubbles(), // Burbujas animadas
             const HeaderWidget(
               color: color2,
               text: 'Información:',

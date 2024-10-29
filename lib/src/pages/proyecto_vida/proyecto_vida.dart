@@ -14,7 +14,7 @@ class ProyectoVidaPage extends StatefulWidget {
 class _ProyectoVidaPageState extends State<ProyectoVidaPage> {
   @override
   Widget build(BuildContext context) {
-    const Color color = Color(0xffB4FF9A);
+    const Color color = Color(0xffd6f8ca);
     const Color colorButton = Color(0xff007900);
     return Scaffold(
         backgroundColor: color,
@@ -22,7 +22,7 @@ class _ProyectoVidaPageState extends State<ProyectoVidaPage> {
             child: Column(children: [
           const HeaderWidget(
             color: colorButton,
-            text: 'Proyecto de vida:\nMi proyecto de vida',
+            text: '\nMi proyecto de vida',
             isSubtitle: true,
             showButton: true,
           ),
@@ -33,7 +33,7 @@ class _ProyectoVidaPageState extends State<ProyectoVidaPage> {
           const Padding(padding: EdgeInsets.only(bottom: 20.0)),
           const TextWidget(
               text:
-                  'Es un ejercicio necesario para las adolescentes, ya que contribuye a su desarrollo integral y permite trazar las rutas para alcanzar las metas que se propongan.'),
+                  'Es un ejercicio necesario que debes realizar durante tu embarazo, ya que contribuirá a tu desarrollo integral y permitira trazar las rutas para alcanzar tus metas.'),
           const Padding(padding: EdgeInsets.only(bottom: 20.0)),
           const ImagenWidget(
               imagesrc: 'assets/images/proyecto_de_vida/Calidad de vida.jpg',
@@ -41,10 +41,10 @@ class _ProyectoVidaPageState extends State<ProyectoVidaPage> {
           const Padding(padding: EdgeInsets.only(bottom: 20.0)),
           const TextWidget(
               text:
-                  'El proyecto de vida favorece el autoconocimiento y autocuidado a través de:'),
+                  'Tu proyecto de vida favorece el autoconocimiento y autocuidado a través de:'),
           const Padding(padding: EdgeInsets.only(bottom: 20.0)),
           Button(
-            buttonName: 'saltar',
+            buttonName: 'Siguiente',
             buttonColor: colorButton,
             onPressed: () {
         Navigator.pushNamed(context, '/info_proyecto_vida');
