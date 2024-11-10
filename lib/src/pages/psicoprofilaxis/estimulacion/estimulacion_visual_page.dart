@@ -25,8 +25,9 @@ class _EstimulacionVisualPageState extends State<EstimulacionVisualPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const HeaderWidget(
+
               text: 'Estimulación Visual',
+
               color: colorButton,
               isSubtitle: true,
               showButton: true,

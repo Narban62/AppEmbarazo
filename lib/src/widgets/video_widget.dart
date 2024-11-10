@@ -1,5 +1,7 @@
+
 import 'dart:io';
 import 'package:path_provider/path_provider.dart';
+
 import 'package:app_embarazo/src/pages/full_screen_page.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -21,6 +23,7 @@ class VideoWidget extends StatefulWidget {
     this.height = .8,
   });
 
+
   @override
   State<VideoWidget> createState() => _VideoWidgetState();
 }
@@ -32,9 +35,12 @@ class _VideoWidgetState extends State<VideoWidget> {
 
   @override
   void initState() {
+
+
     super.initState();
     _loadVideo();
   }
+
 
   Future<void> _loadVideo() async {
     final videoUrl =
@@ -67,10 +73,12 @@ class _VideoWidgetState extends State<VideoWidget> {
           });
         });
     }
+
   }
 
   @override
   void dispose() {
+
     _controller.dispose();
     super.dispose();
   }
@@ -86,6 +94,7 @@ class _VideoWidgetState extends State<VideoWidget> {
 
   @override
   Widget build(BuildContext context) {
+
     final screenWidth = MediaQuery.of(context).size.width;
 
     return Container(
@@ -137,4 +146,5 @@ class _VideoWidgetState extends State<VideoWidget> {
       padding: EdgeInsets.all(10.0),
     );
   }
+
 }
