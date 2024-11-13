@@ -96,7 +96,7 @@ class MyApp extends StatelessWidget {
         '/estimulacion_motora': (context) => const EstimulacionMotoraPage(),
         '/estimulacion_visual': (context) => const EstimulacionVisualPage(),
       },
-      initialRoute: '/mente_guia',
+      initialRoute: '/',
     );
   }
 }
