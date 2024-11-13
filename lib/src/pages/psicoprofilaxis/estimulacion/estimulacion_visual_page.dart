@@ -25,15 +25,14 @@ class _EstimulacionVisualPageState extends State<EstimulacionVisualPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const HeaderWidget(
-              text: 'Estimulación Táctil',
+              const HeaderWidget(
+              text: 'Estimulación Visual',
               color: colorButton,
               isSubtitle: true,
               showButton: true,
             ),
-            const TextWidget(
-                text:
-                    'Técnica que implica el uso de toques y masajes suaves sobre el vientre de una mujer embarazada con el objetivo de estimular al feto y promover su desarrollo sensorial y emocional. \nSe puede iniciar en el segundo trimestre del embarazo.'),
+            const TextWidget(text:
+                    'Practica que ayuda al desarrollo visual de tu bebé, a tráves de luces y colores durante tu embarazo'),
             //ImagenWidget(imagesrc: 'imagesrc', isPrincipal: false),
 
             const HeaderWidget(
