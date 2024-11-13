@@ -25,15 +25,13 @@ class _EstimulacionVisualPageState extends State<EstimulacionVisualPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-
+              const HeaderWidget(
               text: 'Estimulación Visual',
-
               color: colorButton,
               isSubtitle: true,
               showButton: true,
             ),
-            const TextWidget(
-                text:
+            const TextWidget(text:
                     'Practica que ayuda al desarrollo visual de tu bebé, a tráves de luces y colores durante tu embarazo'),
             //ImagenWidget(imagesrc: 'imagesrc', isPrincipal: false),
 
