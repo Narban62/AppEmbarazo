@@ -1,5 +1,12 @@
 import 'package:app_embarazo/src/pages/actividad_fisica/actividad_fisica_page.dart';
-import 'package:app_embarazo/src/pages/calidad_vida/calidad_vida.dart';
+import 'package:app_embarazo/src/pages/calidad_vida/actividad_dario_emocional_page.dart';
+import 'package:app_embarazo/src/pages/calidad_vida/calidad_vida_page.dart';
+import 'package:app_embarazo/src/pages/calidad_vida/consejeria_page.dart';
+import 'package:app_embarazo/src/pages/calidad_vida/controles_prenatales_page.dart';
+import 'package:app_embarazo/src/pages/calidad_vida/cuerpo_motor_page.dart';
+import 'package:app_embarazo/src/pages/calidad_vida/etapas_embarazo_page.dart';
+import 'package:app_embarazo/src/pages/calidad_vida/habitos_page.dart';
+import 'package:app_embarazo/src/pages/calidad_vida/mente_guia_page.dart';
 import 'package:app_embarazo/src/pages/inicio_sesion_registro/bienvenida_page.dart';
 import 'package:app_embarazo/src/pages/inicio_sesion_registro/inicio_sesion.dart';
 import 'package:app_embarazo/src/pages/inicio_sesion_registro/registro_page.dart';
@@ -58,13 +65,23 @@ class MyApp extends StatelessWidget {
                 }
               },
             ),  // Pantalla principal (Login)
+
         '/home': (context) => const HomePage(),
         '/inicio_sesion':(context)=>const LoginPage(),
         '/registro': (context) => const RegistroPage(),
         '/terminos': (context) => const TerminosCondicionesPaget(),
         '/welcome': (context) => const WelcomePage(),
         '/modulos': (context) => const ModulosPage(),
-        '/calidad_vida': (context) => const CalidadVidaPage(),
+
+        '/calidad_vida': (context) => const CalidadVidaNPage(),
+        '/cuerpo_motor': (context) => const CuepoMotorPage(),
+        '/mente_guia': (context) => const MenteGuiaPage(),
+        '/controles_prenatales': (context) => const ControlesPrenatalesPage(),
+        '/etapas_embarazo': (context) => const EtapasEmbarazoPage(),
+        '/diario': (context) => const DiarioPage(),
+        '/habitos': (context) => const HabitosPage(),
+        '/consejeria': (context) => const ConsejeriaPage(),
+
         '/proyecto_vida': (context) => const ProyectoVidaPage(),
         '/info_proyecto_vida': (context) => const InfoProyectoVidaPage(),
         '/guardar_proyecto_vida': (context) => const GuardarProyectoVidaPage(),
@@ -79,7 +96,7 @@ class MyApp extends StatelessWidget {
         '/estimulacion_motora': (context) => const EstimulacionMotoraPage(),
         '/estimulacion_visual': (context) => const EstimulacionVisualPage(),
       },
-      initialRoute: '/inicio_sesion',
+      initialRoute: '/mente_guia',
     );
   }
 }
