@@ -7,6 +7,18 @@ import 'package:app_embarazo/src/pages/calidad_vida/cuerpo_motor_page.dart';
 import 'package:app_embarazo/src/pages/calidad_vida/etapas_embarazo_page.dart';
 import 'package:app_embarazo/src/pages/calidad_vida/habitos_page.dart';
 import 'package:app_embarazo/src/pages/calidad_vida/mente_guia_page.dart';
+import 'package:app_embarazo/src/pages/dieta/dieta_agregar_receta.dart';
+import 'package:app_embarazo/src/pages/dieta/dieta_carne_cruda.dart';
+import 'package:app_embarazo/src/pages/dieta/dieta_embutidos.dart';
+import 'package:app_embarazo/src/pages/dieta/dieta_evitar.dart';
+import 'package:app_embarazo/src/pages/dieta/dieta_marisco.dart';
+import 'package:app_embarazo/src/pages/dieta/dieta_navegacion.dart';
+import 'package:app_embarazo/src/pages/dieta/dieta_nutricional.dart';
+import 'package:app_embarazo/src/pages/dieta/dieta_pescado.dart';
+import 'package:app_embarazo/src/pages/dieta/dieta_receta_1.dart';
+import 'package:app_embarazo/src/pages/dieta/dieta_receta_2.dart';
+import 'package:app_embarazo/src/pages/dieta/dieta_recetas.dart';
+import 'package:app_embarazo/src/pages/dieta/dieta_seleccion_trimestre.dart';
 import 'package:app_embarazo/src/pages/inicio_sesion_registro/bienvenida_page.dart';
 import 'package:app_embarazo/src/pages/inicio_sesion_registro/inicio_sesion.dart';
 import 'package:app_embarazo/src/pages/inicio_sesion_registro/registro_page.dart';
@@ -87,6 +99,22 @@ class MyApp extends StatelessWidget {
         '/guardar_proyecto_vida': (context) => const GuardarProyectoVidaPage(),
 
         '/dieta': (context) => const DietaPage(),
+        '/dieta_seleccion_trimestre': (context) => const DietaPageTrimestre(),
+        '/dieta_nutricional': (context) => const DietaNutricional(),
+        '/dieta_evitar': (context) => const DietaEvitar(),
+        '/dieta_embutidos': (context) => const DietaEmbutidos(),
+        '/dieta_pescado': (context) => const DietaPescado(),
+        '/dieta_marisco': (context) => const DietaMarisco(),
+        '/dieta_carne_cruda': (context) => const DietaCarneCruda(),
+        '/dieta_navegacion': (context) => const DietaNavegacion(),
+        '/dieta_recetas': (context) => const DietaRecetas(),
+        '/dieta_agregar_receta': (context) => const DietaAgregarReceta(),
+        '/dieta_receta_1': (context) => const DietaReceta1(),
+        '/dieta_receta_2': (context) => const DietaReceta2(),
+
+
+
+
         '/psicoprofilaxis': (context) => const HomePsicoPage(),
         '/respiracion': (context) => const RespiracionPage(),
         '/estimulacion_tactil': (context) => const EstimulacionTactilPage(),

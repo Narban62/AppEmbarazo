@@ -40,6 +40,8 @@ dependencies:
   firebase_storage: ^12.3.2
   video_player: ^2.5.1
   cached_network_image: ^3.2.3
+  path_provider: ^2.1.4
+
 
 dev_dependencies:
   flutter_test:
@@ -72,6 +74,8 @@ flutter:
     - assets/images/dieta/
     - assets/images/psicoprofilaxis/
     - assets/images/splash/
+    - assets/images/inicio/
+    - assets/images/dieta/
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
