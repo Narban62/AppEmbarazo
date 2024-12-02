@@ -36,7 +36,7 @@ class _EstimulacionAuditivaPageState extends State<EstimulacionAuditivaPage> {
             const TextWidget(
                 text:
 
-                    'Exponer a tu bebé a estímulos auditivos, como música y la voz materna, a partir del quinto o sexto mes de embarazo, estimula su cerebro y favorece el desarrollo del lenguaje y la creatividad.'),
+                    'Exponer al feto a estímulos auditivos, como música y la voz materna, a partir del quinto o sexto mes de embarazo, estimula su cerebro y favorece el desarrollo del lenguaje y la creatividad.'),
 
             const ImagenWidget(imagesrc: 'assets/images/psicoprofilaxis/Psico auditiva.jpg', isPrincipal: false),
             

@@ -34,7 +34,8 @@ class _LoginPageState extends State<LoginPage> {
         children: [
           const AnimatedBackground(color: color), // Fondo animado
           const AnimatedBubbles(), // Burbujas animadas
-          Column(
+          SingleChildScrollView(
+          child:Column(
             children: [
               const HeaderWidget(
                 color: color2,
@@ -108,6 +109,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ],
+          ),
           ),
         ],
       ),

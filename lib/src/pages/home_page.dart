@@ -54,31 +54,35 @@ class _HomePageState extends State<HomePage> {
         children: [
           const AnimatedBackground(color: bgColor), // Fondo animado
           const AnimatedBubbles(), // Burbujas animadas
-          Column(
-            children: [
-              HeaderWidget(
-                color: buttonColor,
-                text: 'Hola ${firstName ?? ''}',
-                isSubtitle: false,
-                showButton: false,
-              ),
-              const ImagenWidget(
-                imagesrc:
-                'https://firebasestorage.googleapis.com/v0/b/test-drive-fc508.appspot.com/o/Prueba%20de%20logo.webp?alt=media&token=eabe6e2e-d892-474a-8b33-2df84b9a30a4',
-                borderRadius: 15.0,
-                isPrincipal: true,
-              ),
-              const TextWidget(
+          SingleChildScrollView(
+            child: Column(
+              children: [
+                HeaderWidget(
+                  color: buttonColor,
+                  text: 'Hola ${firstName ?? ''}',
+                  isSubtitle: false,
+                  showButton: false,
+                ),
+                const ImagenWidget(
+                  imagesrc:
+                  'https://firebasestorage.googleapis.com/v0/b/test-drive-fc508.appspot.com/o/Prueba%20de%20logo.webp?alt=media&token=eabe6e2e-d892-474a-8b33-2df84b9a30a4',
+                  borderRadius: 15.0,
+                  isPrincipal: true,
+                ),
+                const TextWidget(
                   text:
-                  "¡Bienvenida a la aplicación! Estamos aquí para acompañarte y brindarte todo el apoyo necesario durante esta etapa tan especial. ¡Comencemos!"),
-              Button(
-                buttonName: "siguiente",
-                buttonColor: buttonColor,
-                onPressed: () {
-                  Navigator.pushNamed(context, '/modulos');
-                },
-              ),
-            ],
+                  "¡Bienvenida a la aplicación! Estamos aquí para acompañarte y brindarte todo el apoyo necesario durante esta etapa tan especial. ¡Comencemos!",
+                ),
+
+                Button(
+                  buttonName: "siguiente",
+                  buttonColor: buttonColor,
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/modulos');
+                  },
+                ),
+              ],
+            ),
           ),
         ],
       ),
