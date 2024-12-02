@@ -25,6 +25,7 @@ class _ModulosPageState extends State<ModulosPage> {
             isSubtitle: false,
             showButton: false,
           ),
+
           
           const TextWidget(text: "Juntas hacia tu autocuidado"),
           Button(
@@ -57,6 +58,7 @@ class _ModulosPageState extends State<ModulosPage> {
               onPressed: () {
                 Navigator.pushNamed(context, '/psicoprofilaxis');
               }),
+
         ],
       ),
     );

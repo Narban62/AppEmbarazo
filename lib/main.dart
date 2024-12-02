@@ -7,6 +7,7 @@ import 'package:app_embarazo/src/pages/calidad_vida/cuerpo_motor_page.dart';
 import 'package:app_embarazo/src/pages/calidad_vida/etapas_embarazo_page.dart';
 import 'package:app_embarazo/src/pages/calidad_vida/habitos_page.dart';
 import 'package:app_embarazo/src/pages/calidad_vida/mente_guia_page.dart';
+
 import 'package:app_embarazo/src/pages/dieta/dieta_agregar_receta.dart';
 import 'package:app_embarazo/src/pages/dieta/dieta_carne_cruda.dart';
 import 'package:app_embarazo/src/pages/dieta/dieta_embutidos.dart';
@@ -19,6 +20,7 @@ import 'package:app_embarazo/src/pages/dieta/dieta_receta_1.dart';
 import 'package:app_embarazo/src/pages/dieta/dieta_receta_2.dart';
 import 'package:app_embarazo/src/pages/dieta/dieta_recetas.dart';
 import 'package:app_embarazo/src/pages/dieta/dieta_seleccion_trimestre.dart';
+
 import 'package:app_embarazo/src/pages/inicio_sesion_registro/bienvenida_page.dart';
 import 'package:app_embarazo/src/pages/inicio_sesion_registro/inicio_sesion.dart';
 import 'package:app_embarazo/src/pages/inicio_sesion_registro/registro_page.dart';

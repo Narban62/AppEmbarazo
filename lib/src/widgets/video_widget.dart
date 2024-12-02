@@ -1,3 +1,4 @@
+
 import 'package:app_embarazo/src/pages/full_screen_page.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -19,6 +20,7 @@ class VideoWidget extends StatefulWidget {
       this.height = .8,
       });
 
+
   @override
   State<VideoWidget> createState() => _VideoWidgetState();
 }
@@ -30,12 +32,14 @@ class _VideoWidgetState extends State<VideoWidget> {
 
   @override
   void initState() {
-    // TODO: implement initState
+
     super.initState();
     _loadVideo();
   }
 
+
   Future _loadVideo() async {
+
     final videoUrl =
         await FirebaseStorage.instance.ref(widget.videoUrl).getDownloadURL();
 
@@ -44,12 +48,14 @@ class _VideoWidgetState extends State<VideoWidget> {
         setState(() {
           _isVideoReady = true;
         });
+
       });
+
   }
 
   @override
   void dispose() {
-    // TODO: implement dispose
+
     _controller.dispose();
     super.dispose();
   }
