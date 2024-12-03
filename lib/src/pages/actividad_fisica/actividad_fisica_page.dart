@@ -64,10 +64,10 @@ class _ActividadFisicaPageState extends State<ActividadFisicaPage> {
                   text:
                       'Realizaremos una serie de preguntas para asegurarnos de que puedes iniciar la actividad física sin problema.'),
 
-              const Button(
+              Button(
                 buttonName: 'siguiente',
                 buttonColor: colorButton,
-                onPressed: test,
+                onPressed: () => Navigator.pushNamed(context, '/advertencias'),
               ),
               BottomNavWidget(
                 currentIndex: _currentIndex,
