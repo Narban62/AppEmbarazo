@@ -1,4 +1,9 @@
 import 'package:app_embarazo/src/pages/actividad_fisica/actividad_fisica_page.dart';
+import 'package:app_embarazo/src/pages/actividad_fisica/advertencias_page.dart';
+import 'package:app_embarazo/src/pages/actividad_fisica/calendario_page.dart';
+import 'package:app_embarazo/src/pages/actividad_fisica/calentamiento_page.dart';
+import 'package:app_embarazo/src/pages/actividad_fisica/estiramiento_page.dart';
+import 'package:app_embarazo/src/pages/actividad_fisica/opciones_page.dart';
 import 'package:app_embarazo/src/pages/calidad_vida/actividad_dario_emocional_page.dart';
 import 'package:app_embarazo/src/pages/calidad_vida/calidad_vida_page.dart';
 import 'package:app_embarazo/src/pages/calidad_vida/consejeria_page.dart';
@@ -38,6 +43,8 @@ import 'package:app_embarazo/src/pages/psicoprofilaxis/estimulacion/estimulacion
 import 'package:app_embarazo/src/pages/psicoprofilaxis/home_psico_page.dart';
 import 'package:app_embarazo/src/pages/psicoprofilaxis/estimulacion/estimulacion_oportuna_page.dart';
 import 'package:app_embarazo/src/pages/psicoprofilaxis/respiracion/respiracion_page.dart';
+import 'package:app_embarazo/src/pages/summary_page.dart';
+import 'package:app_embarazo/src/widgets/nav_bar_widget.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -58,14 +65,26 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Wakakuna',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        fontFamily: 'Calibri'
-      ),
+      theme: ThemeData(primarySwatch: Colors.blue, fontFamily: 'Calibri'),
+      /*home: FixedBottomNavigationBar(
+        pages: [
+          const UserSummaryView(), // Tu vista existente
+          const ModulosPage(), // Página adicional
+        ],
+        navigationItems: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Usuario',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Configuración',
+          ),
+        ],
+      ),*/
       routes: {
         '/': (context) => StreamBuilder<User?>(
               stream: FirebaseAuth.instance.authStateChanges(),
@@ -74,14 +93,15 @@ class MyApp extends StatelessWidget {
                   return Center(child: CircularProgressIndicator());
                 } else if (snapshot.hasData) {
                   return HomePage();
+                  
                 } else {
                   return LoginPage();
                 }
               },
-            ),  // Pantalla principal (Login)
+            ), // Pantalla principal (Login)
 
         '/home': (context) => const HomePage(),
-        '/inicio_sesion':(context)=>const LoginPage(),
+        '/inicio_sesion': (context) => const LoginPage(),
         '/registro': (context) => const RegistroPage(),
         '/terminos': (context) => const TerminosCondicionesPaget(),
         '/welcome': (context) => const WelcomePage(),
@@ -114,20 +134,24 @@ class MyApp extends StatelessWidget {
         '/dieta_receta_1': (context) => const DietaReceta1(),
         '/dieta_receta_2': (context) => const DietaReceta2(),
 
-
-
-
         '/psicoprofilaxis': (context) => const HomePsicoPage(),
         '/respiracion': (context) => const RespiracionPage(),
         '/estimulacion_tactil': (context) => const EstimulacionTactilPage(),
         '/estimulacion_oportuna': (context) => const EstimulacionOportunaPage(),
-        '/actividad_fisica': (context) => const ActividadFisicaPage(),
         '/estimulacion_auditiva': (context) => const EstimulacionAuditivaPage(),
         '/estimulacion_motora': (context) => const EstimulacionMotoraPage(),
         '/estimulacion_visual': (context) => const EstimulacionVisualPage(),
+
+        '/actividad_fisica': (context) => const ActividadFisicaPage(),
+        '/advertencias': (context) => const ContraindicacionesPage1(),
+        '/calendario': (context) => const CalendarioPage(),
+        '/opciones': (context) => const OpcionesPage(),
+        '/calentamiento': (context) => const CalentamientoPage(),
+        '/estiramiento': (context) => const EstiramientoPage(),
+
+        '/summary': (context) => const UserSummaryView(),
       },
-      initialRoute: '/',
+      initialRoute: '/opciones',
     );
   }
 }
-
