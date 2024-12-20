@@ -1,5 +1,6 @@
 import 'package:app_embarazo/src/widgets/header_widget.dart';
 import 'package:flutter/material.dart';
+import '../../widgets/button_back.dart';
 import '../../widgets/square_button.dart';
 
 class DietaEvitar extends StatefulWidget {
@@ -92,21 +93,12 @@ class _DietaEvitarState extends State<DietaEvitar> {
             ),
 
             // Botón de volver
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: colorButton,
-                  padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
-                ),
-                onPressed: () {
-                  Navigator.pushNamed(context, '/dieta_navegacion');
-                },
-                child: const Text(
-                  'Volver',
-                  style: TextStyle(fontSize: 16, color: Colors.white),
-                ),
-              ),
+            ButtonBack(
+              text: 'Volver',
+              backgroundColor: colorButton, // Cambia el color según sea necesario
+              onPressed: () {
+                Navigator.pushNamed(context, '/dieta_navegacion');
+              },
             ),
           ],
         ),

@@ -14,7 +14,7 @@ class TextWidget extends StatelessWidget {
               text,
               textAlign: TextAlign.left,
               style: const TextStyle(
-                  fontSize: 22,
+                  fontSize: 15,
                   fontWeight: FontWeight.normal,
                   height: 1.2,
                   color: Colors.black),
