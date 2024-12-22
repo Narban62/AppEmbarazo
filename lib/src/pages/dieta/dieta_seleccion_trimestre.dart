@@ -15,12 +15,6 @@ class DietaPageTrimestre extends StatefulWidget {
 
 class _DietaPageState extends State<DietaPageTrimestre> {
   final TextEditingController intoleranciaController = TextEditingController(); // Controlador para Autoconocimiento
-  String selectedTrimester = 'Primer trimestre';
-  final List<String> trimesters = [
-    'Primer trimestre',
-    'Segundo trimestre',
-    'Tercer trimestre',
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -41,20 +35,6 @@ class _DietaPageState extends State<DietaPageTrimestre> {
             const ImagenWidget(
               imagesrc: 'assets/images/dieta/dieta 1.jpg',
               isPrincipal: true,
-            ),
-            const HeaderWidget(
-              text: '¿En qué trimestre te encuentras?',
-              color: color,
-              isSubtitle: true,
-            ),
-            DropdownMenuWidget(
-              options: trimesters,
-              selectedValue: selectedTrimester,
-              onChanged: (newValue) {
-                setState(() {
-                  selectedTrimester = newValue!;
-                });
-              },
             ),
             const HeaderWidget(
               text: '¿Tienes intolerancia a algún alimento?',

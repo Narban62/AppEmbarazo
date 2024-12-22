@@ -17,13 +17,13 @@ class HeaderWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     //Titulo
     const TextStyle titleStyle = TextStyle(
-      fontSize: 50.0,
+      fontSize: 30.0,
       fontWeight: FontWeight.bold,
       color: Colors.black,
     );
     //Subtitulo
     const TextStyle subtitleStyle = TextStyle(
-      fontSize: 28.0,
+      fontSize: 15.0,
       fontWeight: FontWeight.bold,
       color: Colors.black,
       height: 1.2,

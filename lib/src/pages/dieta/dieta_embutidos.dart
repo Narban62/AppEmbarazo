@@ -4,6 +4,8 @@ import 'package:app_embarazo/src/widgets/image_widget.dart';
 import 'package:app_embarazo/src/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 
+import '../../widgets/button_back.dart';
+
 class DietaEmbutidos extends StatefulWidget {
   const DietaEmbutidos({super.key});
 
@@ -37,24 +39,13 @@ class _DietaPageState extends State<DietaEmbutidos> {
               const TextWidget(
                   text:
                   'Esta es toda la informacion acerca de los embutidos'),
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const SizedBox(width: 10), // Espacio entre los botones
-                    Expanded(
-                      child: Button(
-                        buttonName: 'Volver',
-                        buttonColor: colorButton,
-                        onPressed: () {
-                          Navigator.pushNamed(context, '/dieta_evitar');
-                        },
-                      ),
-                    ),
-                  ],
-                ),
-              )
+              ButtonBack(
+                text: 'Volver',
+                backgroundColor: colorButton, // Cambia el color según sea necesario
+                onPressed: () {
+                  Navigator.pushNamed(context, '/dieta_navegacion');
+                },
+              ),
             ],
           ),
         ));
