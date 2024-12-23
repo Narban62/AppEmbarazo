@@ -135,6 +135,7 @@ class _VideoWidgetState extends State<VideoWidget> {
               ),
             ),
           ),
+          
           // Video o imagen
           Container(
             width: 120,

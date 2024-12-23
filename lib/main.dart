@@ -56,7 +56,6 @@ import 'package:app_embarazo/src/pages/psicoprofilaxis/home_psico_page.dart';
 import 'package:app_embarazo/src/pages/psicoprofilaxis/estimulacion/estimulacion_oportuna_page.dart';
 import 'package:app_embarazo/src/pages/psicoprofilaxis/respiracion/respiracion_page.dart';
 import 'package:app_embarazo/src/pages/summary_page.dart';
-import 'package:app_embarazo/src/widgets/nav_bar_widget.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
