@@ -1,3 +1,4 @@
+import 'package:app_embarazo/src/widgets/button_widget.dart';
 import 'package:app_embarazo/src/widgets/image_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -69,6 +70,7 @@ class ContraindicacionesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const String imagesrc = 'assets/images/inicio/inicio_sesion.jpg';
+    const Color colorButton = Colors.orange;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Contraindicaciones'),
@@ -85,9 +87,7 @@ class ContraindicacionesWidget extends StatelessWidget {
                 fontSize: 18,
               ),
               textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 20),
-            ImagenWidget(imagesrc: imagesrc, isPrincipal: false), // Cambia la ruta si es necesario
+            ),// Cambia la ruta si es necesario
             const SizedBox(height: 20),
             Expanded(
               child: ListView.builder(
@@ -100,27 +100,35 @@ class ContraindicacionesWidget extends StatelessWidget {
                 },
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ElevatedButton(
-                  onPressed: onSiPressed,
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.orange,
+            const SizedBox(height: 20),
+            Text('¿Presentas alguna de estas condiciones?',
+                style: const TextStyle(fontSize: 16)),
+
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: Button(
+                      buttonName: 'Si',
+                      buttonColor: colorButton,
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                    ),
                   ),
-                  child: const Text('SÍ'),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.orange,
+                  const SizedBox(width: 10), // Espacio entre los botones
+                  Expanded(
+                    child: Button(
+                      buttonName: 'NO',
+                      buttonColor: colorButton,
+                      onPressed: onSiPressed,
+                    ),
                   ),
-                  child: const Text('NO'),
-                ),
-              ],
-            ),
+                ],
+              ),
+            )
           ],
         ),
       ),

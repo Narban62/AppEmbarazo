@@ -1,0 +1,68 @@
+import 'package:app_embarazo/src/widgets/button_widget.dart';
+import 'package:app_embarazo/src/widgets/header_widget.dart';
+import 'package:app_embarazo/src/widgets/image_widget.dart';
+import 'package:app_embarazo/src/widgets/text_widget.dart';
+import 'package:app_embarazo/src/widgets/video_widget.dart';
+import 'package:flutter/material.dart';
+
+class PrimerHomePage extends StatefulWidget {
+  const PrimerHomePage({super.key});
+
+  @override
+  State<PrimerHomePage> createState() => _PrimerHomePageState();
+}
+
+class _PrimerHomePageState extends State<PrimerHomePage> {
+  @override
+  Widget build(BuildContext context) {
+    const bgColor = Color(0xffFFC5AA);
+    const Color colorButton = Color(0xffFF8243);
+    const Color bgVideoColor = Color.fromARGB(255, 248, 140, 172);
+    
+    return Scaffold(
+      backgroundColor: bgColor,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const HeaderWidget(
+              text: 'Rutina primer trimestre',
+              color: colorButton,
+              isSubtitle: true,
+              showButton: true,
+            ),
+            const ImagenWidget(
+                imagesrc: 'assets/images/psicoprofilaxis/Psico auditiva.jpg',
+                isPrincipal: false),
+            Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: Button(
+                        buttonName: 'Instrucciones',
+                        buttonColor: colorButton,
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/primer_instrucciones');
+                        },
+                      ),
+                    ),
+                    const SizedBox(width: 10), // Espacio entre los botones
+                    Expanded(
+                      child: Button(
+                        buttonName: 'Inicio',
+                        buttonColor: colorButton,
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/calentamiento_instrucciones');
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              )
+          ],
+        ),
+      ),
+    );
+  }
+}

@@ -33,7 +33,7 @@ class _OpcionesPageState extends State<OpcionesPage> {
               buttonName: "Entrenamiento",
               buttonColor: buttonColor,
               onPressed: () {
-                Navigator.pushNamed(context, '/calidad_vida');
+                Navigator.pushNamed(context, '/trimestre');
               }),
           Button(
               buttonName: "Calendario",
@@ -51,7 +51,7 @@ class _OpcionesPageState extends State<OpcionesPage> {
               buttonName: "Estiramiento",
               buttonColor:buttonColor,
               onPressed: () {
-                Navigator.pushNamed(context, '/estiramiento');
+                Navigator.pushNamed(context, '/estiramiento_home');
               }),
           
         ],
