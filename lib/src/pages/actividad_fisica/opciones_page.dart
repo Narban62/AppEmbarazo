@@ -1,6 +1,5 @@
 import 'package:app_embarazo/src/widgets/button_widget.dart';
 import 'package:app_embarazo/src/widgets/header_widget.dart';
-import 'package:app_embarazo/src/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 
 class OpcionesPage extends StatefulWidget {
@@ -33,7 +32,7 @@ class _OpcionesPageState extends State<OpcionesPage> {
               buttonName: "Entrenamiento",
               buttonColor: buttonColor,
               onPressed: () {
-                Navigator.pushNamed(context, '/calidad_vida');
+                Navigator.pushNamed(context, '/trimestre');
               }),
           Button(
               buttonName: "Calendario",
@@ -51,7 +50,7 @@ class _OpcionesPageState extends State<OpcionesPage> {
               buttonName: "Estiramiento",
               buttonColor:buttonColor,
               onPressed: () {
-                Navigator.pushNamed(context, '/estiramiento');
+                Navigator.pushNamed(context, '/estiramiento_home');
               }),
           
         ],

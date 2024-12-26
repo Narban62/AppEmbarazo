@@ -1,5 +1,4 @@
 import 'package:app_embarazo/src/widgets/header_widget.dart';
-import 'package:app_embarazo/src/widgets/image_widget.dart';
 import 'package:app_embarazo/src/widgets/text_widget.dart';
 import 'package:app_embarazo/src/widgets/video_widget.dart';
 import 'package:flutter/material.dart';

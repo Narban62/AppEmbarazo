@@ -1,7 +1,5 @@
-import 'package:app_embarazo/src/pages/home_page.dart';
 import 'package:app_embarazo/src/widgets/button_widget.dart';
 import 'package:app_embarazo/src/widgets/header_widget.dart';
-import 'package:app_embarazo/src/widgets/image_widget.dart';
 import 'package:app_embarazo/src/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -25,6 +23,7 @@ class _ModulosPageState extends State<ModulosPage> {
             isSubtitle: false,
             showButton: false,
           ),
+
           
           const TextWidget(text: "Juntas hacia tu autocuidado"),
           Button(
@@ -57,6 +56,7 @@ class _ModulosPageState extends State<ModulosPage> {
               onPressed: () {
                 Navigator.pushNamed(context, '/psicoprofilaxis');
               }),
+
         ],
       ),
     );

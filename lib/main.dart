@@ -1,9 +1,21 @@
 import 'package:app_embarazo/src/pages/actividad_fisica/actividad_fisica_page.dart';
 import 'package:app_embarazo/src/pages/actividad_fisica/advertencias_page.dart';
 import 'package:app_embarazo/src/pages/actividad_fisica/calendario_page.dart';
-import 'package:app_embarazo/src/pages/actividad_fisica/calentamiento_page.dart';
-import 'package:app_embarazo/src/pages/actividad_fisica/estiramiento_page.dart';
+import 'package:app_embarazo/src/pages/actividad_fisica/calentamiento/calentamiento_instrucciones_page.dart';
+import 'package:app_embarazo/src/pages/actividad_fisica/calentamiento/calentamiento_page.dart';
+import 'package:app_embarazo/src/pages/actividad_fisica/entrenamiento/primer/primer_home_page.dart';
+import 'package:app_embarazo/src/pages/actividad_fisica/entrenamiento/primer/primer_instrucciones_page.dart';
+import 'package:app_embarazo/src/pages/actividad_fisica/entrenamiento/segundo/segundo_home_page.dart';
+import 'package:app_embarazo/src/pages/actividad_fisica/entrenamiento/segundo/segundo_instrucciones_page.dart';
+import 'package:app_embarazo/src/pages/actividad_fisica/entrenamiento/tercero/tercer_home_page.dart';
+import 'package:app_embarazo/src/pages/actividad_fisica/entrenamiento/tercero/tercer_instrucciones_page.dart';
+import 'package:app_embarazo/src/pages/actividad_fisica/estiramiento/estiramiento_home_page.dart';
+import 'package:app_embarazo/src/pages/actividad_fisica/estiramiento/estiramiento_instrucciones_page.dart';
 import 'package:app_embarazo/src/pages/actividad_fisica/opciones_page.dart';
+import 'package:app_embarazo/src/pages/actividad_fisica/entrenamiento/primer/primer_trimestre_page.dart';
+import 'package:app_embarazo/src/pages/actividad_fisica/entrenamiento/segundo/segundo_trimestre_page.dart';
+import 'package:app_embarazo/src/pages/actividad_fisica/entrenamiento/tercero/tercer_trimestre_page.dart';
+import 'package:app_embarazo/src/pages/actividad_fisica/entrenamiento/trimestres_page.dart';
 import 'package:app_embarazo/src/pages/calidad_vida/actividad_dario_emocional_page.dart';
 import 'package:app_embarazo/src/pages/calidad_vida/calidad_vida_page.dart';
 import 'package:app_embarazo/src/pages/calidad_vida/consejeria_page.dart';
@@ -44,7 +56,6 @@ import 'package:app_embarazo/src/pages/psicoprofilaxis/home_psico_page.dart';
 import 'package:app_embarazo/src/pages/psicoprofilaxis/estimulacion/estimulacion_oportuna_page.dart';
 import 'package:app_embarazo/src/pages/psicoprofilaxis/respiracion/respiracion_page.dart';
 import 'package:app_embarazo/src/pages/summary_page.dart';
-import 'package:app_embarazo/src/widgets/nav_bar_widget.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -147,11 +158,23 @@ class MyApp extends StatelessWidget {
         '/calendario': (context) => const CalendarioPage(),
         '/opciones': (context) => const OpcionesPage(),
         '/calentamiento': (context) => const CalentamientoPage(),
-        '/estiramiento': (context) => const EstiramientoPage(),
+        '/estiramiento_home': (context) => const EstiramientoHomePage(),
+        '/estiramientos_instrucciones': (context) => const EstiramientoInstruccionesPage(),
+        '/calentamiento_instrucciones': (context) => const InstruccionesCalentamientoState(),
+        '/trimestre': (context) => const TrimestresPage(),
+        '/primer_trimestre': (context) => const PrimerTrimestrePage(),
+        '/primer_home': (context) => const PrimerHomePage(),
+        '/primer_instrucciones': (context) => const PrimerInstruccionesPage(),
+        '/segundo_trimestre': (context) => const SegundoTrimestrePage(),
+        '/segundo_home': (context) => const SegundoHomePage(),
+        '/segundo_instrucciones': (context) => const SegundoInstruccionesPage(),
+        '/tercer_trimestre': (context) => const TercerTrimestrePage(),
+        '/tercer_home': (context) => const TercerHomePage(),
+        '/tercer_instrucciones': (context) => const TercerInstruccionesPage(),
 
         '/summary': (context) => const UserSummaryView(),
       },
-      initialRoute: '/opciones',
+      initialRoute: '/',
     );
   }
 }

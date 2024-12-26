@@ -62,6 +62,7 @@ class _HomePageState extends State<HomePage> {
                   text: 'Hola ${firstName ?? ''}',
                   isSubtitle: false,
                   showButton: false,
+                  textAlign: TextAlign.center,
                 ),
                 const ImagenWidget(
                   imagesrc:

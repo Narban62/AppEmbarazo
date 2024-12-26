@@ -1,16 +1,16 @@
-import 'package:app_embarazo/src/widgets/button_widget.dart';
 import 'package:app_embarazo/src/widgets/header_widget.dart';
-import 'package:app_embarazo/src/widgets/image_widget.dart';
 import 'package:flutter/material.dart';
+import '../../widgets/button_back.dart';
+import '../../widgets/square_button.dart';
 
 class DietaEvitar extends StatefulWidget {
   const DietaEvitar({super.key});
 
   @override
-  State<DietaEvitar> createState() => _DietaPageState();
+  State<DietaEvitar> createState() => _DietaEvitarState();
 }
 
-class _DietaPageState extends State<DietaEvitar> {
+class _DietaEvitarState extends State<DietaEvitar> {
   @override
   Widget build(BuildContext context) {
     const Color color = Color(0xffAEDAFE);
@@ -21,6 +21,7 @@ class _DietaPageState extends State<DietaEvitar> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            // Encabezados
             const HeaderWidget(
               color: colorButton,
               text: '\nCada bocado cuenta',
@@ -32,129 +33,76 @@ class _DietaPageState extends State<DietaEvitar> {
               color: color,
               isSubtitle: true,
             ),
-            // Fila de imágenes y botones alineados
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  // Imagen 1 y botón
-                  Expanded(
-                    child: Column(
-                      children: [
-                        const SizedBox(
-                          width: 100,
-                          height: 100,
-                          child: ImagenWidget(
-                            imagesrc: 'assets/images/dieta/embutidos .jpg',
-                            isPrincipal: true,
-                          ),
-                        ),
-                        const SizedBox(height: 8),
-                        Button(
-                          buttonName: 'Embutidos',
-                          buttonColor: colorButton,
-                          onPressed: (){
-                            Navigator.pushNamed(context, '/dieta_embutidos');
-                          },
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(width: 16), // Espaciado entre las dos columnas
-                  // Imagen 2 y botón
-                  Expanded(
-                    child: Column(
-                      children: [
-                        const SizedBox(
-                          width: 100,
-                          height: 100,
-                          child: ImagenWidget(
-                            imagesrc: 'assets/images/dieta/pescado y marisco crudo.jpg',
-                            isPrincipal: true,
-                          ),
-                        ),
-                        const SizedBox(height: 8),
-                        Button(
-                          buttonName: 'Pescado crudo',
-                          buttonColor: colorButton,
-                          onPressed: () {
-                            Navigator.pushNamed(context, '/dieta_pescado');
-                          },
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  // Imagen 1 y botón
-                  Expanded(
-                    child: Column(
-                      children: [
-                        const SizedBox(
-                          width: 100,
-                          height: 100,
-                          child: ImagenWidget(
-                            imagesrc: 'assets/images/dieta/dieta 1.jpg',
-                            isPrincipal: true,
-                          ),
-                        ),
-                        const SizedBox(height: 8),
-                        Button(
-                          buttonName: 'Marisco crudo',
-                          buttonColor: colorButton,
-                          onPressed: () {Navigator.pushNamed(context, '/dieta_marisco');
-                            },
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(width: 16), // Espaciado entre las dos columnas
-                  // Imagen 2 y botón
-                  Expanded(
-                    child: Column(
-                      children: [
-                        const SizedBox(
-                          width: 100,
-                          height: 100,
-                          child: ImagenWidget(
-                            imagesrc: 'assets/images/dieta/dieta 1.jpg',
-                            isPrincipal: true,
-                          ),
-                        ),
-                        const SizedBox(height: 8),
-                        Button(
-                          buttonName: 'Carne cruda',
-                          buttonColor: colorButton,
-                          onPressed: () {Navigator.pushNamed(context, '/dieta_carne_cruda');},
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
+
+            // Primera fila de botones
             Padding(
               padding: const EdgeInsets.all(16.0),
-              child: Button(
-                buttonName: 'Volver',
-                buttonColor: colorButton,
-                onPressed: (){Navigator.pushNamed(context, '/dieta_navegacion');},
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: SquareButton(
+                      imageSrc: 'assets/images/dieta/embutidos .jpg',
+                      text: 'Embutidos',
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/dieta_embutidos');
+                      },
+                    ),
+                  ),
+                  const SizedBox(width: 16),
+                  Expanded(
+                    child: SquareButton(
+                      imageSrc: 'assets/images/dieta/pescado y marisco crudo.jpg',
+                      text: 'Pescado crudo',
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/dieta_pescado');
+                      },
+                    ),
+                  ),
+                ],
               ),
+            ),
+
+            // Segunda fila de botones
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: SquareButton(
+                      imageSrc: 'assets/images/dieta/dieta 1.jpg',
+                      text: 'Marisco crudo',
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/dieta_marisco');
+                      },
+                    ),
+                  ),
+                  const SizedBox(width: 16),
+                  Expanded(
+                    child: SquareButton(
+                      imageSrc: 'assets/images/dieta/dieta 1.jpg',
+                      text: 'Carne cruda',
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/dieta_carne_cruda');
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            // Botón de volver
+            ButtonBack(
+              text: 'Volver',
+              backgroundColor: colorButton, // Cambia el color según sea necesario
+              onPressed: () {
+                Navigator.pushNamed(context, '/dieta_navegacion');
+              },
             ),
           ],
         ),
       ),
     );
   }
-}
-
-void test() {
-  print("Siguiente presionado");
 }

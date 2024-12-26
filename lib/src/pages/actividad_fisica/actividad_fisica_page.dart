@@ -32,9 +32,10 @@ class _ActividadFisicaPageState extends State<ActividadFisicaPage> {
             children: [
               const HeaderWidget(
                 color: colorButton,
-                text: 'Actividad física:\nVamos a ejercitar',
+                text: 'EMBARAZO SALUDABLE PASO A PASO',
                 isSubtitle: true,
                 showButton: true,
+                textColor: Colors.white,
               ),
               //ImagenWidget(imagesrc: imagesrc, isPrincipal: isPrincipal),
               const HeaderWidget(
@@ -69,10 +70,6 @@ class _ActividadFisicaPageState extends State<ActividadFisicaPage> {
                 buttonColor: colorButton,
                 onPressed: () => Navigator.pushNamed(context, '/advertencias'),
               ),
-              BottomNavWidget(
-                currentIndex: _currentIndex,
-                onItemTapped: _onItemTapped,
-              )
             ],
           ),
         ));
