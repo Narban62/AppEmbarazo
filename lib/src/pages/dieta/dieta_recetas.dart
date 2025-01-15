@@ -85,6 +85,29 @@ class _DietaPageState extends State<DietaRecetas> {
                       ],
                     ),
                   ),
+                  // Imagen 2 y botón
+                  Expanded(
+                    child: Column(
+                      children: [
+                        const SizedBox(
+                          width: 100,
+                          height: 100,
+                          child: ImagenWidget(
+                            imagesrc: 'assets/images/dieta/pescado y marisco crudo.jpg',
+                            isPrincipal: true,
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+                        Button(
+                          buttonName: 'Receta Generico',
+                          buttonColor: colorButton,
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/dieta_alimentos');
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),

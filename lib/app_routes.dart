@@ -39,6 +39,7 @@ import 'package:app_embarazo/src/pages/dieta/dieta_receta_1.dart';
 import 'package:app_embarazo/src/pages/dieta/dieta_receta_2.dart';
 import 'package:app_embarazo/src/pages/dieta/dieta_recetas.dart';
 import 'package:app_embarazo/src/pages/dieta/dieta_seleccion_trimestre.dart';
+import 'package:app_embarazo/src/pages/dieta/plan_dieta.dart';
 
 import 'package:app_embarazo/src/pages/inicio_sesion_registro/bienvenida_page.dart';
 import 'package:app_embarazo/src/pages/inicio_sesion_registro/inicio_sesion.dart';
@@ -169,6 +170,9 @@ class AppRoutes {
 
 
       '/summary': (context) => const UserSummaryView(),
+
+      //DIeta alimentos ultimo mandado
+      '/dieta_alimentos': (context) => const MealPlanScreen(),
     };
   }
 
