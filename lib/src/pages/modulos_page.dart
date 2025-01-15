@@ -3,6 +3,9 @@ import 'package:app_embarazo/src/widgets/header_widget.dart';
 import 'package:app_embarazo/src/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 
+import '../widgets/background_widget.dart';
+import '../widgets/bubble_widget.dart';
+
 class ModulosPage extends StatefulWidget {
   const ModulosPage({super.key});
 
@@ -11,11 +14,18 @@ class ModulosPage extends StatefulWidget {
 }
 
 class _ModulosPageState extends State<ModulosPage> {
+
   @override
   Widget build(BuildContext context) {
+    const Color bgColor = Color(0xffFCDEE7);
+    const Color buttonColor = Color(0xffF75B89);
     return Scaffold(
-      backgroundColor: const Color(0xffFCDEE7),
-      body: Column(
+        body: Stack(
+        children: [
+        const AnimatedBackground(color: bgColor), // Fondo animado
+        const AnimatedBubbles(), // Burbujas animadas
+        SingleChildScrollView(
+        child: Column(
         children: [
           const HeaderWidget(
             color: Color(0xffF75B89),
@@ -59,6 +69,9 @@ class _ModulosPageState extends State<ModulosPage> {
 
         ],
       ),
+        ),
+        ],
+        ),
     );
   }
 }
