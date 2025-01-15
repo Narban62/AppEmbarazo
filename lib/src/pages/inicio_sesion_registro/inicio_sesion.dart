@@ -131,20 +131,12 @@ class _LoginPageState extends State<LoginPage> {
 
       if (errorMessage != null) {
         SnackbarHelper.show(context, errorMessage);
-      } else {
-        SnackbarHelper.show(context, 'Inicio de sesión exitoso');
-        _clearFields();
-        Navigator.pushReplacementNamed(context, '/home'); // Redirigir a la página principal
       }
-    } else {
+        } else {
       // Mostrar errores de validación
-      if (emailError != null) {
-        SnackbarHelper.show(context, emailError); // Mostrar error de email
-      }
-      if (passwordError != null) {
-        SnackbarHelper.show(context, passwordError); // Mostrar error de contraseña
-      }
-    }
+      SnackbarHelper.show(context, emailError ?? 'Error desconocido'); // Mostrar error de email
+          SnackbarHelper.show(context, passwordError ?? 'Error desconocido'); // Mostrar error de contraseña
+        }
   }
 
   // Método para limpiar los campos después del inicio de sesión

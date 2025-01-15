@@ -56,6 +56,8 @@ import 'package:app_embarazo/src/pages/psicoprofilaxis/home_psico_page.dart';
 import 'package:app_embarazo/src/pages/psicoprofilaxis/estimulacion/estimulacion_oportuna_page.dart';
 import 'package:app_embarazo/src/pages/psicoprofilaxis/respiracion/respiracion_page.dart';
 import 'package:app_embarazo/src/pages/summary_page.dart';
+import 'package:app_embarazo/src/widgets/app_wrapper.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -80,22 +82,6 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Wakakuna',
       theme: ThemeData(primarySwatch: Colors.blue, fontFamily: 'Calibri'),
-      /*home: FixedBottomNavigationBar(
-        pages: [
-          const UserSummaryView(), // Tu vista existente
-          const ModulosPage(), // Página adicional
-        ],
-        navigationItems: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Usuario',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Configuración',
-          ),
-        ],
-      ),*/
       routes: {
         '/': (context) => StreamBuilder<User?>(
               stream: FirebaseAuth.instance.authStateChanges(),
@@ -103,18 +89,26 @@ class MyApp extends StatelessWidget {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return Center(child: CircularProgressIndicator());
                 } else if (snapshot.hasData) {
-                  return HomePage();
-                  
+                  _registrarIngreso(snapshot.data);
+                  return AppWrapper(
+                    child: HomePage(),
+                    currentIndex: 0,
+                  );
                 } else {
                   return LoginPage();
                 }
               },
             ), // Pantalla principal (Login)
 
-        '/home': (context) => const HomePage(),
-        '/inicio_sesion': (context) => const LoginPage(),
-        '/registro': (context) => const RegistroPage(),
-        '/terminos': (context) => const TerminosCondicionesPaget(),
+        '/home': (context) => const AppWrapper(
+              child: HomePage(),
+              currentIndex: 0,
+            ),
+        '/inicio_sesion': (context) =>
+            const AppWrapper(child: LoginPage(), currentIndex: 1),
+        '/registro': (context) => const AppWrapper(child: RegistroPage(), currentIndex: 1),
+        '/terminos': (context) => const AppWrapper(child: TerminosCondicionesPaget(), currentIndex: 1),
+        
         '/welcome': (context) => const WelcomePage(),
         '/modulos': (context) => const ModulosPage(),
 
@@ -159,8 +153,10 @@ class MyApp extends StatelessWidget {
         '/opciones': (context) => const OpcionesPage(),
         '/calentamiento': (context) => const CalentamientoPage(),
         '/estiramiento_home': (context) => const EstiramientoHomePage(),
-        '/estiramientos_instrucciones': (context) => const EstiramientoInstruccionesPage(),
-        '/calentamiento_instrucciones': (context) => const InstruccionesCalentamientoState(),
+        '/estiramientos_instrucciones': (context) =>
+            const EstiramientoInstruccionesPage(),
+        '/calentamiento_instrucciones': (context) =>
+            const InstruccionesCalentamientoState(),
         '/trimestre': (context) => const TrimestresPage(),
         '/primer_trimestre': (context) => const PrimerTrimestrePage(),
         '/primer_home': (context) => const PrimerHomePage(),
@@ -176,5 +172,18 @@ class MyApp extends StatelessWidget {
       },
       initialRoute: '/',
     );
+  }
+
+  // Función para registrar el ingreso en Firestore
+  void _registrarIngreso(User? user) async {
+    if (user != null) {
+      FirebaseFirestore firestore = FirebaseFirestore.instance;
+      CollectionReference ingresos = firestore.collection('ingresos');
+
+      await ingresos.add({
+        'uid': user.uid,
+        'fecha': DateTime.now(),
+      });
+    }
   }
 }

@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-
 class UserSummaryView extends StatefulWidget {
   const UserSummaryView({Key? key}) : super(key: key);
 
@@ -13,7 +12,6 @@ class UserSummaryView extends StatefulWidget {
 }
 
 class _UserSummaryViewState extends State<UserSummaryView> {
-
   Color backgroundColor = const Color.fromARGB(255, 158, 64, 145);
   Color buttonUpdateColor = const Color.fromARGB(255, 185, 38, 187);
   Color buttonSignOutColor = const Color.fromARGB(255, 68, 4, 70);
@@ -35,15 +33,26 @@ class _UserSummaryViewState extends State<UserSummaryView> {
     User? currentUser = _auth.currentUser;
 
     if (currentUser != null) {
-      DocumentSnapshot userDoc =
-          await _firestore.collection('usuarios').doc(currentUser.uid).get();
+      DocumentReference userRef = _firestore.collection('usuarios').doc(currentUser.uid);
+      DocumentSnapshot userDoc = await userRef.get();
 
       if (userDoc.exists) {
         setState(() {
           userData = userDoc.data() as Map<String, dynamic>?;
-          isLoading = false;
+        });
+        // Incrementar el contador de logins
+        int currentLoginCount = (userData?['loginCount'] ?? 0) + 1;
+        await userRef.update({'loginCount': currentLoginCount});
+      } else {
+        // Si el usuario no existe, crearlo con loginCount = 1
+        await userRef.set({
+          'nombres': '',
+          'apellidos': '',
+          'fechaNacimiento': '',
+          'loginCount': 1,
         });
       }
+      setState(() => isLoading = false);
     }
   }
 
@@ -119,9 +128,9 @@ class _UserSummaryViewState extends State<UserSummaryView> {
     appBar: AppBar(title: const Text('Información de Usuario')),
     body: isLoading
         ? const Center(child: CircularProgressIndicator())
-        : Center( // Agregamos el Center para centrar el contenido
+        : Center(
             child: Column(
-              mainAxisSize: MainAxisSize.min, // Esto centra verticalmente el contenido
+              mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 TextWidget(
@@ -144,6 +153,5 @@ class _UserSummaryViewState extends State<UserSummaryView> {
             ),
           ),
   );
-
   }
 }

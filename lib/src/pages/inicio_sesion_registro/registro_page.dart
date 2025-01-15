@@ -198,7 +198,7 @@ class _RegistroPageState extends State<RegistroPage> {
       SnackbarHelper.show(context, passwordError);
       return;
     }
-
+  
     // Registrar usuario usando el AuthService
     String? errorMessage = await _authService.registerUser(
       email: email,
@@ -210,16 +210,8 @@ class _RegistroPageState extends State<RegistroPage> {
       telefono: _telefonoController.text,
     );
 
-    if (errorMessage != null) {
-      SnackbarHelper.show(context, errorMessage);
-    } else {
-      SnackbarHelper.show(context, 'Usuario registrado con éxito');
-      _clearFields();
-      // Redirigir a la página de inicio de sesión
-      Navigator.pushReplacementNamed(
-          context, '/'); // Suponiendo que '/' es la ruta del login
+    SnackbarHelper.show(context, errorMessage ?? 'Registration successful');
     }
-  }
 
   // Método para limpiar los campos después del registro
   void _clearFields() {
