@@ -172,7 +172,7 @@ class AppRoutes {
       '/summary': (context) => const UserSummaryView(),
 
       //DIeta alimentos ultimo mandado
-      '/dieta_alimentos': (context) => const MealPlanScreen(),
+      '/dieta_alimentos': (context) =>  MealPlanScreen(),
     };
   }
 

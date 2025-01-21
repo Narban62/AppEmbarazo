@@ -30,11 +30,7 @@ class _CalidadVidaNPageState extends State<CalidadVidaNPage> {
                 showButton: true,
               ),
               ImagenWidget(imagesrc: imagesrc, isPrincipal: false),
-              const HeaderWidget(
-                text: 'Ejercicios durante el embarazo:',
-                color: color,
-                isSubtitle: true,
-              ),
+           
               const TextWidget(
                   text:
                       'Cada cambio es una señal de tu fuerza y amor en crecimiento. Confía en ti misma y en el hermoso camino que estás recorriendo.'),
