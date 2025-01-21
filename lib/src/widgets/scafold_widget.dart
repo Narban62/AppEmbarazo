@@ -6,11 +6,8 @@ class BaseScaffold extends StatelessWidget {
   final Widget body;
   final String title;
 
-  const BaseScaffold({
-    Key? key,
-    required this.body,
-    this.title = 'Wakakuna',
-  }) : super(key: key);
+  const BaseScaffold({required this.body, required this.title, Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +16,8 @@ class BaseScaffold extends StatelessWidget {
         title: Text(title),
         centerTitle: true,
       ),
-      bottomNavigationBar: const MainNavigationBar(),
       body: body,
+      bottomNavigationBar: const MainNavigationBar(),
     );
   }
 }

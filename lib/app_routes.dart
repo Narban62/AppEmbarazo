@@ -69,22 +69,21 @@ import 'main_navigation_bar.dart';
 class AppRoutes {
   static Map<String, WidgetBuilder> getRoutes() {
     return {
-      '/': (context) =>
-          StreamBuilder<User?>(
-            stream: FirebaseAuth.instance.authStateChanges(),
-            builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                return const Center(child: CircularProgressIndicator());
-              } else if (snapshot.hasData) {
-                return const BaseScaffold(
-                  body: HomePage(),
-                  title: 'HomePage',
-                );
-              } else {
-                return const LoginPage();
-              }
-            }
-          ),
+      '/': (context) => StreamBuilder<User?>(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(child: CircularProgressIndicator());
+          } else if (snapshot.hasData) {
+            return const BaseScaffold(
+              body: HomePage(),
+              title: 'HomePage',
+            );
+          } else {
+            return const LoginPage();
+          }
+        },
+      ),
       '/actividad_fisica': (context) => const BaseScaffold(
         body: ActividadFisicaPage(),
         title: 'Actividad Física',
@@ -95,87 +94,105 @@ class AppRoutes {
       ),
       '/modulos': (context) => const BaseScaffold(
         body: ModulosPage(),
-        title: 'Modulos',
+        title: 'Módulos',
       ),
       '/calidad_vida': (context) => const BaseScaffold(
         body: CalidadVidaNPage(),
-        title: 'Calidad de vida',
+        title: 'Calidad de Vida',
       ),
-      // Agrega más rutas aquí siguiendo el mismo patrón
-      //'/home': (context) => const HomePage(),
+      '/cuerpo_motor': (context) => const BaseScaffold(
+        body: CuepoMotorPage(),
+        title: 'Cuerpo y Motor',
+      ),
       '/inicio_sesion': (context) => const LoginPage(),
       '/registro': (context) => const RegistroPage(),
-      '/terminos': (context) => const TerminosCondicionesPaget(),
-      '/welcome': (context) => const WelcomePage(),
-
-      //'/modulos': (context) => const ModulosPage(),
-      //'/modulos': (context) => const ModulosPage(),
-      //'/calidad_vida': (context) => const CalidadVidaNPage(),
-      '/cuerpo_motor': (context) => const CuepoMotorPage(),
-      '/mente_guia': (context) => const MenteGuiaPage(),
-      '/controles_prenatales': (context) => const ControlesPrenatalesPage(),
-      '/etapas_embarazo': (context) => const EtapasEmbarazoPage(),
-      '/diario': (context) => const DiarioPage(),
-      '/habitos': (context) => const HabitosPage(),
-      '/consejeria': (context) => const ConsejeriaPage(),
-      '/proyecto_vida': (context) => const ProyectoVidaPage(),
-      '/info_proyecto_vida': (context) => const InfoProyectoVidaPage(),
-      '/guardar_proyecto_vida': (context) => const GuardarProyectoVidaPage(),
-      '/dieta': (context) => const DietaPage(),
-      '/dieta_seleccion_trimestre': (context) => const DietaPageTrimestre(),
-      '/dieta_nutricional': (context) => const DietaNutricional(),
-      '/dieta_evitar': (context) => const DietaEvitar(),
-      '/dieta_embutidos': (context) => const DietaEmbutidos(),
-      '/dieta_pescado': (context) => const DietaPescado(),
-      '/dieta_marisco': (context) => const DietaMarisco(),
-      '/dieta_carne_cruda': (context) => const DietaCarneCruda(),
-      '/dieta_navegacion': (context) => const DietaNavegacion(),
-      '/dieta_recetas': (context) => const DietaRecetas(),
-      '/dieta_agregar_receta': (context) => const DietaAgregarReceta(),
-      '/dieta_receta_1': (context) => const DietaReceta1(),
-      '/dieta_receta_2': (context) => const DietaReceta2(),
-      '/psicoprofilaxis': (context) => const HomePsicoPage(),
-      '/respiracion': (context) => const RespiracionPage(),
-      '/estimulacion_tactil': (context) => const EstimulacionTactilPage(),
-      '/estimulacion_oportuna': (context) => const EstimulacionOportunaPage(),
-      '/estimulacion_auditiva': (context) => const EstimulacionAuditivaPage(),
-      '/estimulacion_motora': (context) => const EstimulacionMotoraPage(),
-      '/estimulacion_visual': (context) => const EstimulacionVisualPage(),
-
-      // '/actividad_fisica': (context) => const ActividadFisicaPage(),
-      //'/actividad_fisica': (context) =>_getScaffold(const ActividadFisicaPage()),
-
-
-
-      '/advertencias': (context) => const ContraindicacionesPage1(),
-     // '/calendario': (context) => _getScaffold(const CalendarioPage()),
-      '/opciones': (context) => const OpcionesPage(),
-      '/calentamiento': (context) => const CalentamientoPage(),
-      '/estiramiento_home': (context) => const EstiramientoHomePage(),
-      '/estiramientos_instrucciones': (
-          context) => const EstiramientoInstruccionesPage(),
-      '/calentamiento_instrucciones': (
-          context) => const InstruccionesCalentamientoState(),
-      '/trimestre': (context) => const TrimestresPage(),
-      '/primer_trimestre': (context) => const PrimerTrimestrePage(),
-      '/primer_home': (context) => const PrimerHomePage(),
-      '/primer_instrucciones': (context) => const PrimerInstruccionesPage(),
-      '/segundo_trimestre': (context) => const SegundoTrimestrePage(),
-      '/segundo_home': (context) => const SegundoHomePage(),
-      '/segundo_instrucciones': (context) => const SegundoInstruccionesPage(),
-      '/tercer_trimestre': (context) => const TercerTrimestrePage(),
-      '/tercer_home': (context) => const TercerHomePage(),
-      '/tercer_instrucciones': (context) => const TercerInstruccionesPage(),
-      '/ejercicios_vista': (context) => const ExerciseScreen(),
-
-
-      '/summary': (context) => const UserSummaryView(),
-
-      //DIeta alimentos ultimo mandado
-      '/dieta_alimentos': (context) => const MealPlanScreen(),
+      '/terminos': (context) => const BaseScaffold(
+        body: TerminosCondicionesPaget(),
+        title: 'Términos y Condiciones',
+      ),
+      '/welcome': (context) => const BaseScaffold(
+        body: WelcomePage(),
+        title: 'Bienvenido',
+      ),
+      '/mente_guia': (context) => const BaseScaffold(
+        body: MenteGuiaPage(),
+        title: 'Mente Guía',
+      ),
+      '/controles_prenatales': (context) => const BaseScaffold(
+        body: ControlesPrenatalesPage(),
+        title: 'Controles Prenatales',
+      ),
+      '/etapas_embarazo': (context) => const BaseScaffold(
+        body: EtapasEmbarazoPage(),
+        title: 'Etapas del Embarazo',
+      ),
+      '/diario': (context) => const BaseScaffold(
+        body: DiarioPage(),
+        title: 'Diario',
+      ),
+      '/habitos': (context) => const BaseScaffold(
+        body: HabitosPage(),
+        title: 'Hábitos',
+      ),
+      '/consejeria': (context) => const BaseScaffold(
+        body: ConsejeriaPage(),
+        title: 'Consejería',
+      ),
+      '/proyecto_vida': (context) => const BaseScaffold(
+        body: ProyectoVidaPage(),
+        title: 'Proyecto de Vida',
+      ),
+      '/info_proyecto_vida': (context) => const BaseScaffold(
+        body: InfoProyectoVidaPage(),
+        title: 'Información del Proyecto de Vida',
+      ),
+      '/guardar_proyecto_vida': (context) => const BaseScaffold(
+        body: GuardarProyectoVidaPage(),
+        title: 'Guardar Proyecto de Vida',
+      ),
+      '/dieta': (context) => const BaseScaffold(
+        body: DietaPage(),
+        title: 'Dieta',
+      ),
+      '/dieta_seleccion_trimestre': (context) => const BaseScaffold(
+        body: DietaPageTrimestre(),
+        title: 'Dieta por Trimestre',
+      ),
+      '/dieta_nutricional': (context) => const BaseScaffold(
+        body: DietaNutricional(),
+        title: 'Dieta Nutricional',
+      ),
+      '/psicoprofilaxis': (context) => const BaseScaffold(
+        body: HomePsicoPage(),
+        title: 'Psicoprofilaxis',
+      ),
+      '/respiracion': (context) => const BaseScaffold(
+        body: RespiracionPage(),
+        title: 'Respiración',
+      ),
+      '/trimestre': (context) => const BaseScaffold(
+        body: TrimestresPage(),
+        title: 'Trimestres',
+      ),
+      '/primer_trimestre': (context) => const BaseScaffold(
+        body: PrimerTrimestrePage(),
+        title: 'Primer Trimestre',
+      ),
+      '/segundo_trimestre': (context) => const BaseScaffold(
+        body: SegundoTrimestrePage(),
+        title: 'Segundo Trimestre',
+      ),
+      '/tercer_trimestre': (context) => const BaseScaffold(
+        body: TercerTrimestrePage(),
+        title: 'Tercer Trimestre',
+      ),
+      '/summary': (context) => const BaseScaffold(
+        body: UserSummaryView(),
+        title: 'Resumen del Usuario',
+      ),
     };
   }
-
 }
+
 
 
