@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 
-class MealPlanScreen extends StatelessWidget {
+class MealPlanScreen extends StatefulWidget {
+  const MealPlanScreen({super.key});
+
+  @override
+  State<MealPlanScreen> createState() => _DietaPageState();
+}
+
+class _DietaPageState extends State<MealPlanScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

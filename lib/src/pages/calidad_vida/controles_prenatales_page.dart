@@ -33,6 +33,7 @@ class _ControlesPrenatalesPageState extends State<ControlesPrenatalesPage> {
             HeaderWidget(
               color: colorButton,
               text: '¿Cuándo debo acudir a mi control prenatal?',
+              isSubtitle: true,
             ),
             TextWidget(
                 text:
@@ -171,7 +172,7 @@ class _ControlesPrenatalesPageState extends State<ControlesPrenatalesPage> {
               ),
             ),
 
-          Button(buttonName: 'REGISTRA TU NUEVO CONTROL', buttonColor: colorButton, onPressed: test)
+          Button(buttonName: 'REGISTRA TU NUEVO CONTROL', buttonColor: colorButton, onPressed: ()=> Navigator.pushNamed(context, '/calendario')),
           ]),
         ));
   }

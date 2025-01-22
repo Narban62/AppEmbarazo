@@ -1,3 +1,4 @@
+import 'package:app_embarazo/src/widgets/button_widget.dart';
 import 'package:app_embarazo/src/widgets/header_widget.dart';
 import 'package:app_embarazo/src/widgets/image_widget.dart';
 import 'package:app_embarazo/src/widgets/text_widget.dart';
@@ -25,12 +26,12 @@ class _EtapasEmbarazoPageState extends State<EtapasEmbarazoPage> {
             const HeaderWidget(
               color: colorButton,
               text: 'Etapas del embarazo',
-              isSubtitle: false,
+              isSubtitle: true,
               showButton: false,
             ),
             TextWidget(
                 text:
-                    'El embarazo toma 40 semanas que se cuentan desde el primer día de tu último periodo menstrual y se divide en tres etpas.'),
+                    'El embarazo toma 40 semanas que se cuentan desde el primer día de tu último periodo menstrual y se divide en tres etapas.'),
             ImagenWidget(imagesrc: imagesrc, isPrincipal: true),
             HeaderWidget(
               text: 'Primer trimestre: desde la semana 1 a la 12.',
@@ -71,18 +72,13 @@ class _EtapasEmbarazoPageState extends State<EtapasEmbarazoPage> {
             TextWidget(
                 text:
                     'Recuerda: Si todo ha ido como se espera, el bebé estará en posición de nacer, con la cabeza mirando hacia el canal del parto. El peso que gana día a día aumenta, y también crece bastante deprisa.'),
-            TextWidget(
-                text:
-                    'Recomendaciones al vestir durante el embarazo.'),
+            TextWidget(text: 'Recomendaciones al vestir durante el embarazo.'),
             TextWidget(
                 text:
                     'A partir de las 14 semana de gestación debes utilizar ropa holgada y zapatos bajos para mejorar tu salud y la de tú bebe Dentro de los beneficios tenemos:'),
             ImagenWidget(imagesrc: imagesrc, isPrincipal: true),
-            
-            TextWidget(
-                text:
-                    'Tips de belleza interior y exterior'),
-            ImagenWidget(imagesrc: imagesrc, isPrincipal: false),                
+            TextWidget(text: 'Tips de belleza interior y exterior'),
+            ImagenWidget(imagesrc: imagesrc, isPrincipal: false),
             HeaderWidget(
               text: 'Tercer trimestre: desde la semana 28 a la 40.',
               color: color,
@@ -93,6 +89,11 @@ class _EtapasEmbarazoPageState extends State<EtapasEmbarazoPage> {
             TextWidget(
                 text:
                     'El útero crece, dificultando moverse y descansar. Hay aumento de peso, cansancio, hinchazón en piernas, y estiramiento de ligamentos para el parto. Las mamas producen calostro al final o después del embarazo, y aumenta la micción.'),
+            Button(
+                buttonName: 'SIguiente',
+                buttonColor: colorButton,
+                onPressed: () =>
+                    Navigator.pushNamed(context, '/dieta_seleccion_trimestre')),
           ],
         ),
       ),

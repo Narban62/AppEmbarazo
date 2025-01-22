@@ -5,6 +5,7 @@ class CustomNavigationBar extends StatelessWidget {
   final VoidCallback onModulesTap;
   final VoidCallback onPageTap1;
   final VoidCallback onPageTap2;
+  final VoidCallback onPageTap3;
 
   final ValueChanged<int> onItemTapped;
   final int selectedIndex;
@@ -15,6 +16,7 @@ class CustomNavigationBar extends StatelessWidget {
     required this.onModulesTap,
     required this.onPageTap1,
     required this.onPageTap2,
+    required this.onPageTap3,
     required this.onItemTapped,
     required this.selectedIndex,
   });
@@ -32,6 +34,8 @@ class CustomNavigationBar extends StatelessWidget {
           onPageTap1();
         } else if (index == 3) {
           onPageTap2();
+        } else if (index == 4) {
+          onPageTap3();
         } else {
           onItemTapped(index);
         }
@@ -44,6 +48,10 @@ class CustomNavigationBar extends StatelessWidget {
         BottomNavigationBarItem(
           icon: Icon(Icons.menu),
           label: 'Módulos',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          label: 'Home',
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.calendar_today),
