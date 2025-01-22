@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'dart:convert';
 
 class CalendarioPage extends StatefulWidget {
   const CalendarioPage({super.key});
@@ -13,6 +15,32 @@ class _CalendarioPageState extends State<CalendarioPage> {
   DateTime _focusedDay = DateTime.now();
   final Map<DateTime, bool> _completedDays = {}; // Para registrar días marcados como "cumplidos"
   final Map<DateTime, String> _reminders = {}; // Para almacenar recordatorios
+
+  @override
+  void initState() {
+    super.initState();
+    _loadCompletedDays();
+  }
+
+  Future<void> _loadCompletedDays() async {
+    final prefs = await SharedPreferences.getInstance();
+    final completedDaysString = prefs.getString('completed_days');
+    if (completedDaysString != null) {
+      final Map<String, dynamic> completedDaysMap = jsonDecode(completedDaysString);
+      setState(() {
+        _completedDays.clear();
+        completedDaysMap.forEach((key, value) {
+          _completedDays[DateTime.parse(key)] = value;
+        });
+      });
+    }
+  }
+
+  Future<void> _saveCompletedDays() async {
+    final prefs = await SharedPreferences.getInstance();
+    final completedDaysString = jsonEncode(_completedDays.map((key, value) => MapEntry(key.toIso8601String(), value)));
+    await prefs.setString('completed_days', completedDaysString);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,6 +87,7 @@ class _CalendarioPageState extends State<CalendarioPage> {
               setState(() {
                 _completedDays[_selectedDay] = true;
               });
+              _saveCompletedDays();
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(content: Text('Día ${_selectedDay.toLocal()} marcado como cumplido')),
               );
