@@ -56,7 +56,7 @@ class _CalentamientoPageState extends State<CalentamientoPage> {
                         buttonName: 'Inicio',
                         buttonColor: colorButton,
                         onPressed: () {
-                          Navigator.pushNamed(context, '/calentamiento_instrucciones');
+                          Navigator.pushNamed(context, '/cronometro');
                         },
                       ),
                     ),

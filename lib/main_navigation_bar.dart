@@ -88,7 +88,7 @@ class _MainNavigationBarState extends State<MainNavigationBar> {
     } else if (index == 1) {
       _navigatorKey.currentState?.pushNamed('/home_page'); // Calendario
     } else if (index == 2) {
-      _navigatorKey.currentState?.pushNamed('/actividad_fisica'); // Actividad Física
+      _navigatorKey.currentState?.pushNamed('/cronometro'); // Actividad Física
     }else if (index == 3) {
       _navigatorKey.currentState?.pushNamed('/calendario'); // Calendario
     }
@@ -323,10 +323,7 @@ class _MainNavigationBarState extends State<MainNavigationBar> {
     return MaterialPageRoute(
     builder: (context) => const TercerInstruccionesPage(),
     );
-    case '/ejercicios_vista':
-    return MaterialPageRoute(
-    builder: (context) => const ExerciseScreen(),
-    );
+
     case '/summary':
     return MaterialPageRoute(
     builder: (context) => const UserSummaryView(),
@@ -334,6 +331,10 @@ class _MainNavigationBarState extends State<MainNavigationBar> {
     case '/dieta_alimentos':
     return MaterialPageRoute(
     builder: (context) => const MealPlanScreen(),
+    );
+    case '/cronometro':
+    return MaterialPageRoute(
+    builder: (context) => const ExerciseScreen(),
     );
     default:
     return MaterialPageRoute(
