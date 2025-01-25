@@ -23,8 +23,12 @@ class CustomNavigationBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    assert(
+    selectedIndex >= 0 && selectedIndex < 60,
+    'El índice seleccionado ($selectedIndex) está fuera del rango permitido.',
+    );
     return BottomNavigationBar(
-      currentIndex: selectedIndex,
+      currentIndex: selectedIndex.clamp(0, 4),
       onTap: (index) {
         if (index == 0) {
           onProfileTap();
