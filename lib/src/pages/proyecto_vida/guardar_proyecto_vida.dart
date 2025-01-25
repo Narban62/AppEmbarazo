@@ -4,7 +4,6 @@ import 'package:cloud_firestore/cloud_firestore.dart'; // Firestore
 import 'package:app_embarazo/src/widgets/button_widget.dart';
 import 'package:app_embarazo/src/widgets/header_widget.dart';
 import 'package:app_embarazo/src/services/user_service.dart';
-
 import '../../widgets/textfield_widget.dart';
 
 class GuardarProyectoVidaPage extends StatefulWidget {

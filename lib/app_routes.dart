@@ -67,7 +67,7 @@ import 'main.dart';
 import 'main_navigation_bar.dart';
 
 class AppRoutes {
-  static Map<String, WidgetBuilder> getRoutes() {
+  static Map<String, WidgetBuilder> getRoutes(ValueChanged<int> onItemTapped, int selectedIndex) {
     return {
       '/': (context) => StreamBuilder<User?>(
         stream: FirebaseAuth.instance.authStateChanges(),
@@ -75,121 +75,354 @@ class AppRoutes {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
           } else if (snapshot.hasData) {
-            return const BaseScaffold(
-              body: HomePage(),
+            return BaseScaffold(
+              body: const HomePage(),
               title: 'HomePage',
+              selectedIndex: selectedIndex,
+              onItemTapped: onItemTapped,
             );
           } else {
             return const LoginPage();
           }
         },
       ),
-      '/actividad_fisica': (context) => const BaseScaffold(
-        body: ActividadFisicaPage(),
+      '/home_page': (context) => BaseScaffold(
+        body: const HomePage(),
+        title: 'HomePage',
+        selectedIndex: 0, // índice principal
+        onItemTapped: onItemTapped,
+      ),
+      '/actividad_fisica': (context) => BaseScaffold(
+        body: const ActividadFisicaPage(),
         title: 'Actividad Física',
+        selectedIndex: 1, // índice de navegación
+        onItemTapped: onItemTapped,
       ),
-      '/calendario': (context) => const BaseScaffold(
-        body: CalendarioPage(),
+      '/calendario': (context) => BaseScaffold(
+        body: const CalendarioPage(),
         title: 'Calendario',
+        selectedIndex: 2, // índice de navegación
+        onItemTapped: onItemTapped,
       ),
-      '/modulos': (context) => const BaseScaffold(
-        body: ModulosPage(),
-        title: 'Módulos',
-      ),
-      '/calidad_vida': (context) => const BaseScaffold(
-        body: CalidadVidaNPage(),
+      '/calidad_vida': (context) => BaseScaffold(
+        body: const CalidadVidaNPage(),
         title: 'Calidad de Vida',
+        selectedIndex: 3, // índice de navegación
+        onItemTapped: onItemTapped,
       ),
-      '/cuerpo_motor': (context) => const BaseScaffold(
-        body: CuepoMotorPage(),
-        title: 'Cuerpo y Motor',
+      '/modulos': (context) => BaseScaffold(
+        body: const ModulosPage(),
+        title: 'Módulos',
+        selectedIndex: 4, // Opcional
+        onItemTapped: onItemTapped,
       ),
-      '/inicio_sesion': (context) => const LoginPage(),
-      '/registro': (context) => const RegistroPage(),
-      '/terminos': (context) => const BaseScaffold(
-        body: TerminosCondicionesPaget(),
+      '/summary': (context) => BaseScaffold(
+        body: const UserSummaryView(),
+        title: 'Resumen',
+        selectedIndex: 5, // Opcional
+        onItemTapped: onItemTapped,
+      ),
+      '/cuerpo_motor': (context) => BaseScaffold(
+        body: const CuepoMotorPage(),
+        title: 'Cuerpo Motor',
+        selectedIndex: 6,
+        onItemTapped: onItemTapped,
+      ),
+      '/inicio_sesion': (context) => BaseScaffold(
+        body: const LoginPage(),
+        title: 'Inicio de Sesión',
+        selectedIndex: 7,
+        onItemTapped: onItemTapped,
+      ),
+      '/registro': (context) => BaseScaffold(
+        body: const RegistroPage(),
+        title: 'Registro',
+        selectedIndex: 8,
+        onItemTapped: onItemTapped,
+      ),
+      '/terminos': (context) => BaseScaffold(
+        body: const TerminosCondicionesPaget(),
         title: 'Términos y Condiciones',
+        selectedIndex: 9,
+        onItemTapped: onItemTapped,
       ),
-      '/welcome': (context) => const BaseScaffold(
-        body: WelcomePage(),
+      '/welcome': (context) => BaseScaffold(
+        body: const WelcomePage(),
         title: 'Bienvenido',
+        selectedIndex: 10,
+        onItemTapped: onItemTapped,
       ),
-      '/mente_guia': (context) => const BaseScaffold(
-        body: MenteGuiaPage(),
+      '/mente_guia': (context) => BaseScaffold(
+        body: const MenteGuiaPage(),
         title: 'Mente Guía',
+        selectedIndex: 11,
+        onItemTapped: onItemTapped,
       ),
-      '/controles_prenatales': (context) => const BaseScaffold(
-        body: ControlesPrenatalesPage(),
+      '/controles_prenatales': (context) => BaseScaffold(
+        body: const ControlesPrenatalesPage(),
         title: 'Controles Prenatales',
+        selectedIndex: 12,
+        onItemTapped: onItemTapped,
       ),
-      '/etapas_embarazo': (context) => const BaseScaffold(
-        body: EtapasEmbarazoPage(),
+      '/etapas_embarazo': (context) => BaseScaffold(
+        body: const EtapasEmbarazoPage(),
         title: 'Etapas del Embarazo',
+        selectedIndex: 13,
+        onItemTapped: onItemTapped,
       ),
-      '/diario': (context) => const BaseScaffold(
-        body: DiarioPage(),
+      '/diario': (context) => BaseScaffold(
+        body: const DiarioPage(),
         title: 'Diario',
+        selectedIndex: 14,
+        onItemTapped: onItemTapped,
       ),
-      '/habitos': (context) => const BaseScaffold(
-        body: HabitosPage(),
-        title: 'Hábitos',
+      '/habitos': (context) => BaseScaffold(
+        body: const HabitosPage(),
+        title: 'Hábitos Saludables',
+        selectedIndex: 15,
+        onItemTapped: onItemTapped,
       ),
-      '/consejeria': (context) => const BaseScaffold(
-        body: ConsejeriaPage(),
+      '/consejeria': (context) => BaseScaffold(
+        body: const ConsejeriaPage(),
         title: 'Consejería',
+        selectedIndex: 16,
+        onItemTapped: onItemTapped,
       ),
-      '/proyecto_vida': (context) => const BaseScaffold(
-        body: ProyectoVidaPage(),
+      '/proyecto_vida': (context) => BaseScaffold(
+        body: const ProyectoVidaPage(),
         title: 'Proyecto de Vida',
+        selectedIndex: 17,
+        onItemTapped: onItemTapped,
       ),
-      '/info_proyecto_vida': (context) => const BaseScaffold(
-        body: InfoProyectoVidaPage(),
+      '/info_proyecto_vida': (context) => BaseScaffold(
+        body: const InfoProyectoVidaPage(),
         title: 'Información del Proyecto de Vida',
+        selectedIndex: 18,
+        onItemTapped: onItemTapped,
       ),
-      '/guardar_proyecto_vida': (context) => const BaseScaffold(
-        body: GuardarProyectoVidaPage(),
+      '/guardar_proyecto_vida': (context) => BaseScaffold(
+        body: const GuardarProyectoVidaPage(),
         title: 'Guardar Proyecto de Vida',
+        selectedIndex: 19,
+        onItemTapped: onItemTapped,
       ),
-      '/dieta': (context) => const BaseScaffold(
-        body: DietaPage(),
+      '/dieta': (context) => BaseScaffold(
+        body: const DietaPage(),
         title: 'Dieta',
+        selectedIndex: 20,
+        onItemTapped: onItemTapped,
       ),
-      '/dieta_seleccion_trimestre': (context) => const BaseScaffold(
-        body: DietaPageTrimestre(),
+      '/dieta_seleccion_trimestre': (context) => BaseScaffold(
+        body: const DietaPageTrimestre(),
         title: 'Dieta por Trimestre',
+        selectedIndex: 21,
+        onItemTapped: onItemTapped,
       ),
-      '/dieta_nutricional': (context) => const BaseScaffold(
-        body: DietaNutricional(),
+      '/dieta_nutricional': (context) => BaseScaffold(
+        body: const DietaNutricional(),
         title: 'Dieta Nutricional',
+        selectedIndex: 22,
+        onItemTapped: onItemTapped,
       ),
-      '/psicoprofilaxis': (context) => const BaseScaffold(
-        body: HomePsicoPage(),
-        title: 'Psicoprofilaxis',
+      '/dieta_evitar': (context) => BaseScaffold(
+        body: const DietaEvitar(),
+        title: 'Alimentos a Evitar',
+        selectedIndex: 23,
+        onItemTapped: onItemTapped,
       ),
-      '/respiracion': (context) => const BaseScaffold(
-        body: RespiracionPage(),
+      '/dieta_embutidos': (context) => BaseScaffold(
+        body: const DietaEmbutidos(),
+        title: 'Embutidos en la Dieta',
+        selectedIndex: 24,
+        onItemTapped: onItemTapped,
+      ),
+      '/dieta_pescado': (context) => BaseScaffold(
+        body: const DietaPescado(),
+        title: 'Pescados en la Dieta',
+        selectedIndex: 25,
+        onItemTapped: onItemTapped,
+      ),
+      '/dieta_marisco': (context) => BaseScaffold(
+        body: const DietaMarisco(),
+        title: 'Mariscos en la Dieta',
+        selectedIndex: 26,
+        onItemTapped: onItemTapped,
+      ),
+      '/dieta_carne_cruda': (context) => BaseScaffold(
+        body: const DietaCarneCruda(),
+        title: 'Carne Cruda en la Dieta',
+        selectedIndex: 27,
+        onItemTapped: onItemTapped,
+      ),
+      '/dieta_navegacion': (context) => BaseScaffold(
+        body: const DietaNavegacion(),
+        title: 'Navegación de Dieta',
+        selectedIndex: 28,
+        onItemTapped: onItemTapped,
+      ),
+      '/dieta_recetas': (context) => BaseScaffold(
+        body: const DietaRecetas(),
+        title: 'Recetas de Dieta',
+        selectedIndex: 29,
+        onItemTapped: onItemTapped,
+      ),
+      '/dieta_agregar_receta': (context) => BaseScaffold(
+        body: const DietaAgregarReceta(),
+        title: 'Agregar Receta',
+        selectedIndex: 30,
+        onItemTapped: onItemTapped,
+      ),
+      '/dieta_receta_1': (context) => BaseScaffold(
+        body: const DietaReceta1(),
+        title: 'Receta 1',
+        selectedIndex: 31,
+        onItemTapped: onItemTapped,
+      ),
+      '/dieta_receta_2': (context) => BaseScaffold(
+          body: const DietaReceta2(),
+      title: 'Receta 2',
+      selectedIndex: 32,
+      onItemTapped: onItemTapped,
+      ),
+      '/psicoprofilaxis': (context) => BaseScaffold(
+        body: const HomePsicoPage(),
+        title: 'Psico-Profilaxis',
+        selectedIndex: 33,
+        onItemTapped: onItemTapped,
+      ),
+      '/respiracion': (context) => BaseScaffold(
+        body: const RespiracionPage(),
         title: 'Respiración',
+        selectedIndex: 34,
+        onItemTapped: onItemTapped,
       ),
-      '/trimestre': (context) => const BaseScaffold(
-        body: TrimestresPage(),
+      '/estimulacion_auditiva': (context) => BaseScaffold(
+        body: const EstimulacionAuditivaPage(),
+        title: 'Estimulación Auditiva',
+        selectedIndex: 35,
+        onItemTapped: onItemTapped,
+      ),
+      '/estimulacion_motora': (context) => BaseScaffold(
+        body: const EstimulacionMotoraPage(),
+        title: 'Estimulación Motora',
+        selectedIndex: 36,
+        onItemTapped: onItemTapped,
+      ),
+      '/estimulacion_tactil': (context) => BaseScaffold(
+        body: const EstimulacionTactilPage(),
+        title: 'Estimulación Táctil',
+        selectedIndex: 37,
+        onItemTapped: onItemTapped,
+      ),
+      '/estimulacion_visual': (context) => BaseScaffold(
+        body: const EstimulacionVisualPage(),
+        title: 'Estimulación Visual',
+        selectedIndex: 38,
+        onItemTapped: onItemTapped,
+      ),
+      '/estimulacion_oportuna': (context) => BaseScaffold(
+        body: const EstimulacionOportunaPage(),
+        title: 'Estimulación Oportuna',
+        selectedIndex: 39,
+        onItemTapped: onItemTapped,
+      ),
+      '/advertencias': (context) => BaseScaffold(
+        body: const ContraindicacionesPage1(),
+        title: 'Advertencias',
+        selectedIndex: 40,
+        onItemTapped: onItemTapped,
+      ),
+      '/opciones': (context) => BaseScaffold(
+        body: const OpcionesPage(),
+        title: 'Opciones',
+        selectedIndex: 41,
+        onItemTapped: onItemTapped,
+      ),
+      '/calentamiento': (context) => BaseScaffold(
+        body: const CalentamientoPage(),
+        title: 'Calentamiento',
+        selectedIndex: 42,
+        onItemTapped: onItemTapped,
+      ),
+      '/calentamiento_instrucciones': (context) => BaseScaffold(
+        body: const InstruccionesCalentamientoState(),
+        title: 'Instrucciones de Calentamiento',
+        selectedIndex: 43,
+        onItemTapped: onItemTapped,
+      ),
+      '/estiramiento_home': (context) => BaseScaffold(
+        body: const EstiramientoHomePage(),
+        title: 'Estiramiento',
+        selectedIndex: 44,
+        onItemTapped: onItemTapped,
+      ),
+      '/estiramiento_instrucciones': (context) => BaseScaffold(
+        body: const EstiramientoInstruccionesPage(),
+        title: 'Instrucciones de Estiramiento',
+        selectedIndex: 45,
+        onItemTapped: onItemTapped,
+      ),
+      '/trimestre': (context) => BaseScaffold(
+        body: const TrimestresPage(),
         title: 'Trimestres',
+        selectedIndex: 46,
+        onItemTapped: onItemTapped,
       ),
-      '/primer_trimestre': (context) => const BaseScaffold(
-        body: PrimerTrimestrePage(),
+      '/primer_trimestre': (context) => BaseScaffold(
+        body: const PrimerTrimestrePage(),
         title: 'Primer Trimestre',
+        selectedIndex: 47,
+        onItemTapped: onItemTapped,
       ),
-      '/segundo_trimestre': (context) => const BaseScaffold(
-        body: SegundoTrimestrePage(),
+      '/segundo_trimestre': (context) => BaseScaffold(
+        body: const SegundoTrimestrePage(),
         title: 'Segundo Trimestre',
+        selectedIndex: 48,
+        onItemTapped: onItemTapped,
       ),
-      '/tercer_trimestre': (context) => const BaseScaffold(
-        body: TercerTrimestrePage(),
+      '/tercer_trimestre': (context) => BaseScaffold(
+        body: const TercerTrimestrePage(),
         title: 'Tercer Trimestre',
+        selectedIndex: 49,
+        onItemTapped: onItemTapped,
       ),
-      '/summary': (context) => const BaseScaffold(
-        body: UserSummaryView(),
-        title: 'Resumen del Usuario',
+      '/primer_home': (context) => BaseScaffold(
+        body: const PrimerHomePage(),
+        title: 'Entrenamiento Primer Trimestre',
+        selectedIndex: 50,
+        onItemTapped: onItemTapped,
       ),
+      '/primer_instrucciones': (context) => BaseScaffold(
+        body: const PrimerInstruccionesPage(),
+        title: 'Instrucciones Primer Trimestre',
+        selectedIndex: 51,
+        onItemTapped: onItemTapped,
+      ),
+      '/segundo_home': (context) => BaseScaffold(
+        body: const SegundoHomePage(),
+        title: 'Entrenamiento Segundo Trimestre',
+        selectedIndex: 52,
+        onItemTapped: onItemTapped,
+      ),
+      '/segundo_instrucciones': (context) => BaseScaffold(
+        body: const SegundoInstruccionesPage(),
+        title: 'Instrucciones Segundo Trimestre',
+        selectedIndex: 53,
+        onItemTapped: onItemTapped,
+      ),
+      '/tercer_home': (context) => BaseScaffold(
+        body: const TercerHomePage(),
+        title: 'Entrenamiento Tercer Trimestre',
+        selectedIndex: 54,
+        onItemTapped: onItemTapped,
+      ),
+      '/tercer_instrucciones': (context) => BaseScaffold(
+        body: const TercerInstruccionesPage(),
+        title: 'Instrucciones Tercer Trimestre',
+        selectedIndex: 55,
+        onItemTapped: onItemTapped,
+      ),
+      // Agrega más rutas aquí
     };
   }
 }
