@@ -22,13 +22,13 @@ class _ProyectoVidaPageState extends State<ProyectoVidaPage> {
             child: Column(children: [
           const HeaderWidget(
             color: colorButton,
-            text: '\nMi proyecto de vida',
+            text: 'Mi proyecto de vida',
             isSubtitle: true,
             showButton: true,
           ),
           const Padding(padding: EdgeInsets.only(bottom: 20.0)),
           const ImagenWidget(
-              imagesrc: 'assets/images/proyecto_de_vida/calidadVida2.jpg',
+              imagesrc: 'assets/images/inicio/grupo2.jpeg',
               isPrincipal: false),
           const Padding(padding: EdgeInsets.only(bottom: 20.0)),
           const TextWidget(
@@ -36,7 +36,7 @@ class _ProyectoVidaPageState extends State<ProyectoVidaPage> {
                   'Es un ejercicio necesario que debes realizar durante tu embarazo, ya que contribuirá a tu desarrollo integral y permitira trazar las rutas para alcanzar tus metas.'),
           const Padding(padding: EdgeInsets.only(bottom: 20.0)),
           const ImagenWidget(
-              imagesrc: 'assets/images/proyecto_de_vida/Calidad de vida.jpg',
+              imagesrc: 'assets/images/psicoprofilaxis/auditiva2.jpeg',
               isPrincipal: false),
           const Padding(padding: EdgeInsets.only(bottom: 20.0)),
           const TextWidget(

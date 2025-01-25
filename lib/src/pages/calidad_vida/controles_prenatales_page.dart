@@ -38,7 +38,7 @@ class _ControlesPrenatalesPageState extends State<ControlesPrenatalesPage> {
             TextWidget(
                 text:
                     'El primer control debes realizarlo lo más pronto posible. '),
-            ImagenWidget(imagesrc: imagesrc, isPrincipal: false),
+            ImagenWidget(imagesrc: 'assets/images/calidad_vida/salud.jpeg', isPrincipal: false),
             TextWidget(
                 text:
                     'Recuerda que debes realizarte mínimo 5 controles prenatales para evitar complicaciones con tu bebé.'),
@@ -57,7 +57,7 @@ class _ControlesPrenatalesPageState extends State<ControlesPrenatalesPage> {
                 }).toList(),
               ),
             ),
-            ImagenWidget(imagesrc: imagesrc, isPrincipal: false),
+            ImagenWidget(imagesrc: 'assets/images/calidad_vida/consulta medica.jpeg', isPrincipal: false),
             TextWidget(
                 text:
                     '¿Qué exámenes me deben realizar?'),

@@ -66,7 +66,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 const ImagenWidget(
                   imagesrc:
-                  'https://firebasestorage.googleapis.com/v0/b/test-drive-fc508.appspot.com/o/Prueba%20de%20logo.webp?alt=media&token=eabe6e2e-d892-474a-8b33-2df84b9a30a4',
+                  'assets/images/inicio/inicio_sesion.jpg',
                   borderRadius: 15.0,
                   isPrincipal: true,
                 ),

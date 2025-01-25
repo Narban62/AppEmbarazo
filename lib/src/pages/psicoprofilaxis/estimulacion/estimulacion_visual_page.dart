@@ -1,4 +1,5 @@
 import 'package:app_embarazo/src/widgets/header_widget.dart';
+import 'package:app_embarazo/src/widgets/image_widget.dart';
 import 'package:app_embarazo/src/widgets/text_widget.dart';
 import 'package:app_embarazo/src/widgets/video_widget.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +33,7 @@ class _EstimulacionVisualPageState extends State<EstimulacionVisualPage> {
             ),
             const TextWidget(text:
                     'Practica que ayuda al desarrollo visual de tu bebé, a tráves de luces y colores durante tu embarazo'),
-            //ImagenWidget(imagesrc: 'imagesrc', isPrincipal: false),
+            const ImagenWidget(imagesrc: 'assets/images/psicoprofilaxis/estimulacion visual2.jpeg', isPrincipal: false),
 
             const HeaderWidget(
               text: 'Ejercicios:',

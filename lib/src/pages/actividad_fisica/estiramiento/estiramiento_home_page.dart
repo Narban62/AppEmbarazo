@@ -31,7 +31,7 @@ class _EstiramientoHomePageState extends State<EstiramientoHomePage> {
               showButton: true,
             ),
             const ImagenWidget(
-                imagesrc: 'assets/images/psicoprofilaxis/Psico auditiva.jpg',
+                imagesrc: 'assets/images/actividad_fisica/estirar.jpeg',
                 isPrincipal: false),
             Padding(
                 padding: const EdgeInsets.all(16.0),

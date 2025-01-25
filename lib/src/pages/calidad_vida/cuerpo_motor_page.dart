@@ -17,7 +17,7 @@ class _CuepoMotorPageState extends State<CuepoMotorPage> {
     Color colorBg = const Color(0xffE7BAFF);
     Color colorButton = const Color(0xff734A91);
 
-    const String imagesrc = 'assets/images/inicio/inicio_sesion.jpg';
+    const String imagesrc = 'assets/images/psicoprofilaxis/psico3.jpeg';
 
     return Scaffold(
       backgroundColor: const Color(0xffE7BAFF),
@@ -48,7 +48,7 @@ class _CuepoMotorPageState extends State<CuepoMotorPage> {
         TextWidget(
             text:
                 'Son acciones periódicas destinadas la prevención, diagnóstico y tratamiento de las mujeres embarazadas. Si presentas alguno de estos síntomas acude inmediatamente a tu centro de salud más cercano.'),
-        ImagenWidget(imagesrc: imagesrc, isPrincipal: false),
+        ImagenWidget(imagesrc: 'assets/images/psicoprofilaxis/motora.jpeg', isPrincipal: false),
         Button(
             buttonName: 'Más información',
             buttonColor: colorButton,

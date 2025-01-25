@@ -34,7 +34,7 @@ class _CalentamientoPageState extends State<CalentamientoPage> {
                 text:
                     'Vamos a preparar tus músculos para ejercitarse \nRECUERDA REALIZAR LA RUTINA DE CALENTAMIENTO POR LO MENOS DURANTE 5 MINUTOS'),
             const ImagenWidget(
-                imagesrc: 'assets/images/psicoprofilaxis/Psico auditiva.jpg',
+                imagesrc: 'assets/images/actividad_fisica/caminata2.jpeg',
                 isPrincipal: false),
             Padding(
                 padding: const EdgeInsets.all(16.0),

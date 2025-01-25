@@ -1,5 +1,6 @@
 import 'package:app_embarazo/src/widgets/button_widget.dart';
 import 'package:app_embarazo/src/widgets/header_widget.dart';
+import 'package:app_embarazo/src/widgets/image_widget.dart';
 import 'package:app_embarazo/src/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -33,7 +34,8 @@ class _ModulosPageState extends State<ModulosPage> {
             isSubtitle: false,
             showButton: false,
           ),
-
+          
+          const ImagenWidget(imagesrc: 'assets/images/inicio/grupo.jpeg', isPrincipal: false),
           
           const TextWidget(text: "Juntas hacia tu autocuidado"),
           Button(

@@ -29,7 +29,7 @@ class _HomePsicoPageState extends State<HomePsicoPage> {
                 showButton: false,
               ),
               const ImagenWidget(
-                  imagesrc: 'assets/images/psicoprofilaxis/Psico 1.jpg',
+                  imagesrc: 'assets/images/psicoprofilaxis/auditiva4.jpeg',
                   borderRadius: 15.0,
                   isPrincipal: true),
               Button(

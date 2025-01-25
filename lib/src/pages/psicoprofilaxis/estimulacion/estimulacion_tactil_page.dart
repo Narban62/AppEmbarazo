@@ -34,7 +34,7 @@ class _EstimulacionTactilPageState extends State<EstimulacionTactilPage> {
 
                     'Técnica que implica el uso de toques y masajes suaves sobre el vientre de una mujer embarazada con el objetivo de estimular al feto y promover su desarrollo sensorial y emocional. \nSe puede iniciar en el segundo trimestre del embarazo.'),
 
-            const ImagenWidget(imagesrc: 'assets/images/psicoprofilaxis/Psico tactil.jpg', isPrincipal: false),
+            const ImagenWidget(imagesrc: 'assets/images/psicoprofilaxis/tactil3.jpeg', isPrincipal: false),
 
             const HeaderWidget(
               text: 'Ejercicios:',

@@ -16,7 +16,7 @@ class _CalidadVidaNPageState extends State<CalidadVidaNPage> {
   Widget build(BuildContext context) {
     const Color color = Color(0xffE7BAFF);
     const Color colorButton = Color(0xff734A91);
-    const String imagesrc = 'assets/images/inicio/inicio_sesion.jpg';
+    const String imagesrc = 'assets/images/1er tirmestre.jpeg';
     return Scaffold(
         backgroundColor: color,
         body: SingleChildScrollView(
