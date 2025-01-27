@@ -1,5 +1,6 @@
 import 'package:app_embarazo/src/widgets/perfil_widget.dart';
 import 'package:flutter/material.dart';
+import '../pages/home_page.dart';
 import 'modules_menu_widget.dart';
 import 'navigation_bar_widget.dart';
 
@@ -43,7 +44,11 @@ class BaseScaffold extends StatelessWidget {
           ),
           builder: (context) => const ModulesMenu(),
         ),
-        onPageTap1: () => Navigator.pushNamed(context, '/home_page'), // Ir a Calendario
+        onPageTap1: () => Navigator.of(context).pushNamedAndRemoveUntil(
+          '/home_page',
+              (route) => false,
+        ), // Cambia HomePage por la pantalla inicial de tu app
+
         onPageTap2: () => Navigator.pushNamed(context, '/calendario'), // Ir a Actividad Física
         onPageTap3: () => Navigator.pushNamed(context, '/actividad_fisica'),
         // Otra página

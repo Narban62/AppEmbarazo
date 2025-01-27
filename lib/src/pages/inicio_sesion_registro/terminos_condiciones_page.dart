@@ -4,6 +4,8 @@ import 'package:app_embarazo/src/widgets/image_widget.dart';
 import 'package:app_embarazo/src/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 
+import '../home_page.dart';
+
 class TerminosCondicionesPaget extends StatefulWidget {
   const TerminosCondicionesPaget({super.key});
 
@@ -68,7 +70,11 @@ class _TerminosCondicionesPagetState extends State<TerminosCondicionesPaget> {
               buttonColor: colorButton,
               isEnabled: _isChecked,
               onPressed: () {
-                Navigator.pushNamed(context, '/registro');
+                Navigator.of(context).pushNamedAndRemoveUntil(
+                  '/home_page', // Nombre de la ruta configurada
+                      (route) => false, // Esto elimina todo el historial previo
+                );
+
               }),
         ]),
       ),

@@ -51,22 +51,13 @@ class _DietaPageState extends State<DietaPage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Expanded(
-                      child: Button(
-                        buttonName: 'Volver',
-                        buttonColor: colorButton,
-                        onPressed: () {
-                          Navigator.pushNamed(context, '/modulos');
-                        },
-                      ),
-                    ),
                     const SizedBox(width: 10), // Espacio entre los botones
                     Expanded(
                       child: Button(
                         buttonName: 'Siguiente',
                         buttonColor: colorButton,
                         onPressed: () {
-                          Navigator.pushNamed(context, '/dieta_seleccion_trimestre');
+                          Navigator.pushNamed(context, '/dieta_navegacion');
                         },
                       ),
                     ),

@@ -18,8 +18,9 @@ class DietaNavegacion extends StatelessWidget {
       body: Stack(
         children: [
           const AnimatedBackground(color: color), // Fondo animado
-          const AnimatedBubbles(), // Burbujas animadas
-          Column(
+          const AnimatedBubbles(),
+          SingleChildScrollView(// Burbujas animadas
+          child: Column(
             children: [
               const HeaderWidget(
                 color: color,
@@ -56,16 +57,9 @@ class DietaNavegacion extends StatelessWidget {
                   Navigator.pushNamed(context, '/dieta_agregar_receta');
                 },
               ),
-              Button(
-                buttonName: "Volver",
-                buttonColor: colorButton,
-                onPressed: () {
-                  Navigator.pushNamed(context, '/dieta');
-                },
-              ),
             ],
           ),
-
+          ),
         ],
       ),
     );

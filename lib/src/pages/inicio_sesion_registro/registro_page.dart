@@ -10,7 +10,8 @@ import 'package:app_embarazo/src/services/validators_service.dart'; // Validador
 import 'package:app_embarazo/src/services/snackbars_service.dart';
 
 import '../../widgets/background_widget.dart';
-import '../../widgets/bubble_widget.dart'; // Helper para snackbars
+import '../../widgets/bubble_widget.dart';
+import 'bienvenida_page.dart'; // Helper para snackbars
 
 class RegistroPage extends StatefulWidget {
   const RegistroPage({super.key});
@@ -27,9 +28,11 @@ class _RegistroPageState extends State<RegistroPage> {
   final TextEditingController _direccionController = TextEditingController();
   final TextEditingController _telefonoController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
+  //Agregar la intolerancia a algun alimento
+  final TextEditingController _intoleranciaController = TextEditingController();
+
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _confirmPasswordController =
-      TextEditingController();
+  final TextEditingController _confirmPasswordController = TextEditingController();
 
   final AuthService _authService = AuthService(); // Servicio de autenticación
 
@@ -40,13 +43,13 @@ class _RegistroPageState extends State<RegistroPage> {
     const Color colorBackground = Colors.white;
     const double spaceBetween = 10.0;
     return Scaffold(
-      backgroundColor: color1,
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+      body: Stack(
           children: [
-            const AnimatedBackground(color: color1), // Fondo animado
-            const AnimatedBubbles(), // Burbujas animadas
+          const AnimatedBackground(color: color1), // Fondo animado
+          const AnimatedBubbles(), // Burbujas animadas
+          SingleChildScrollView(
+          child: Column(
+          children: [// Burbujas animadas
             const HeaderWidget(
               color: color2,
               text: 'Información:',
@@ -152,6 +155,19 @@ class _RegistroPageState extends State<RegistroPage> {
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: CustomTextField(
+                    labelText: 'Intolerancia a algún alimento',
+                    controller: _intoleranciaController,
+                  ),
+                )),
+            const SizedBox(height: spaceBetween),
+            FractionallySizedBox(
+                widthFactor: 0.85, // Ancho del 75%
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: colorBackground,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: CustomTextField(
                     labelText: 'Contraseña',
                     controller: _passwordController,
                     isPassword: true,
@@ -178,11 +194,15 @@ class _RegistroPageState extends State<RegistroPage> {
               buttonName: "Registrar",
               buttonColor: color2,
               onPressed: _registerUser,
+
             ),
           ],
         ),
+          ),
+          ],
       ),
     );
+
   }
 
   // Método para registrar un nuevo usuario
@@ -193,12 +213,12 @@ class _RegistroPageState extends State<RegistroPage> {
 
     // Validar contraseñas
     String? passwordError =
-        Validators.validatePasswordMatch(password, confirmPassword);
+    Validators.validatePasswordMatch(password, confirmPassword);
     if (passwordError != null) {
       SnackbarHelper.show(context, passwordError);
       return;
     }
-  
+
     // Registrar usuario usando el AuthService
     String? errorMessage = await _authService.registerUser(
       email: email,
@@ -208,10 +228,27 @@ class _RegistroPageState extends State<RegistroPage> {
       cedula: _cedulaController.text,
       direccion: _direccionController.text,
       telefono: _telefonoController.text,
+      intolerancia: _intoleranciaController.text,
     );
 
-    SnackbarHelper.show(context, errorMessage ?? 'Registration successful');
+    if (errorMessage == null) {
+      // Registro exitoso
+      SnackbarHelper.show(context, '¡Registro exitoso!');
+
+      // Limpiar los campos
+      _clearFields();
+
+      // Navegar a la siguiente interfaz
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => WelcomePage()), // Cambiar por la pantalla deseada
+      );
+    } else {
+      // Mostrar error si el registro falló
+      SnackbarHelper.show(context, errorMessage);
     }
+  }
+
 
   // Método para limpiar los campos después del registro
   void _clearFields() {
@@ -223,5 +260,6 @@ class _RegistroPageState extends State<RegistroPage> {
     _emailController.clear();
     _passwordController.clear();
     _confirmPasswordController.clear();
+    _intoleranciaController.clear();
   }
 }

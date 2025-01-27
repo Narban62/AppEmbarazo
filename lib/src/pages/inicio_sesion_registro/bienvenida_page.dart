@@ -1,3 +1,4 @@
+import 'package:app_embarazo/src/pages/inicio_sesion_registro/terminos_condiciones_page.dart';
 import 'package:app_embarazo/src/widgets/button_widget.dart';
 import 'package:app_embarazo/src/widgets/header_widget.dart';
 import 'package:app_embarazo/src/widgets/image_widget.dart';
@@ -39,7 +40,10 @@ class _WelcomePageState extends State<WelcomePage> {
                 buttonName: 'Continuar',
                 buttonColor: colorButton,
                 onPressed: () {
-                  Navigator.pushNamed(context, '/terminos');
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => TerminosCondicionesPaget()), // Cambiar por la pantalla deseada
+                  );
                 })
           ],
         ),

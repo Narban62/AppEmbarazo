@@ -45,9 +45,6 @@ class _CalendarioPageState extends State<CalendarioPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Calendario Interactivo'),
-      ),
       body: Column(
         children: [
           TableCalendar(
