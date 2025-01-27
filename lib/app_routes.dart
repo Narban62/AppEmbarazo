@@ -128,30 +128,14 @@ class AppRoutes {
         selectedIndex: 6,
         onItemTapped: onItemTapped,
       ),
-      '/inicio_sesion': (context) => BaseScaffold(
-        body: const LoginPage(),
-        title: 'Inicio de Sesión',
-        selectedIndex: 7,
-        onItemTapped: onItemTapped,
-      ),
-      '/registro': (context) => BaseScaffold(
-        body: const RegistroPage(),
-        title: 'Registro',
-        selectedIndex: 8,
-        onItemTapped: onItemTapped,
-      ),
-      '/terminos': (context) => BaseScaffold(
-        body: const TerminosCondicionesPaget(),
-        title: 'Términos y Condiciones',
-        selectedIndex: 9,
-        onItemTapped: onItemTapped,
-      ),
-      '/welcome': (context) => BaseScaffold(
-        body: const WelcomePage(),
-        title: 'Bienvenido',
-        selectedIndex: 10,
-        onItemTapped: onItemTapped,
-      ),
+      '/inicio_sesion': (context) =>  const LoginPage(),
+      //7
+      '/registro': (context) => const RegistroPage(),
+      //8
+      '/terminos': (context) => const TerminosCondicionesPaget(),
+      //9
+      '/welcome': (context) => const WelcomePage(),
+      //10
       '/mente_guia': (context) => BaseScaffold(
         body: const MenteGuiaPage(),
         title: 'Mente Guía',

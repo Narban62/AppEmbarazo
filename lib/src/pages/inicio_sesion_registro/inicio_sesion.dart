@@ -1,3 +1,4 @@
+import 'package:app_embarazo/src/pages/home_page.dart';
 import 'package:app_embarazo/src/widgets/image_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:app_embarazo/src/widgets/button_widget.dart';
@@ -130,6 +131,7 @@ class _LoginPageState extends State<LoginPage> {
       String? errorMessage = await _authService.loginUser(email: email, password: password);
 
       if (errorMessage != null) {
+
         SnackbarHelper.show(context, errorMessage);
       }
         } else {
@@ -137,6 +139,22 @@ class _LoginPageState extends State<LoginPage> {
       SnackbarHelper.show(context, emailError ?? 'Error desconocido'); // Mostrar error de email
           SnackbarHelper.show(context, passwordError ?? 'Error desconocido'); // Mostrar error de contraseña
         }
+    String? errorMessage = await _authService.loginUser(email: email, password: password);
+
+    if (errorMessage == null) {
+      // Registro exitoso
+      SnackbarHelper.show(context, '¡Inicio de sesión exitoso!');
+
+      // Limpiar los campos
+      _clearFields();
+
+      // Navegar a la siguiente interfaz
+      Navigator.pushNamed(context, '/home_page');
+    } else {
+      // Mostrar error si el registro falló
+      SnackbarHelper.show(context, errorMessage);
+    }
+
   }
 
   // Método para limpiar los campos después del inicio de sesión
