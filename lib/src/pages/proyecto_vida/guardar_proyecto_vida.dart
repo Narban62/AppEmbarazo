@@ -1,42 +1,88 @@
+import 'package:app_embarazo/src/widgets/textfield_widget_proyecto.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart'; // Firebase Auth
-import 'package:cloud_firestore/cloud_firestore.dart'; // Firestore
-import 'package:app_embarazo/src/widgets/button_widget.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:app_embarazo/src/widgets/header_widget.dart';
 import 'package:app_embarazo/src/services/user_service.dart';
 import '../../widgets/textfield_widget.dart';
 
-class GuardarProyectoVidaPage extends StatefulWidget {
-  const GuardarProyectoVidaPage({super.key});
+class MostrarProyectoVidaPage extends StatefulWidget {
+  const MostrarProyectoVidaPage({super.key});
 
   @override
-  State<GuardarProyectoVidaPage> createState() => _GuardarProyectoVidaPageState();
+  State<MostrarProyectoVidaPage> createState() => _MostrarProyectoVidaPageState();
 }
 
-class _GuardarProyectoVidaPageState extends State<GuardarProyectoVidaPage> {
-  final UserService _userService = UserService(); // Instancia de UserService
-  final TextEditingController autoconocimientoController = TextEditingController(); // Controlador para Autoconocimiento
-  final TextEditingController visualizacionController = TextEditingController(); // Controlador para Visualización
-  final TextEditingController metasController = TextEditingController(); // Controlador para Metas
-  String nombreUsuario = ''; // Aquí se almacenará el nombre del usuario
+class _MostrarProyectoVidaPageState extends State<MostrarProyectoVidaPage> {
+  final UserService _userService = UserService();
+  final TextEditingController autoconocimientoController = TextEditingController();
+  final TextEditingController interesesVocacionalesController = TextEditingController();
+  final TextEditingController situacionLaboralController = TextEditingController();
+  final TextEditingController decisionesController = TextEditingController();
+  String nombreUsuario = '';
 
   @override
   void initState() {
     super.initState();
-    obtenerNombreUsuario(); // Llamamos a la función para obtener el nombre
+    obtenerNombreUsuario();
   }
 
-  // Función para obtener el nombre utilizando el servicio
   Future<void> obtenerNombreUsuario() async {
-    String nombre = await _userService.obtenerNombreUsuario();
-    setState(() {
-      nombreUsuario = nombre;
-    });
+    try {
+      String nombre = await _userService.obtenerNombreCompleto();
+      setState(() {
+        nombreUsuario = nombre;
+      });
+      obtenerProyectoDeVida();  // Llamar solo después de obtener el nombre
+    } catch (e) {
+      print("Error al obtener el nombre: $e");
+      setState(() {
+        nombreUsuario = 'Usuario no encontrado';  // Mensaje de error para el nombre
+      });
+    }
+  }
+
+  Future<void> obtenerProyectoDeVida() async {
+    try {
+      User? usuario = FirebaseAuth.instance.currentUser;
+      if (usuario != null) {
+        String uid = usuario.uid;
+        print("UID del usuario: $uid"); // Depuración: verificar UID
+
+        DocumentSnapshot documento = await FirebaseFirestore.instance
+            .collection('proyecto_vida')
+            .doc(nombreUsuario)
+            .get();
+
+        if (documento.exists) {
+          var data = documento.data() as Map<String, dynamic>;
+
+          // Verificar los datos recibidos
+          print("Datos obtenidos de Firestore: $data");
+
+          setState(() {
+            autoconocimientoController.text = data['autoconocimiento'] ?? '';
+            interesesVocacionalesController.text = data['interesesvoc'] ?? '';
+            situacionLaboralController.text = data['situacionlaboral'] ?? ''; // Corregir el campo
+            decisionesController.text = data['decisiones'] ?? '';
+          });
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('No hay datos guardados')),
+          );
+        }
+      }
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Error al obtener datos: $e')),
+      );
+      print("Error al obtener datos: $e"); // Depuración: imprimir error
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    const Color color = Color(0xffB4FF9A);
+    const Color color = Color(0xffd6f8ca);
     const Color colorButton = Color(0xff007900);
 
     return Scaffold(
@@ -44,89 +90,56 @@ class _GuardarProyectoVidaPageState extends State<GuardarProyectoVidaPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // El saludo dinámico se pasa al HeaderWidget
             HeaderWidget(
               color: colorButton,
               text: 'Proyecto de Vida de $nombreUsuario',
               isSubtitle: true,
-              showButton: true,
+              showButton: false,
             ),
-            const Padding(padding: EdgeInsets.only(bottom: 20.0)),
+            const SizedBox(height: 20),
 
             // Campo para "Autoconocimiento"
-            CustomTextField(
+            CustomTextFieldProyecto(
               labelText: 'Autoconocimiento',
               controller: autoconocimientoController,
               isPassword: false,
               keyboardType: TextInputType.text,
+              readOnly: true, // Para que no se pueda editar
             ),
-            const Padding(padding: EdgeInsets.only(bottom: 20.0)),
+            const SizedBox(height: 20),
 
-            // Campo para "Visualización"
-            CustomTextField(
-              labelText: 'Visualización',
-              controller: visualizacionController,
+            // Campo para "Intereses Vocacionales"
+            CustomTextFieldProyecto(
+              labelText: 'Intereses Vocacionales',
+              controller: interesesVocacionalesController,
               isPassword: false,
               keyboardType: TextInputType.text,
+              readOnly: true,
             ),
-            const Padding(padding: EdgeInsets.only(bottom: 20.0)),
+            const SizedBox(height: 20),
 
-            // Campo para "Metas"
-            CustomTextField(
-              labelText: 'Metas',
-              controller: metasController,
+            // Campo para "Situación Laboral"
+            CustomTextFieldProyecto(
+              labelText: 'Situación Laboral',
+              controller: situacionLaboralController,
               isPassword: false,
               keyboardType: TextInputType.text,
+              readOnly: true,
             ),
-            const Padding(padding: EdgeInsets.only(bottom: 40.0)),
+            const SizedBox(height: 20),
 
-            // Botón para guardar
-            Button(
-              buttonName: 'Guardar',
-              buttonColor: colorButton,
-              onPressed: guardarProyectoDeVida, // Función para guardar en Firebase
+            // Campo para "Decisiones"
+            CustomTextFieldProyecto(
+              labelText: 'Decisiones',
+              controller: decisionesController,
+              isPassword: false,
+              keyboardType: TextInputType.text,
+              readOnly: true,
             ),
-            const Padding(padding: EdgeInsets.only(bottom: 20.0)),
+            const SizedBox(height: 40),
           ],
         ),
       ),
     );
   }
-
-  // Función para guardar los datos en Firebase
-  Future<void> guardarProyectoDeVida() async {
-    try {
-      User? usuario = FirebaseAuth.instance.currentUser; // Obtenemos el usuario actual
-
-      if (usuario != null) {
-        String uid = usuario.uid; // Obtenemos el uid del usuario autenticado
-
-        // Crear un documento en la colección 'proyecto de vida' usando el uid del usuario
-        await FirebaseFirestore.instance.collection('proyecto_vida').doc(uid).set({
-          'autoconocimiento': autoconocimientoController.text,
-          'visualizacion': visualizacionController.text,
-          'metas': metasController.text,
-          'fecha': DateTime.now(), // Podemos añadir la fecha de creación
-        });
-
-        // Mostrar un mensaje de éxito
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Datos guardados exitosamente')),
-        );
-      } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Usuario no autenticado')),
-        );
-      }
-    } catch (e) {
-      // En caso de error, mostramos un mensaje de error
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Error al guardar datos: $e')),
-      );
-    }
-  }
-}
-
-void test() {
-  print("test Josue");
 }

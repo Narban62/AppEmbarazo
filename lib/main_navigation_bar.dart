@@ -177,7 +177,7 @@ class _MainNavigationBarState extends State<MainNavigationBar> {
     );
     case '/guardar_proyecto_vida':
     return MaterialPageRoute(
-    builder: (context) => const GuardarProyectoVidaPage(),
+    builder: (context) => const MostrarProyectoVidaPage(),
     );
     case '/dieta':
     return MaterialPageRoute(

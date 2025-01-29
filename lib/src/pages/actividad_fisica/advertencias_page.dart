@@ -21,12 +21,7 @@ class ContraindicacionesPage1 extends StatelessWidget {
         'Otro trastorno cardiovascular, respiratorio o sistémico grave',
       ],
       onSiPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const ContraindicacionesPage2(),
-          ),
-        );
+        Navigator.pushNamed(context, '/advertencias_page_2');
       },
     );
   }
@@ -72,9 +67,6 @@ class ContraindicacionesWidget extends StatelessWidget {
     const String imagesrc = 'assets/images/inicio/inicio_sesion.jpg';
     const Color colorButton = Colors.orange;
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Contraindicaciones'),
-      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(

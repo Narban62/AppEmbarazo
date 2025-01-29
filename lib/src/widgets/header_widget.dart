@@ -87,13 +87,7 @@ class HeaderWidget extends StatelessWidget {
                   )
                 ],
               ),
-              child: IconButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/modulos');
-                },
-                icon: Icon(Icons.home, color: color, size: 30.0),
-              ),
-            )
+            ),
         ],
       ),
     );
