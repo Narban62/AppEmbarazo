@@ -17,12 +17,12 @@ class _TrimestresPageState extends State<TrimestresPage> {
   Widget build(BuildContext context) {
     const String imagesrc = 'assets/images/actividad_fisica/ejercicio3.jpeg';
     return Scaffold(
-      backgroundColor: const Color(0xffFCDEE7),
+      backgroundColor: const Color(0xffFFC5AA),
       body: SingleChildScrollView( // Agregado para evitar el overflow
         child: Column(
           children: [
             const HeaderWidget(
-              color: Color(0xffF75B89),
+              color: Color(0xffFF8243),
               text: 'Entrenamiento',
               isSubtitle: true,
               showButton: false,
@@ -33,19 +33,19 @@ class _TrimestresPageState extends State<TrimestresPage> {
 
             Button(
                 buttonName: "Primer Trimestre",
-                buttonColor: const Color(0xffF75B89),
+                buttonColor: const Color(0xffFF8243),
                 onPressed: () {
                   Navigator.pushNamed(context, '/primer_trimestre');
                 }),
             Button(
                 buttonName: "Segundo Trimestre",
-                buttonColor: const Color(0xffF75B89),
+                buttonColor: const Color(0xffFF8243),
                 onPressed: () {
                   Navigator.pushNamed(context, '/segundo_trimestre');
                 }),
             Button(
                 buttonName: "Tercer Trimestre",
-                buttonColor: const Color(0xffF75B89),
+                buttonColor: const Color(0xffFF8243),
                 onPressed: () {
                   Navigator.pushNamed(context, '/tercer_trimestre');
                 }),

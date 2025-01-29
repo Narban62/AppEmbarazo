@@ -43,15 +43,7 @@ class _DietaPageState extends State<DietaMarisco> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     const SizedBox(width: 10), // Espacio entre los botones
-                    Expanded(
-                      child: Button(
-                        buttonName: 'Volver',
-                        buttonColor: colorButton,
-                        onPressed: () {
-                          Navigator.pushNamed(context, '/dieta_evitar');
-                        },
-                      ),
-                    ),
+                    
                   ],
                 ),
               )

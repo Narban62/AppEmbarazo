@@ -26,9 +26,17 @@ class HeaderWidget extends StatelessWidget {
             ? Colors.white
             : Colors.black);
 
+    // Convertir el texto a minúsculas y capitalizar la primera letra después de un símbolo de exclamación o pregunta
+    String formattedText = text.toLowerCase();
+    if (formattedText.startsWith('¿') || formattedText.startsWith('¡')) {
+      formattedText = formattedText[0] + formattedText[1].toUpperCase() + formattedText.substring(2);
+    } else {
+      formattedText = formattedText[0].toUpperCase() + formattedText.substring(1);
+    }
+
     // Titulo
     TextStyle titleStyle = TextStyle(
-      fontSize: 34.0,
+      fontSize: 30.0,
       fontWeight: FontWeight.w700,
       color: finalTextColor,
       letterSpacing: 1.8,
@@ -61,39 +69,16 @@ class HeaderWidget extends StatelessWidget {
         ],
       ),
       child: Row(
-        mainAxisAlignment: showButton
-            ? MainAxisAlignment.spaceBetween
-            : MainAxisAlignment.center,
         children: [
           Expanded(
             child: Text(
-              text,
+              formattedText,
               textAlign: textAlign,
               style: isSubtitle ? subtitleStyle : titleStyle,
               softWrap: true,
               overflow: TextOverflow.visible,
             ),
           ),
-          if (showButton)
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(14.0),
-                boxShadow: [
-                  BoxShadow(
-                    color: color.withOpacity(0.7),
-                    blurRadius: 10.0,
-                    offset: const Offset(0, 6),
-                  )
-                ],
-              ),
-              child: IconButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/modulos');
-                },
-                icon: Icon(Icons.home, color: color, size: 30.0),
-              ),
-            )
         ],
       ),
     );

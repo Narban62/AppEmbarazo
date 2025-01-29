@@ -105,81 +105,123 @@ class _VideoWidgetState extends State<VideoWidget> {
         ],
       ),
       padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-      child: Row(
-        children: [
-          // Caja de texto centrada verticalmente
-          Expanded(
-            flex: 2,
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    widget.description ?? '',
-                    maxLines: 5,  
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(fontSize: 16, color: Colors.black),
-                  ),
-                  if (_isOverflowing)
-                    TextButton(
-                      onPressed: () {
-                        _showFullDescription(context, widget.description!);
-                      },
-                      child: Text(
-                        'Ver más',
-                        style: TextStyle(color: Colors.blue),
-                      ),
+      child: widget.description == null || widget.description!.isEmpty
+          ? Center(
+              child: GestureDetector(
+                onTap: () async {
+                  final videoUrl = await FirebaseStorage.instance
+                      .ref(widget.videoUrl)
+                      .getDownloadURL();
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          FullscreenVideoPage(videoUrl: videoUrl),
                     ),
-                ],
+                  );
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.black12,
+                  ),
+                  child: _isVideoReady
+                      ? Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            AspectRatio(
+                              aspectRatio: _controller.value.aspectRatio,
+                              child: VideoPlayer(_controller),
+                            ),
+                            if (!_isPlaying)
+                              Icon(Icons.play_arrow, size: 50, color: Colors.white)
+                          ],
+                        )
+                      : CircularProgressIndicator(),
+                ),
               ),
-            ),
-          ),
-          
-          // Video o imagen
-          Container(
-            width: 120,
-            height: 120,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Colors.black12,
-            ),
-            child: _isVideoReady
-                ? GestureDetector(
-                    onTap: () async {
-                      final videoUrl = await FirebaseStorage.instance
-                          .ref(widget.videoUrl)
-                          .getDownloadURL();
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              FullscreenVideoPage(videoUrl: videoUrl),
-                        ),
-                      );
-                    },
-                    child: Stack(
-                      alignment: Alignment.center,
+            )
+          : Row(
+              children: [
+                // Caja de texto centrada verticalmente
+                Expanded(
+                  flex: 2,
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        AspectRatio(
-                          aspectRatio: _controller.value.aspectRatio,
-                          child: VideoPlayer(_controller),
+                        Text(
+                          widget.description ?? '',
+                          maxLines: 5,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(fontSize: 16, color: Colors.black),
                         ),
-                        if (!_isPlaying)
-                          Icon(Icons.play_arrow, size: 50, color: Colors.white)
+                        if (_isOverflowing)
+                          TextButton(
+                            onPressed: () {
+                              _showFullDescription(context, widget.description!);
+                            },
+                            child: Text(
+                              'Ver más',
+                              style: TextStyle(color: Colors.blue),
+                            ),
+                          ),
                       ],
                     ),
-                  )
-                : CachedNetworkImage(
-                    imageUrl: widget.videoImage,
-                    placeholder: (context, url) =>
-                        CircularProgressIndicator(),
-                    errorWidget: (context, url, error) => Icon(Icons.error),
-                    fit: BoxFit.cover,
                   ),
-          ),
-        ],
-      ),
+                ),
+                
+                // Video o imagen
+                Container(
+                  width: 120,
+                  height: 120,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.black12,
+                  ),
+                  child: _isVideoReady
+                      ? GestureDetector(
+                          onTap: () async {
+                            final videoUrl = await FirebaseStorage.instance
+                                .ref(widget.videoUrl)
+                                .getDownloadURL();
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    FullscreenVideoPage(videoUrl: videoUrl),
+                              ),
+                            );
+                          },
+                          child: Stack(
+                            alignment: Alignment.center,
+                            children: [
+                              AspectRatio(
+                                aspectRatio: _controller.value.aspectRatio,
+                                child: VideoPlayer(_controller),
+                              ),
+                              if (!_isPlaying)
+                                Icon(Icons.play_arrow, size: 50, color: Colors.white)
+                            ],
+                          ),
+                        )
+                      : CachedNetworkImage(
+                          imageUrl: widget.videoImage,
+                          placeholder: (context, url) =>
+                              CircularProgressIndicator(),
+                          errorWidget: (context, url, error) => Icon(Icons.error),
+                          fit: BoxFit.cover,
+                        ),
+                ),
+              ],
+            ),
     );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 }

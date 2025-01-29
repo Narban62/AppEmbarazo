@@ -18,7 +18,7 @@ class SegundoInstruccionesPageState extends State<SegundoInstruccionesPage> {
   Widget build(BuildContext context) {
     const bgColor = Color(0xffFFC5AA);
     const Color colorButton = Color(0xffFF8243);
-    const Color bgVideoColor = Color.fromARGB(255, 248, 140, 172);
+    const Color bgVideoColor = Color.fromARGB(255, 250, 164, 125);
     const String videoImage = '';
     const String flexiones =
         'videos/psicoprofilaxis/actividad fisica/segundo trimestre/1 FLEXIONES INCLINADAS.mp4';

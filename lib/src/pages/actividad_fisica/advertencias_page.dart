@@ -7,27 +7,29 @@ class ContraindicacionesPage1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ContraindicacionesWidget(
-      titulo: 'LA ACTIVIDAD FÍSICA ESTÁ CONTRAINDICADA EN LOS SIGUIENTES CASOS',
-      contenido: [
-        'Ruptura de membranas',
-        'Sangrado vaginal persistente inexplicable',
-        'Presión alta o Preeclampsia',
-        'Cuello uterino incompetente',
-        'Embarazo múltiple (trillizos o más)',
-        'Diabetes tipo 1 no controlada',
-        'Hipertensión no controlada',
-        'Enfermedad tiroidea no controlada',
-        'Otro trastorno cardiovascular, respiratorio o sistémico grave',
-      ],
-      onSiPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const ContraindicacionesPage2(),
-          ),
-        );
-      },
+    return Scaffold(
+      body: ContraindicacionesWidget(
+        titulo: 'LA ACTIVIDAD FÍSICA ESTÁ CONTRAINDICADA EN LOS SIGUIENTES CASOS',
+        contenido: [
+          'Ruptura de membranas',
+          'Sangrado vaginal persistente inexplicable',
+          'Presión alta o Preeclampsia',
+          'Cuello uterino incompetente',
+          'Embarazo múltiple (trillizos o más)',
+          'Diabetes tipo 1 no controlada',
+          'Hipertensión no controlada',
+          'Enfermedad tiroidea no controlada',
+          'Otro trastorno cardiovascular, respiratorio o sistémico grave',
+        ],
+        onSiPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const ContraindicacionesPage2(),
+            ),
+          );
+        },
+      ),
     );
   }
 }
@@ -38,6 +40,7 @@ class ContraindicacionesPage2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ContraindicacionesWidget(
+      
       titulo: 'OTROS CASOS DONDE SE DEBE CONSULTAR AL MÉDICO',
       contenido: [
         'Dolor de cabeza severo',
@@ -72,9 +75,6 @@ class ContraindicacionesWidget extends StatelessWidget {
     const String imagesrc = 'assets/images/inicio/inicio_sesion.jpg';
     const Color colorButton = Colors.orange;
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Contraindicaciones'),
-      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(

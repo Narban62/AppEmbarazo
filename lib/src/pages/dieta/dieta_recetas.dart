@@ -23,7 +23,7 @@ class _DietaPageState extends State<DietaRecetas> {
           children: [
             const HeaderWidget(
               color: colorButton,
-              text: '\nCada bocado cuenta',
+              text: 'Cada bocado cuenta',
               isSubtitle: true,
               showButton: true,
             ),
@@ -113,11 +113,7 @@ class _DietaPageState extends State<DietaRecetas> {
             ),
             Padding(
               padding: const EdgeInsets.all(16.0),
-              child: Button(
-                buttonName: 'Volver',
-                buttonColor: colorButton,
-                onPressed: (){Navigator.pushNamed(context, '/dieta_navegacion');},
-              ),
+              
             ),
           ],
         ),

@@ -24,7 +24,7 @@ class _DietaEvitarState extends State<DietaEvitar> {
             // Encabezados
             const HeaderWidget(
               color: colorButton,
-              text: '\nCada bocado cuenta',
+              text: 'Cada bocado cuenta',
               isSubtitle: true,
               showButton: true,
             ),
@@ -92,14 +92,7 @@ class _DietaEvitarState extends State<DietaEvitar> {
               ),
             ),
 
-            // Botón de volver
-            ButtonBack(
-              text: 'Volver',
-              backgroundColor: colorButton, // Cambia el color según sea necesario
-              onPressed: () {
-                Navigator.pushNamed(context, '/dieta_navegacion');
-              },
-            ),
+        
           ],
         ),
       ),

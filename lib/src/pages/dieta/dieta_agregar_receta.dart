@@ -74,15 +74,7 @@ class _DietaPageState extends State<DietaAgregarReceta> {
                     ),
                   ),
                   const SizedBox(width: 10), // Espacio entre los botones
-                  Expanded(
-                    child: Button(
-                      buttonName: 'Volver',
-                      buttonColor: colorButton,
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/dieta_navegacion');
-                      },
-                    ),
-                  ),
+                 
                 ],
               ),
             ),

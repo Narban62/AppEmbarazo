@@ -39,13 +39,7 @@ class _DietaPageState extends State<DietaEmbutidos> {
               const TextWidget(
                   text:
                   'Esta es toda la informacion acerca de los embutidos'),
-              ButtonBack(
-                text: 'Volver',
-                backgroundColor: colorButton, // Cambia el color según sea necesario
-                onPressed: () {
-                  Navigator.pushNamed(context, '/dieta_navegacion');
-                },
-              ),
+              
             ],
           ),
         ));

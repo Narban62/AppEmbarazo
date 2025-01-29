@@ -18,7 +18,7 @@ class InstruccionesCalentamientoStateState extends State<InstruccionesCalentamie
   Widget build(BuildContext context) {
     const bgColor = Color(0xffFFC5AA);
     const Color colorButton = Color(0xffFF8243);
-    const Color bgVideoColor = Color.fromARGB(255, 248, 140, 172);
+    const Color bgVideoColor = Color.fromARGB(255, 250, 164, 125);
     const String videoImage = '';
     const String hombros =
         'videos/psicoprofilaxis/actividad fisica/calentamiento/1 ROTACIÓN DE HOMBROS.mp4';

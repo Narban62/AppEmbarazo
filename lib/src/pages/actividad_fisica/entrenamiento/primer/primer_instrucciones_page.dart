@@ -18,7 +18,7 @@ class PrimerInstruccionesPageState extends State<PrimerInstruccionesPage> {
   Widget build(BuildContext context) {
     const bgColor = Color(0xffFFC5AA);
     const Color colorButton = Color(0xffFF8243);
-    const Color bgVideoColor = Color.fromARGB(255, 248, 140, 172);
+    const Color bgVideoColor = Color.fromARGB(255, 250, 164, 125);
     const String videoImage = '';
     const String lumbar =
         'videos/psicoprofilaxis/actividad fisica/primer trimestre/1 ESTIRAMIENTO LUMBAR.mp4';

@@ -29,7 +29,7 @@ class _DietaPageState extends State<DietaNutricional> {
           children: [
             const HeaderWidget(
               color: colorButton,
-              text: '\nCada bocado cuenta',
+              text: 'Cada bocado cuenta',
               isSubtitle: true,
               showButton: true,
             ),
@@ -194,15 +194,7 @@ class _DietaPageState extends State<DietaNutricional> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const SizedBox(width: 10), // Espacio entre los botones
-                  Expanded(
-                    child: Button(
-                      buttonName: 'Volver',
-                      buttonColor: colorButton,
-                      onPressed: (){
-                        Navigator.pushNamed(context, '/dieta_navegacion');
-                      },
-                    ),
-                  ),
+                 
                 ],
               ),
             ),

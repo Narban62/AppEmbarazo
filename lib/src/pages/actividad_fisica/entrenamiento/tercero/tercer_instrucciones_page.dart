@@ -18,7 +18,7 @@ class TercerInstruccionesPageState extends State<TercerInstruccionesPage> {
   Widget build(BuildContext context) {
     const bgColor = Color(0xffFFC5AA);
     const Color colorButton = Color(0xffFF8243);
-    const Color bgVideoColor = Color.fromARGB(255, 248, 140, 172);
+    const Color bgVideoColor = Color.fromARGB(255, 250, 164, 125);
     const String videoImage = '';
     const String arqueo =
         'videos/psicoprofilaxis/actividad fisica/tercer trimestre/1 ARQUEO DE COLUMNA.mp4';

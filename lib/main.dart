@@ -200,6 +200,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'App Embarazo',
       initialRoute: '/',
       routes: AppRoutes.getRoutes(_onItemTapped, _selectedIndex),
