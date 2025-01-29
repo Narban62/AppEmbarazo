@@ -26,7 +26,7 @@ class _DietaPageState extends State<DietaEmbutidos> {
             children: [
               const HeaderWidget(
                 color: colorButton,
-                text: 'Dieta:\nCada bocado cuenta \nEmbutidos',
+                text: 'No comas embutidos, ni similares',
                 isSubtitle: true,
                 showButton: true,
               ),
@@ -38,8 +38,12 @@ class _DietaPageState extends State<DietaEmbutidos> {
               ),
               const TextWidget(
                   text:
+<<<<<<< HEAD
                   'Esta es toda la informacion acerca de los embutidos'),
               
+=======
+                  'Durante el embarazo, tienes mayor riesgo de sufrir una intoxicación alimentaria a causa de las bacterias. Es una enfermedad transmitida por los alimentos.'),
+>>>>>>> TestLuis
             ],
           ),
         ));

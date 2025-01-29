@@ -32,8 +32,6 @@ import 'package:app_embarazo/src/pages/calidad_vida/cuerpo_motor_page.dart';
 import 'package:app_embarazo/src/pages/calidad_vida/etapas_embarazo_page.dart';
 import 'package:app_embarazo/src/pages/calidad_vida/habitos_page.dart';
 import 'package:app_embarazo/src/pages/calidad_vida/mente_guia_page.dart';
-
-import 'package:app_embarazo/src/pages/dieta/dieta_agregar_receta.dart';
 import 'package:app_embarazo/src/pages/dieta/dieta_carne_cruda.dart';
 import 'package:app_embarazo/src/pages/dieta/dieta_embutidos.dart';
 import 'package:app_embarazo/src/pages/dieta/dieta_evitar.dart';
@@ -41,8 +39,6 @@ import 'package:app_embarazo/src/pages/dieta/dieta_marisco.dart';
 import 'package:app_embarazo/src/pages/dieta/dieta_navegacion.dart';
 import 'package:app_embarazo/src/pages/dieta/dieta_nutricional.dart';
 import 'package:app_embarazo/src/pages/dieta/dieta_pescado.dart';
-import 'package:app_embarazo/src/pages/dieta/dieta_receta_1.dart';
-import 'package:app_embarazo/src/pages/dieta/dieta_receta_2.dart';
 import 'package:app_embarazo/src/pages/dieta/dieta_recetas.dart';
 import 'package:app_embarazo/src/pages/dieta/dieta_seleccion_trimestre.dart';
 import 'package:app_embarazo/src/pages/dieta/plan_dieta.dart';
@@ -219,18 +215,7 @@ class _MainNavigationBarState extends State<MainNavigationBar> {
     return MaterialPageRoute(
     builder: (context) => const DietaRecetas(),
     );
-    case '/dieta_agregar_receta':
-    return MaterialPageRoute(
-    builder: (context) => const DietaAgregarReceta(),
-    );
-    case '/dieta_receta_1':
-    return MaterialPageRoute(
-    builder: (context) => const DietaReceta1(),
-    );
-    case '/dieta_receta_2':
-    return MaterialPageRoute(
-    builder: (context) => const DietaReceta2(),
-    );
+
     case '/psicoprofilaxis':
     return MaterialPageRoute(
     builder: (context) => const HomePsicoPage(),

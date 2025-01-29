@@ -71,28 +71,31 @@ class _DietaEvitarState extends State<DietaEvitar> {
                 children: [
                   Expanded(
                     child: SquareButton(
-                      imageSrc: 'assets/images/dieta/dieta 1.jpg',
-                      text: 'Marisco crudo',
+                      imageSrc: 'assets/images/dieta/cafe.jpeg',
+                      text: 'No cafeína',
                       onPressed: () {
-                        Navigator.pushNamed(context, '/dieta_marisco');
+                        Navigator.pushNamed(context, '/dieta_cafeina');
                       },
                     ),
                   ),
                   const SizedBox(width: 16),
                   Expanded(
                     child: SquareButton(
-                      imageSrc: 'assets/images/dieta/dieta 1.jpg',
-                      text: 'Carne cruda',
+                      imageSrc: 'assets/images/dieta/cerveza.jpeg',
+                      text: 'No alcohol',
                       onPressed: () {
-                        Navigator.pushNamed(context, '/dieta_carne_cruda');
+                        Navigator.pushNamed(context, '/dieta_cerveza');
                       },
                     ),
                   ),
                 ],
               ),
             ),
+<<<<<<< HEAD
 
         
+=======
+>>>>>>> TestLuis
           ],
         ),
       ),

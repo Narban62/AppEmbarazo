@@ -11,10 +11,6 @@ class _DietaPageState extends State<MealPlanScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Plan de Comidas'),
-        backgroundColor: Colors.teal,
-      ),
       body: ListView(
         padding: EdgeInsets.all(8.0),
         children: [

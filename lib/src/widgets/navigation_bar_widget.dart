@@ -24,7 +24,7 @@ class CustomNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     assert(
-    selectedIndex >= 0 && selectedIndex < 60,
+    selectedIndex >= 0 && selectedIndex < 100,
     'El índice seleccionado ($selectedIndex) está fuera del rango permitido.',
     );
     return BottomNavigationBar(

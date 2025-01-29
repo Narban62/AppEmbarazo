@@ -24,20 +24,11 @@ class _DietaPageState extends State<DietaPage> {
             children: [
               const HeaderWidget(
                 color: colorButton,
-                text: 'Dieta:\nCada bocado cuenta',
+                text: 'Cada bocado cuenta',
                 isSubtitle: true,
                 showButton: true,
               ),
               const ImagenWidget(imagesrc: 'assets/images/dieta/dieta.jpeg', isPrincipal: true),
-              const HeaderWidget(
-                text: 'Recetas:',
-                color: color,
-                isSubtitle: true,
-              ),
-              const TextWidget(
-                  text:
-                      'Descubre nutritivas y deliciosas recetas aptas para tus requerimientos, preparadas con la ayuda de profesionales de la salud.\nDisfruta de cada comida durante cada trimestre de tu embarazo, las cuales favorecerán tu salud y el desarrollo de tu bebé.\nEmpecemos juntas a explorar y crea, junto a nosotras, tu mejor plato.'),
-              const ImagenWidget(imagesrc: 'assets/images/dieta/Dieta3.jpeg', isPrincipal: true),
               const HeaderWidget(
                 text: 'Alimentos:',
                 color: color,
