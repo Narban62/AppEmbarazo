@@ -24,7 +24,7 @@ class _DietaPageState extends State<DietaMarisco> {
             children: [
               const HeaderWidget(
                 color: colorButton,
-                text: 'Dieta:\nCada bocado cuenta \nMarisco Crudo',
+                text: 'No comas marisco crudo, ni smilares',
                 isSubtitle: true,
                 showButton: true,
               ),
@@ -36,22 +36,13 @@ class _DietaPageState extends State<DietaMarisco> {
               ),
               const TextWidget(
                   text:
-                  'Esta es toda la informacion acerca de el marisco crudo'),
+                  'Algunos pescados y mariscos contienen niveles potencialmente dañinos de mercurio. Demasiado mercurio podría dañar el sistema nervioso en desarrollo de tu  bebé.'),
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     const SizedBox(width: 10), // Espacio entre los botones
-                    Expanded(
-                      child: Button(
-                        buttonName: 'Volver',
-                        buttonColor: colorButton,
-                        onPressed: () {
-                          Navigator.pushNamed(context, '/dieta_evitar');
-                        },
-                      ),
-                    ),
                   ],
                 ),
               )

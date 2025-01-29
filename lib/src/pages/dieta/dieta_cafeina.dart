@@ -4,14 +4,14 @@ import 'package:app_embarazo/src/widgets/image_widget.dart';
 import 'package:app_embarazo/src/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 
-class DietaReceta1 extends StatefulWidget {
-  const DietaReceta1({super.key});
+class DietaCafeina extends StatefulWidget {
+  const DietaCafeina({super.key});
 
   @override
-  State<DietaReceta1> createState() => _DietaPageState();
+  State<DietaCafeina> createState() => _DietaPageState();
 }
 
-class _DietaPageState extends State<DietaReceta1> {
+class _DietaPageState extends State<DietaCafeina> {
   @override
   Widget build(BuildContext context) {
     const Color color = Color(0xffAEDAFE);
@@ -24,38 +24,25 @@ class _DietaPageState extends State<DietaReceta1> {
             children: [
               const HeaderWidget(
                 color: colorButton,
-                text: 'Dieta:\nCada bocado cuenta \nReceta 1',
+                text: 'No bebas demasiado cafeína',
                 isSubtitle: true,
                 showButton: true,
               ),
-              const ImagenWidget(imagesrc: 'assets/images/dieta/embutidos .jpg', isPrincipal: true),
+              const ImagenWidget(imagesrc: 'assets/images/dieta/cafe.jpeg', isPrincipal: true),
               const HeaderWidget(
-                text: '30 minutos',
+                text: 'Información:',
                 color: color,
                 isSubtitle: true,
               ),
               const TextWidget(
                   text:
-                  'Informacion de los alimentos:\nEsta receta es beneficiosa, etc'),
-              const TextWidget(
-                  text:
-                  'Ingredientes:\n-Pollo\n-etc'),
-
+                  'limita la cafeína a menos de 200 miligramos (mg) al día. Una taza de 8 onzas (240 mililitros, o ml) de café filtrado contiene alrededor de 95 mg de cafeína, puede producir taquicardia en la embarazada y bajo peso al nacer.'),
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     const SizedBox(width: 10), // Espacio entre los botones
-                    Expanded(
-                      child: Button(
-                        buttonName: 'Volver',
-                        buttonColor: colorButton,
-                        onPressed: () {
-                          Navigator.pushNamed(context, '/dieta_recetas');
-                        },
-                      ),
-                    ),
                   ],
                 ),
               )

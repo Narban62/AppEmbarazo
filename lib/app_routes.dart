@@ -26,17 +26,16 @@ import 'package:app_embarazo/src/pages/calidad_vida/cuerpo_motor_page.dart';
 import 'package:app_embarazo/src/pages/calidad_vida/etapas_embarazo_page.dart';
 import 'package:app_embarazo/src/pages/calidad_vida/habitos_page.dart';
 import 'package:app_embarazo/src/pages/calidad_vida/mente_guia_page.dart';
+import 'package:app_embarazo/src/pages/dieta/dieta_cafeina.dart';
 
-import 'package:app_embarazo/src/pages/dieta/dieta_agregar_receta.dart';
 import 'package:app_embarazo/src/pages/dieta/dieta_carne_cruda.dart';
+import 'package:app_embarazo/src/pages/dieta/dieta_cerveza.dart';
 import 'package:app_embarazo/src/pages/dieta/dieta_embutidos.dart';
 import 'package:app_embarazo/src/pages/dieta/dieta_evitar.dart';
 import 'package:app_embarazo/src/pages/dieta/dieta_marisco.dart';
 import 'package:app_embarazo/src/pages/dieta/dieta_navegacion.dart';
 import 'package:app_embarazo/src/pages/dieta/dieta_nutricional.dart';
 import 'package:app_embarazo/src/pages/dieta/dieta_pescado.dart';
-import 'package:app_embarazo/src/pages/dieta/dieta_receta_1.dart';
-import 'package:app_embarazo/src/pages/dieta/dieta_receta_2.dart';
 import 'package:app_embarazo/src/pages/dieta/dieta_recetas.dart';
 import 'package:app_embarazo/src/pages/dieta/dieta_seleccion_trimestre.dart';
 import 'package:app_embarazo/src/pages/dieta/plan_dieta.dart';
@@ -267,6 +266,18 @@ class AppRoutes {
         selectedIndex: 27,
         onItemTapped: onItemTapped,
       ),
+      '/dieta_cerveza': (context) => BaseScaffold(
+        body: const DietaCerveza(),
+        title: 'Alcohol en la Dieta',
+        selectedIndex: 58,
+        onItemTapped: onItemTapped,
+      ),
+      '/dieta_cafeina': (context) => BaseScaffold(
+        body: const DietaCafeina(),
+        title: 'Cafeína en la Dieta',
+        selectedIndex: 59,
+        onItemTapped: onItemTapped,
+      ),
       '/dieta_navegacion': (context) => BaseScaffold(
         body: const DietaNavegacion(),
         title: 'Navegación de Dieta',
@@ -279,24 +290,9 @@ class AppRoutes {
         selectedIndex: 29,
         onItemTapped: onItemTapped,
       ),
-      '/dieta_agregar_receta': (context) => BaseScaffold(
-        body: const DietaAgregarReceta(),
-        title: 'Agregar Receta',
-        selectedIndex: 30,
-        onItemTapped: onItemTapped,
-      ),
-      '/dieta_receta_1': (context) => BaseScaffold(
-        body: const DietaReceta1(),
-        title: 'Receta 1',
-        selectedIndex: 31,
-        onItemTapped: onItemTapped,
-      ),
-      '/dieta_receta_2': (context) => BaseScaffold(
-          body: const DietaReceta2(),
-      title: 'Receta 2',
-      selectedIndex: 32,
-      onItemTapped: onItemTapped,
-      ),
+     //30
+      //31
+      //32
       '/psicoprofilaxis': (context) => BaseScaffold(
         body: const HomePsicoPage(),
         title: 'Psico-Profilaxis',
@@ -445,6 +441,12 @@ class AppRoutes {
         body: const VideoDieta(),
         title: 'Experiencias',
         selectedIndex: 57,
+        onItemTapped: onItemTapped,
+      ),
+      '/plan_dieta': (context) => BaseScaffold(
+        body: const MealPlanScreen(),
+        title: 'Plan de Dieta',
+        selectedIndex: 58,
         onItemTapped: onItemTapped,
       ),
       // Agrega más rutas aquí

@@ -47,16 +47,10 @@ class DietaNavegacion extends StatelessWidget {
                 buttonName: "Recetas saludables",
                 buttonColor: colorButton,
                 onPressed: () {
-                  Navigator.pushNamed(context, '/dieta_recetas');
+                  Navigator.pushNamed(context, '/plan_dieta');
                 },
               ),
-              Button(
-                buttonName: "Agregar Receta",
-                buttonColor: colorButton,
-                onPressed: () {
-                  Navigator.pushNamed(context, '/dieta_agregar_receta');
-                },
-              ),
+
             ],
           ),
           ),
