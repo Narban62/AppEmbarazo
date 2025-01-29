@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'dart:convert';
 
 class CalendarioPage extends StatefulWidget {
@@ -13,8 +15,10 @@ class CalendarioPage extends StatefulWidget {
 class _CalendarioPageState extends State<CalendarioPage> {
   DateTime _selectedDay = DateTime.now();
   DateTime _focusedDay = DateTime.now();
-  final Map<DateTime, bool> _completedDays = {}; // Para registrar días marcados como "cumplidos"
-  final Map<DateTime, List<Map<String, dynamic>>> _reminders = {}; // Para almacenar recordatorios
+  final Map<DateTime, bool> _completedDays =
+      {}; // Para registrar días marcados como "cumplidos"
+  final Map<DateTime, List<Map<String, dynamic>>> _reminders =
+      {}; // Para almacenar recordatorios
 
   @override
   void initState() {
@@ -27,7 +31,8 @@ class _CalendarioPageState extends State<CalendarioPage> {
     final prefs = await SharedPreferences.getInstance();
     final completedDaysString = prefs.getString('completed_days');
     if (completedDaysString != null) {
-      final Map<String, dynamic> completedDaysMap = jsonDecode(completedDaysString);
+      final Map<String, dynamic> completedDaysMap =
+          jsonDecode(completedDaysString);
       setState(() {
         _completedDays.clear();
         completedDaysMap.forEach((key, value) {
@@ -35,12 +40,50 @@ class _CalendarioPageState extends State<CalendarioPage> {
         });
       });
     }
+    await _loadCompletedDaysFromFirestore();
   }
 
   Future<void> _saveCompletedDays() async {
     final prefs = await SharedPreferences.getInstance();
-    final completedDaysString = jsonEncode(_completedDays.map((key, value) => MapEntry(key.toIso8601String(), value)));
+    final completedDaysString = jsonEncode(_completedDays
+        .map((key, value) => MapEntry(key.toIso8601String(), value)));
     await prefs.setString('completed_days', completedDaysString);
+    await _saveCompletedDaysToFirestore();
+  }
+
+  Future<void> _loadCompletedDaysFromFirestore() async {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user == null) return;
+
+    final doc = await FirebaseFirestore.instance
+        .collection('usuarios')
+        .doc(user.uid)
+        .get();
+    if (doc.exists && doc.data() != null) {
+      final data = doc.data()!;
+      if (data['completed_days'] != null) {
+        final Map<String, dynamic> completedDaysMap =
+            Map<String, dynamic>.from(data['completed_days']);
+        setState(() {
+          _completedDays.clear();
+          completedDaysMap.forEach((key, value) {
+            _completedDays[DateTime.parse(key)] = value;
+          });
+        });
+      }
+    }
+  }
+
+  Future<void> _saveCompletedDaysToFirestore() async {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user == null) return;
+
+    final completedDaysMap = _completedDays
+        .map((key, value) => MapEntry(key.toIso8601String(), value));
+    await FirebaseFirestore.instance.collection('usuarios').doc(user.uid).set({
+      'completed_days': completedDaysMap,
+      'completed_days_count': completedDaysMap.length,
+    }, SetOptions(merge: true));
   }
 
   Future<void> _loadReminders() async {
@@ -52,7 +95,8 @@ class _CalendarioPageState extends State<CalendarioPage> {
         _reminders.clear();
         remindersMap.forEach((key, value) {
           if (value is List) {
-            _reminders[DateTime.parse(key)] = List<Map<String, dynamic>>.from(value.map((item) => Map<String, dynamic>.from(item)));
+            _reminders[DateTime.parse(key)] = List<Map<String, dynamic>>.from(
+                value.map((item) => Map<String, dynamic>.from(item)));
           }
         });
       });
@@ -61,7 +105,8 @@ class _CalendarioPageState extends State<CalendarioPage> {
 
   Future<void> _saveReminders() async {
     final prefs = await SharedPreferences.getInstance();
-    final remindersString = jsonEncode(_reminders.map((key, value) => MapEntry(key.toIso8601String(), value)));
+    final remindersString = jsonEncode(
+        _reminders.map((key, value) => MapEntry(key.toIso8601String(), value)));
     await prefs.setString('reminders', remindersString);
   }
 
@@ -75,7 +120,8 @@ class _CalendarioPageState extends State<CalendarioPage> {
     _saveReminders();
   }
 
-  void _editReminder(DateTime date, int index, Map<String, dynamic> newReminder) {
+  void _editReminder(
+      DateTime date, int index, Map<String, dynamic> newReminder) {
     setState(() {
       _reminders[date]![index] = newReminder;
     });
@@ -114,6 +160,10 @@ class _CalendarioPageState extends State<CalendarioPage> {
               markerBuilder: (context, day, events) {
                 if (_completedDays[day] == true) {
                   return const Icon(Icons.check_circle, color: Colors.green);
+                } else if (_reminders[day] != null &&
+                    _reminders[day]!.isNotEmpty) {
+                  return const Icon(Icons.notifications,
+                      color: Colors.blue, size: 16);
                 }
                 return null;
               },
@@ -127,7 +177,9 @@ class _CalendarioPageState extends State<CalendarioPage> {
               });
               _saveCompletedDays();
               ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text('Día ${_selectedDay.toLocal()} marcado como cumplido')),
+                SnackBar(
+                    content: Text(
+                        'Día ${_selectedDay.toLocal()} marcado como cumplido')),
               );
             },
             icon: const Icon(Icons.check),
@@ -148,20 +200,23 @@ class _CalendarioPageState extends State<CalendarioPage> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                if (_reminders[selectedDay] != null && _reminders[selectedDay]!.isNotEmpty)
+                if (_reminders[selectedDay] != null &&
+                    _reminders[selectedDay]!.isNotEmpty)
                   ..._reminders[selectedDay]!.asMap().entries.map((entry) {
                     int index = entry.key;
                     Map<String, dynamic> reminder = entry.value;
                     return ListTile(
                       title: Text(reminder['title']),
-                      subtitle: Text('Hora: ${reminder['time']}\nRepetir: ${reminder['days'].join(', ')}'),
+                      subtitle: Text(
+                          'Hora: ${reminder['time']}\nRepetir: ${reminder['days'].join(', ')}'),
                       trailing: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           IconButton(
                             icon: Icon(Icons.edit),
                             onPressed: () {
-                              _showEditReminderDialog(selectedDay, index, reminder);
+                              _showEditReminderDialog(
+                                  selectedDay, index, reminder);
                             },
                           ),
                           IconButton(
@@ -202,7 +257,15 @@ class _CalendarioPageState extends State<CalendarioPage> {
   void _showAddReminderDialog(DateTime selectedDay) {
     final TextEditingController titleController = TextEditingController();
     final TextEditingController timeController = TextEditingController();
-    final List<String> daysOfWeek = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+    final List<String> daysOfWeek = [
+      'Lunes',
+      'Martes',
+      'Miércoles',
+      'Jueves',
+      'Viernes',
+      'Sábado',
+      'Domingo'
+    ];
     final List<String> selectedDays = [];
 
     showDialog(
@@ -272,10 +335,21 @@ class _CalendarioPageState extends State<CalendarioPage> {
     );
   }
 
-  void _showEditReminderDialog(DateTime selectedDay, int index, Map<String, dynamic> reminder) {
-    final TextEditingController titleController = TextEditingController(text: reminder['title']);
-    final TextEditingController timeController = TextEditingController(text: reminder['time']);
-    final List<String> daysOfWeek = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+  void _showEditReminderDialog(
+      DateTime selectedDay, int index, Map<String, dynamic> reminder) {
+    final TextEditingController titleController =
+        TextEditingController(text: reminder['title']);
+    final TextEditingController timeController =
+        TextEditingController(text: reminder['time']);
+    final List<String> daysOfWeek = [
+      'Lunes',
+      'Martes',
+      'Miércoles',
+      'Jueves',
+      'Viernes',
+      'Sábado',
+      'Domingo'
+    ];
     final List<String> selectedDays = List<String>.from(reminder['days']);
 
     showDialog(
