@@ -4,14 +4,14 @@ import 'package:app_embarazo/src/widgets/image_widget.dart';
 import 'package:app_embarazo/src/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 
-class ProyectoVidaPage extends StatefulWidget {
-  const ProyectoVidaPage({super.key});
+class ProyectoVidaPage3 extends StatefulWidget {
+  const ProyectoVidaPage3({super.key});
 
   @override
-  State<ProyectoVidaPage> createState() => _ProyectoVidaPageState();
+  State<ProyectoVidaPage3> createState() => _ProyectoVidaPageState();
 }
 
-class _ProyectoVidaPageState extends State<ProyectoVidaPage> {
+class _ProyectoVidaPageState extends State<ProyectoVidaPage3> {
   @override
   Widget build(BuildContext context) {
     const Color color = Color(0xffd6f8ca);
@@ -28,26 +28,26 @@ class _ProyectoVidaPageState extends State<ProyectoVidaPage> {
           ),
           const Padding(padding: EdgeInsets.only(bottom: 20.0)),
           const ImagenWidget(
-              imagesrc: 'assets/images/proyecto_de_vida/1.jpeg',
+              imagesrc: 'assets/images/proyecto_de_vida/5.jpeg',
               isPrincipal: false),
           const Padding(padding: EdgeInsets.only(bottom: 20.0)),
           const TextWidget(
               text:
-                  'Es un ejercicio necesario que debes realizar durante tu embarazo, ya que contribuirá a tu desarrollo integral y permitira trazar las rutas para alcanzar tus metas.'),
+                  'Todas las personas tenemos sueños y metas que desea mos alcanzar sin importar la edad o el momento en que nos encontremos'),
           const Padding(padding: EdgeInsets.only(bottom: 20.0)),
           const ImagenWidget(
-              imagesrc: 'assets/images/proyecto_de_vida/2.jpeg',
+              imagesrc: 'assets/images/proyecto_de_vida/6.jpeg',
               isPrincipal: false),
           const Padding(padding: EdgeInsets.only(bottom: 20.0)),
           const TextWidget(
               text:
-                  'Tu proyecto de vida favorece el autoconocimiento y autocuidado.'),
+                  'Pensar en el futuro es algo que todos lo hacemos , ya que de esta manera nos ayuda a planificar nuestras metas.'),
           const Padding(padding: EdgeInsets.only(bottom: 20.0)),
           Button(
             buttonName: 'Siguiente',
             buttonColor: colorButton,
             onPressed: () {
-        Navigator.pushNamed(context, '/proyecto_vida_2');
+        Navigator.pushNamed(context, '/que_es_proyecto_vida');
         }),
         ])));
   }

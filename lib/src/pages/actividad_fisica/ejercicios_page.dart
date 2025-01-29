@@ -14,9 +14,6 @@ class _ExerciseScreenState extends State<ExerciseScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Ejercicio'),
-      ),
       body: Center(
         child: CountdownTimer(
           endTime: endTime,

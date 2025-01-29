@@ -7,6 +7,7 @@ class ContraindicacionesPage1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+<<<<<<< HEAD
     return Scaffold(
       body: ContraindicacionesWidget(
         titulo: 'LA ACTIVIDAD FÍSICA ESTÁ CONTRAINDICADA EN LOS SIGUIENTES CASOS',
@@ -30,6 +31,24 @@ class ContraindicacionesPage1 extends StatelessWidget {
           );
         },
       ),
+=======
+    return ContraindicacionesWidget(
+      titulo: 'LA ACTIVIDAD FÍSICA ESTÁ CONTRAINDICADA EN LOS SIGUIENTES CASOS',
+      contenido: [
+        'Ruptura de membranas',
+        'Sangrado vaginal persistente inexplicable',
+        'Presión alta o Preeclampsia',
+        'Cuello uterino incompetente',
+        'Embarazo múltiple (trillizos o más)',
+        'Diabetes tipo 1 no controlada',
+        'Hipertensión no controlada',
+        'Enfermedad tiroidea no controlada',
+        'Otro trastorno cardiovascular, respiratorio o sistémico grave',
+      ],
+      onSiPressed: () {
+        Navigator.pushNamed(context, '/advertencias_page_2');
+      },
+>>>>>>> TestLuis
     );
   }
 }

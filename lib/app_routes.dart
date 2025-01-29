@@ -46,11 +46,16 @@ import 'package:app_embarazo/src/pages/inicio_sesion_registro/inicio_sesion.dart
 import 'package:app_embarazo/src/pages/inicio_sesion_registro/registro_page.dart';
 import 'package:app_embarazo/src/pages/inicio_sesion_registro/terminos_condiciones_page.dart';
 import 'package:app_embarazo/src/pages/proyecto_vida/guardar_proyecto_vida.dart';
+import 'package:app_embarazo/src/pages/proyecto_vida/info_que_es_proyecto_vida.dart';
 import 'package:app_embarazo/src/pages/proyecto_vida/informacion_proyecto_vida.dart';
 import 'package:app_embarazo/src/pages/proyecto_vida/proyecto_vida.dart';
 import 'package:app_embarazo/src/pages/dieta/dieta.dart';
 import 'package:app_embarazo/src/pages/home_page.dart';
 import 'package:app_embarazo/src/pages/modulos_page.dart';
+import 'package:app_embarazo/src/pages/proyecto_vida/proyecto_vida_2.dart';
+import 'package:app_embarazo/src/pages/proyecto_vida/proyecto_vida_3.dart';
+import 'package:app_embarazo/src/pages/proyecto_vida/que_es_proyecto_vida.dart';
+import 'package:app_embarazo/src/pages/proyecto_vida/video_dieta.dart';
 import 'package:app_embarazo/src/pages/psicoprofilaxis/estimulacion/estimulacion_auditiva_page.dart';
 import 'package:app_embarazo/src/pages/psicoprofilaxis/estimulacion/estimulacion_motora_page.dart';
 import 'package:app_embarazo/src/pages/psicoprofilaxis/estimulacion/estimulacion_tactil_page.dart';
@@ -128,6 +133,30 @@ class AppRoutes {
         selectedIndex: 6,
         onItemTapped: onItemTapped,
       ),
+      '/advertencias_page_2': (context) => BaseScaffold(
+        body: const ContraindicacionesPage2(),
+        title: 'Advertencias(Otros Casos)',
+        selectedIndex: 7,
+        onItemTapped: onItemTapped,
+      ),
+      '/proyecto_vida_2': (context) => BaseScaffold(
+        body: const ProyectoVidaPage2(),
+        title: 'Proyecto de Vida',
+        selectedIndex: 8,
+        onItemTapped: onItemTapped,
+      ),
+      '/proyecto_vida_3': (context) => BaseScaffold(
+        body: const ProyectoVidaPage3(),
+        title: 'Proyecto de Vida',
+        selectedIndex: 9,
+        onItemTapped: onItemTapped,
+      ),
+      '/que_es_proyecto_vida': (context) => BaseScaffold(
+        body: const ProyectoVidaPage4(),
+        title: 'Proyecto de Vida',
+        selectedIndex: 10,
+        onItemTapped: onItemTapped,
+      ),
       '/inicio_sesion': (context) =>  const LoginPage(),
       //7
       '/registro': (context) => const RegistroPage(),
@@ -185,7 +214,7 @@ class AppRoutes {
         onItemTapped: onItemTapped,
       ),
       '/guardar_proyecto_vida': (context) => BaseScaffold(
-        body: const GuardarProyectoVidaPage(),
+        body: const MostrarProyectoVidaPage(),
         title: 'Guardar Proyecto de Vida',
         selectedIndex: 19,
         onItemTapped: onItemTapped,
@@ -404,6 +433,18 @@ class AppRoutes {
         body: const TercerInstruccionesPage(),
         title: 'Instrucciones Tercer Trimestre',
         selectedIndex: 55,
+        onItemTapped: onItemTapped,
+      ),
+      '/info_que_es_proyecto_vida': (context) => BaseScaffold(
+        body: const InfoQueProyectoVidaPage(),
+        title: 'Información del Proyecto de Vida',
+        selectedIndex: 56,
+        onItemTapped: onItemTapped,
+      ),
+      '/video_dieta': (context) => BaseScaffold(
+        body: const VideoDieta(),
+        title: 'Experiencias',
+        selectedIndex: 57,
         onItemTapped: onItemTapped,
       ),
       // Agrega más rutas aquí

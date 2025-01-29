@@ -1,10 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:app_embarazo/src/widgets/menu_widget.dart'; // Importamos MenuWidget
+import 'package:app_embarazo/src/widgets/menu_widget.dart';
 import 'package:app_embarazo/src/widgets/button_widget.dart';
 import 'package:app_embarazo/src/widgets/header_widget.dart';
 import 'package:app_embarazo/src/services/user_service.dart';
-
-import '../../widgets/textfield_widget.dart'; // Importamos UserService
+import '../../widgets/textfield_widget.dart';
 
 class InfoProyectoVidaPage extends StatefulWidget {
   const InfoProyectoVidaPage({super.key});
@@ -14,24 +15,45 @@ class InfoProyectoVidaPage extends StatefulWidget {
 }
 
 class _InfoProyectoVidaPageState extends State<InfoProyectoVidaPage> {
-  String nombreUsuario = ''; // Aquí se almacenará el nombre del usuario
-  final UserService _userService = UserService(); // Instancia de UserService
-  final TextEditingController autoconocimientoController = TextEditingController(); // Controlador para Autoconocimiento
-  final TextEditingController visualizacionController = TextEditingController(); // Controlador para Visualización
-  final TextEditingController metasController = TextEditingController(); // Controlador para Metas
+  String nombreUsuario = '';
+  final UserService _userService = UserService();
+  final TextEditingController autoconocimientoController = TextEditingController();
+  final TextEditingController interesesvocController = TextEditingController();
+  final TextEditingController sitacionlaboralController = TextEditingController();
+  final TextEditingController decisionesController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    obtenerNombreUsuario(); // Llamamos a la función para obtener el nombre
+    verificarSiYaTieneProyecto();
   }
 
-  // Función para obtener el nombre utilizando el servicio
-  Future<void> obtenerNombreUsuario() async {
-    String nombre = await _userService.obtenerNombreUsuario();
-    setState(() {
-      nombreUsuario = nombre;
-    });
+  Future<void> verificarSiYaTieneProyecto() async {
+    User? usuario = FirebaseAuth.instance.currentUser;
+    if (usuario != null) {
+      String uid = usuario.uid;
+
+      DocumentSnapshot userDoc = await FirebaseFirestore.instance.collection('usuarios').doc(uid).get();
+      if (userDoc.exists) {
+        var userData = userDoc.data() as Map<String, dynamic>;
+        String nombres = userData['nombres'] ?? 'Usuario';
+        String apellidos = userData['apellidos'] ?? 'Desconocido';
+        String nombreCompleto = '$nombres $apellidos';
+
+        DocumentSnapshot proyectoDoc = await FirebaseFirestore.instance.collection('proyecto_vida').doc(nombreCompleto).get();
+        if (proyectoDoc.exists) {
+          // Si ya existe el proyecto, ir a la siguiente pantalla
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            Navigator.pushReplacementNamed(context, '/guardar_proyecto_vida');
+          });
+        } else {
+          // Si no existe, mostrar la pantalla normal
+          setState(() {
+            nombreUsuario = nombreCompleto;
+          });
+        }
+      }
+    }
   }
 
   @override
@@ -44,72 +66,96 @@ class _InfoProyectoVidaPageState extends State<InfoProyectoVidaPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // El saludo dinámico se pasa al HeaderWidget
             HeaderWidget(
               color: colorButton,
               text: 'Hola $nombreUsuario,\nbienvenida a tu proyecto de vida',
               isSubtitle: true,
               showButton: true,
             ),
-            const Padding(padding: EdgeInsets.only(bottom: 20.0)),
+            const SizedBox(height: 20),
+            _buildSection('Autoconocimiento', 'Más información sobre el autoconocimiento.', autoconocimientoController),
+            _buildSection('Intereses Vocacionales', 'Más información sobre tus intereses vocacionales.', interesesvocController),
+            _buildSection('Situación Laboral', 'Más información sobre tu situación laboral.', sitacionlaboralController),
+            _buildSection('Decisiones', 'Más información sobre tus decisiones futuras.', decisionesController),
 
-            // Implementamos el widget de menú con la nueva funcionalidad
-            MenuWidget(
-              titulo: 'Autoconocimiento',
-              contenido: 'Identifica tus gustos, preferencias, recursos, habilidades y valores.',
-              informacionAdicional: 'Esta es una oportunidad para reflexionar sobre lo que quieres para tu futuro y para conseguir las metas que te propongas.',
-            ),
-            const Padding(padding: EdgeInsets.only(bottom: 20.0)),
-            CustomTextField(
-              labelText: 'Autoconocimiento',
-              controller: autoconocimientoController,
-              isPassword: false,
-              keyboardType: TextInputType.text,
-            ),
-            const Padding(padding: EdgeInsets.only(bottom: 20.0)),
-            MenuWidget(
-              titulo: 'Visualización',
-              contenido: 'Visualiza cómo puedes llegar a tu meta.',
-              informacionAdicional: 'Puedes imaginar cómo lograr tus metas y ser una mujer positiva para alcanzarlas.',
-            ),
-            const Padding(padding: EdgeInsets.only(bottom: 20.0)),
-            CustomTextField(
-              labelText: 'Visualización',
-              controller: visualizacionController,
-              isPassword: false,
-              keyboardType: TextInputType.text,
-            ),
-            const Padding(padding: EdgeInsets.only(bottom: 20.0)),
-            MenuWidget(
-              titulo: 'Metas y Propósitos',
-              contenido: 'Realiza acciones para llegar a tu meta.',
-              informacionAdicional: 'En tu camino se pueden identificar barreras que retrasen el cumplimiento de tus objetivos, mantenen una actitud positiva y ten autoconfianza en que las cosas se pueden lograr.',
-            ),
-            const Padding(padding: EdgeInsets.only(bottom: 20.0)),
-            CustomTextField(
-              labelText: 'Metas y Propósitos',
-              controller: metasController,
-              isPassword: false,
-              keyboardType: TextInputType.text,
-            ),
-            const Padding(padding: EdgeInsets.only(bottom: 80.0)),
-
-            // Botón de saltar
+            const SizedBox(height: 20),
             Button(
               buttonName: 'Guardar',
               buttonColor: colorButton,
-              onPressed: () {
-                Navigator.pushNamed(context, '/guardar_proyecto_vida');
-              },
+              onPressed: guardarProyectoDeVida,
             ),
-            const Padding(padding: EdgeInsets.only(bottom: 20.0)),
+            const SizedBox(height: 20),
           ],
         ),
       ),
     );
   }
-}
 
-void test() {
-  print("test Josue");
+  Widget _buildSection(String title, String info, TextEditingController controller) {
+    return Column(
+      children: [
+        MenuWidget(
+          titulo: title,
+          contenido: info,
+          informacionAdicional: info,
+        ),
+        const SizedBox(height: 10),
+        Container(
+          decoration: BoxDecoration(
+            color: Colors.grey[100],
+            borderRadius: BorderRadius.circular(20),
+          ),
+          padding: const EdgeInsets.all(10.0),
+          margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+          child: CustomTextField(
+            labelText: title,
+            controller: controller,
+            isPassword: false,
+            keyboardType: TextInputType.text,
+          ),
+        ),
+        const SizedBox(height: 20),
+      ],
+    );
+  }
+
+  Future<void> guardarProyectoDeVida() async {
+    try {
+      User? usuario = FirebaseAuth.instance.currentUser;
+
+      if (usuario != null) {
+        String uid = usuario.uid;
+
+        DocumentSnapshot userDoc = await FirebaseFirestore.instance.collection('usuarios').doc(uid).get();
+        if (userDoc.exists) {
+          var userData = userDoc.data() as Map<String, dynamic>;
+          String nombres = userData['nombres'] ?? 'Usuario';
+          String apellidos = userData['apellidos'] ?? 'Desconocido';
+          String nombreCompleto = '$nombres $apellidos';
+
+          await FirebaseFirestore.instance.collection('proyecto_vida').doc(nombreCompleto).set({
+            'autoconocimiento': autoconocimientoController.text,
+            'interesesvoc': interesesvocController.text,
+            'situacionlaboral': sitacionlaboralController.text,
+            'decisiones': decisionesController.text,
+            'fecha': DateTime.now(),
+          });
+
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Datos guardados exitosamente')),
+          );
+
+          Navigator.pushReplacementNamed(context, '/guardar_proyecto_vida');
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Usuario no autenticado')),
+          );
+        }
+      }
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Error al guardar datos: $e')),
+      );
+    }
+  }
 }
