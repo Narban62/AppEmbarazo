@@ -12,6 +12,7 @@ import 'package:app_embarazo/src/services/snackbars_service.dart';
 import '../../widgets/background_widget.dart';
 import '../../widgets/bubble_widget.dart';
 import 'bienvenida_page.dart'; // Helper para snackbars
+import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart' as dtp;
 
 class RegistroPage extends StatefulWidget {
   const RegistroPage({super.key});
@@ -30,6 +31,8 @@ class _RegistroPageState extends State<RegistroPage> {
   final TextEditingController _emailController = TextEditingController();
   //Agregar la intolerancia a algun alimento
   final TextEditingController _intoleranciaController = TextEditingController();
+  //Agregar la ultima fecha de menstruacion
+  final TextEditingController _ultimaMenstruacionController = TextEditingController();
 
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmPasswordController = TextEditingController();
@@ -160,6 +163,41 @@ class _RegistroPageState extends State<RegistroPage> {
                   ),
                 )),
             const SizedBox(height: spaceBetween),
+          FractionallySizedBox(
+          widthFactor: 0.85,
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: GestureDetector(
+                onTap: () {
+                  dtp.DatePicker.showDatePicker(
+                    context,
+                    showTitleActions: true,
+                    minTime: DateTime(1900, 1, 1),
+                    maxTime: DateTime.now(),
+                    locale: dtp.LocaleType.es, // Para que esté en español
+                    onConfirm: (date) {
+                      setState(() {
+                        _ultimaMenstruacionController.text =
+                        "${date.day}/${date.month}/${date.year}";
+                      });
+                    },
+                  );
+                },
+                child: AbsorbPointer(
+                  child: CustomTextField(
+                    labelText: 'Fecha de última menstruación',
+                    controller: _ultimaMenstruacionController,
+                  ),
+                ),
+              ),
+            ),
+          ),
+
+
+            const SizedBox(height: spaceBetween),
             FractionallySizedBox(
                 widthFactor: 0.85, // Ancho del 75%
                 child: Container(
@@ -229,6 +267,7 @@ class _RegistroPageState extends State<RegistroPage> {
       direccion: _direccionController.text,
       telefono: _telefonoController.text,
       intolerancia: _intoleranciaController.text,
+      ultimaMenstruacion: _ultimaMenstruacionController.text
     );
 
     if (errorMessage == null) {
@@ -261,5 +300,6 @@ class _RegistroPageState extends State<RegistroPage> {
     _passwordController.clear();
     _confirmPasswordController.clear();
     _intoleranciaController.clear();
+    _ultimaMenstruacionController.clear();
   }
 }

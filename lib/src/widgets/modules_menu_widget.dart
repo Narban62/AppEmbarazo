@@ -17,7 +17,7 @@ class ModulesMenu extends StatelessWidget {
         ListTile(
           title: const Text('Calidad de Vida'),
           tileColor: Color(0xffE7BAFF),
-          onTap: () => Navigator.pushNamed(context, '/calidad_vida'),
+          onTap: () => Navigator.pushNamed(context, '/calidad_vida_page_0'),
         ),
         ListTile(
           title: const Text('Proyecto de Vida'),

@@ -45,6 +45,7 @@ dependencies:
   shared_preferences: ^2.0.6
   table_calendar: ^3.0.6
   url_launcher: ^6.3.1
+  flutter_datetime_picker_plus: ^2.2.0
 
 dev_dependencies:
   flutter_test:
@@ -72,6 +73,12 @@ flutter:
   assets:
     - assets/images/
     - assets/fonts/
+    - assets/images/calidad_vida/
+    - assets/images/calidad_vida/causando_cuerpo/
+    - assets/images/calidad_vida/beneficios/
+    - assets/images/calidad_vida/vestir/
+    - assets/images/calidad_vida/belleza/
+    - assets/images/calidad_vida/fetos/
     - assets/images/proyecto_de_vida/
     - assets/images/actividad_fisica/
     - assets/images/dieta/
@@ -79,6 +86,7 @@ flutter:
     - assets/images/splash/splah.jpeg
     - assets/images/inicio/
     - assets/images/dieta/
+
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
@@ -115,7 +123,7 @@ flutter:
   # see https://flutter.dev/to/font-from-package
 
 flutter_native_splash:
-  color: "#ffffff" # Color de fondo del splash screen
+  color: ffffff # Color de fondo del splash screen
   image: assets/images/splash/splah.jpeg # Ruta de la imagen del splash screen
   android: true
   ios: true

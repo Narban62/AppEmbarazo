@@ -43,10 +43,6 @@ class _DietaPageState extends State<DietaMarisco> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     const SizedBox(width: 10), // Espacio entre los botones
-<<<<<<< HEAD
-                    
-=======
->>>>>>> TestLuis
                   ],
                 ),
               )

@@ -20,6 +20,7 @@ import 'package:app_embarazo/src/pages/actividad_fisica/entrenamiento/tercero/te
 import 'package:app_embarazo/src/pages/actividad_fisica/entrenamiento/trimestres_page.dart';
 import 'package:app_embarazo/src/pages/calidad_vida/actividad_dario_emocional_page.dart';
 import 'package:app_embarazo/src/pages/calidad_vida/calidad_vida_page.dart';
+import 'package:app_embarazo/src/pages/calidad_vida/calidad_vida_page_0.dart';
 import 'package:app_embarazo/src/pages/calidad_vida/consejeria_page.dart';
 import 'package:app_embarazo/src/pages/calidad_vida/controles_prenatales_page.dart';
 import 'package:app_embarazo/src/pages/calidad_vida/cuerpo_motor_page.dart';
@@ -128,7 +129,7 @@ class AppRoutes {
       ),
       '/cuerpo_motor': (context) => BaseScaffold(
         body: const CuepoMotorPage(),
-        title: 'Cuerpo Motor',
+        title: 'Cambios Físicos',
         selectedIndex: 6,
         onItemTapped: onItemTapped,
       ),
@@ -447,6 +448,12 @@ class AppRoutes {
         body: const MealPlanScreen(),
         title: 'Plan de Dieta',
         selectedIndex: 58,
+        onItemTapped: onItemTapped,
+      ),
+      '/calidad_vida_page_0': (context) => BaseScaffold(
+        body: const CalidadVidaNPage0(),
+        title: 'Calidad de Vida',
+        selectedIndex: 59,
         onItemTapped: onItemTapped,
       ),
       // Agrega más rutas aquí

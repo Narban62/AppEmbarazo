@@ -4,19 +4,19 @@ import 'package:app_embarazo/src/widgets/image_widget.dart';
 import 'package:app_embarazo/src/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 
-class CalidadVidaNPage extends StatefulWidget {
-  const CalidadVidaNPage({super.key});
+class CalidadVidaNPage0 extends StatefulWidget {
+  const CalidadVidaNPage0({super.key});
 
   @override
-  State<CalidadVidaNPage> createState() => _CalidadVidaNPageState();
+  State<CalidadVidaNPage0> createState() => _CalidadVidaNPageState();
 }
 
-class _CalidadVidaNPageState extends State<CalidadVidaNPage> {
+class _CalidadVidaNPageState extends State<CalidadVidaNPage0> {
   @override
   Widget build(BuildContext context) {
     const Color color = Color(0xffE7BAFF);
     const Color colorButton = Color(0xff734A91);
-    const String imagesrc = 'assets/images/1er tirmestre.jpeg';
+    const String imagesrc = 'assets/images/calidad_vida/salud.jpeg';
     return Scaffold(
         backgroundColor: color,
         body: SingleChildScrollView(
@@ -25,7 +25,7 @@ class _CalidadVidaNPageState extends State<CalidadVidaNPage> {
               const HeaderWidget(
                 color: colorButton,
                 text:
-                    'Paso a paso mediante tus controles prenatales:\nCuerpo y mente sanos para ti y tu bebé.',
+                    'Calidad de Vida',
                 isSubtitle: true,
                 showButton: true,
               ),
@@ -33,17 +33,18 @@ class _CalidadVidaNPageState extends State<CalidadVidaNPage> {
            
               const TextWidget(
                   text:
-                      'Cada cambio es una señal de tu fuerza y amor en crecimiento. Confía en ti misma y en el hermoso camino que estás recorriendo.'),
+                      'La calidad de vida en las adolescentes '
+                          'durante el embarazo busca minimizar '
+                          'las alteraciones en tu autonomía, '
+                          'siendo crucial, ya que los cambios '
+                          'físicos, emocionales y sociales durante '
+                          'esta etapa impactan significativamente '
+                          'tu bienestar.'),
               //ImagenWidget(imagesrc: imagesrc, isPrincipal: isPrincipal),
               Button(
-                  buttonName: 'Cuerpo y mente sana',
+                  buttonName: 'Siguiente',
                   buttonColor: colorButton,
-                  onPressed: () => Navigator.pushNamed(context, '/cuerpo_motor')
-                  ),
-              Button(
-                  buttonName: 'tu mente tu guía',
-                  buttonColor: colorButton,
-                  onPressed: () => Navigator.pushNamed(context, '/mente_guia')
+                  onPressed: () => Navigator.pushNamed(context, '/calidad_vida')
                   ),
             ],
           ),

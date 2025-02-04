@@ -43,10 +43,6 @@ class _DietaPageState extends State<DietaCafeina> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     const SizedBox(width: 10), // Espacio entre los botones
-<<<<<<< HEAD:lib/src/pages/dieta/dieta_receta_2.dart
-                    
-=======
->>>>>>> TestLuis:lib/src/pages/dieta/dieta_cafeina.dart
                   ],
                 ),
               )

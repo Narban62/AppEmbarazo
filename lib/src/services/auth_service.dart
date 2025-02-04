@@ -14,6 +14,7 @@ class AuthService {
     required String direccion,
     required String telefono,
     required String intolerancia,
+    required String ultimaMenstruacion,
   }) async {
     try {
       UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
@@ -32,6 +33,7 @@ class AuthService {
           'telefono': telefono,
           'correo': email,
           'intolerancia': intolerancia,
+          'ultimaMenstruacion': ultimaMenstruacion,
           'uid': user.uid,
         });
       }

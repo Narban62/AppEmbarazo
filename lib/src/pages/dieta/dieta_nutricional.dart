@@ -193,10 +193,8 @@ class _DietaPageState extends State<DietaNutricional> {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-<<<<<<< HEAD
                   const SizedBox(width: 10), // Espacio entre los botones
-                 
-=======
+
                   // Imagen más pequeña
                   const SizedBox(
                     width: 100, // Ancho deseado
@@ -314,7 +312,6 @@ class _DietaPageState extends State<DietaNutricional> {
                       informacionAdicional: 'El consumo inadecuado de hierro puede provocar una producción deficiente de hemoglobina, seguida de un transporte reducido de oxígeno y de hierro, al útero, la placenta y el feto en desarrollo (Las carnes rojas, vísceras, aves y pescados).',
                     ),
                   ),
->>>>>>> TestLuis
                 ],
               ),
             ),

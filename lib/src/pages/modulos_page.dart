@@ -42,7 +42,7 @@ class _ModulosPageState extends State<ModulosPage> {
               buttonName: "calidad de vida",
               buttonColor: const Color(0xffF75B89),
               onPressed: () {
-                Navigator.pushNamed(context, '/calidad_vida');
+                Navigator.pushNamed(context, '/calidad_vida_page_0');
               }),
           Button(
               buttonName: "proyecto de vida",

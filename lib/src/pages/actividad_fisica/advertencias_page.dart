@@ -2,16 +2,17 @@ import 'package:app_embarazo/src/widgets/button_widget.dart';
 import 'package:app_embarazo/src/widgets/image_widget.dart';
 import 'package:flutter/material.dart';
 
+import 'package:flutter/material.dart';
+
 class ContraindicacionesPage1 extends StatelessWidget {
   const ContraindicacionesPage1({super.key});
 
   @override
   Widget build(BuildContext context) {
-<<<<<<< HEAD
     return Scaffold(
       body: ContraindicacionesWidget(
         titulo: 'LA ACTIVIDAD FÍSICA ESTÁ CONTRAINDICADA EN LOS SIGUIENTES CASOS',
-        contenido: [
+        contenido: const [
           'Ruptura de membranas',
           'Sangrado vaginal persistente inexplicable',
           'Presión alta o Preeclampsia',
@@ -31,24 +32,6 @@ class ContraindicacionesPage1 extends StatelessWidget {
           );
         },
       ),
-=======
-    return ContraindicacionesWidget(
-      titulo: 'LA ACTIVIDAD FÍSICA ESTÁ CONTRAINDICADA EN LOS SIGUIENTES CASOS',
-      contenido: [
-        'Ruptura de membranas',
-        'Sangrado vaginal persistente inexplicable',
-        'Presión alta o Preeclampsia',
-        'Cuello uterino incompetente',
-        'Embarazo múltiple (trillizos o más)',
-        'Diabetes tipo 1 no controlada',
-        'Hipertensión no controlada',
-        'Enfermedad tiroidea no controlada',
-        'Otro trastorno cardiovascular, respiratorio o sistémico grave',
-      ],
-      onSiPressed: () {
-        Navigator.pushNamed(context, '/advertencias_page_2');
-      },
->>>>>>> TestLuis
     );
   }
 }
@@ -59,9 +42,8 @@ class ContraindicacionesPage2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ContraindicacionesWidget(
-      
       titulo: 'OTROS CASOS DONDE SE DEBE CONSULTAR AL MÉDICO',
-      contenido: [
+      contenido: const [
         'Dolor de cabeza severo',
         'Mareos persistentes',
         'Falta de aire en reposo',
@@ -70,12 +52,12 @@ class ContraindicacionesPage2 extends StatelessWidget {
         'Pérdida de líquido amniótico',
       ],
       onSiPressed: () {
-        // Acción si se presiona "SÍ" en esta página.
         Navigator.pushNamed(context, '/opciones');
       },
     );
   }
 }
+
 
 class ContraindicacionesWidget extends StatelessWidget {
   final String titulo;

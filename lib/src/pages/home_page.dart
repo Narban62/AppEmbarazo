@@ -5,9 +5,9 @@ import 'package:app_embarazo/src/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-
 import '../widgets/background_widget.dart';
 import '../widgets/bubble_widget.dart';
+import '../services/auth_service.dart'; // Asegúrate de importar tu AuthService
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -17,12 +17,20 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final AuthService _authService = AuthService();
+  Map<String, dynamic>? userData;
+
   String? firstName;
 
   @override
   void initState() {
     super.initState();
     _loadUserData();
+  }
+
+  String capitalizeFirstLetter(String text) {
+    if (text.isEmpty) return text;
+    return text[0].toUpperCase() + text.substring(1);
   }
 
   Future<void> _loadUserData() async {
@@ -36,13 +44,19 @@ class _HomePageState extends State<HomePage> {
             .get();
 
         setState(() {
-          firstName = userDoc['nombres'].split(' ')[0];
+          userData = userDoc.data() as Map<String, dynamic>?;
+
+          // Asegurar que la primera letra del nombre sea mayúscula
+          if (userData != null && userData!['nombres'] != null) {
+            userData!['nombres'] = capitalizeFirstLetter(userData!['nombres']);
+          }
         });
       }
     } catch (e) {
-      print('Error al cargar el nombre del usuario: $e');
+      print('Error al cargar los datos del usuario: $e');
     }
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +73,7 @@ class _HomePageState extends State<HomePage> {
               children: [
                 HeaderWidget(
                   color: buttonColor,
-                  text: 'Hola ${firstName ?? ''}',
+                  text: 'Hola ${userData?['nombres'] ?? 'Sin nombre'}',
                   isSubtitle: false,
                   showButton: false,
                   textAlign: TextAlign.center,

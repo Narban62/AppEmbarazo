@@ -91,11 +91,6 @@ class _DietaEvitarState extends State<DietaEvitar> {
                 ],
               ),
             ),
-<<<<<<< HEAD
-
-        
-=======
->>>>>>> TestLuis
           ],
         ),
       ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart' as dtp;
 import '../pages/inicio_sesion_registro/inicio_sesion.dart';
 import '../services/auth_service.dart'; // Asegúrate de importar tu AuthService
 
@@ -14,6 +15,8 @@ class ProfileBottomSheet extends StatefulWidget {
 class _ProfileBottomSheetState extends State<ProfileBottomSheet> {
   final AuthService _authService = AuthService();
   Map<String, dynamic>? userData;
+  final TextEditingController _ultimaMenstruacionController = TextEditingController();
+  String? fechaProbableParto;
 
   @override
   void initState() {
@@ -33,10 +36,40 @@ class _ProfileBottomSheetState extends State<ProfileBottomSheet> {
 
         setState(() {
           userData = userDoc.data() as Map<String, dynamic>?;
+          if (userData?['ultimaMenstruacion'] != null) {
+            _ultimaMenstruacionController.text = userData?['ultimaMenstruacion'];
+            fechaProbableParto = calcularFechaProbableDeParto(userData?['ultimaMenstruacion']);
+          }
         });
       }
     } catch (e) {
       print('Error al cargar los datos del usuario: $e');
+    }
+  }
+
+  /// 📌 Función para calcular la Fecha Probable de Parto
+  String calcularFechaProbableDeParto(String fechaMenstruacion) {
+    try {
+      List<String> partes = fechaMenstruacion.split('/');
+      int dia = int.parse(partes[0]);
+      int mes = int.parse(partes[1]);
+      int anio = int.parse(partes[2]);
+
+      DateTime fechaInicial = DateTime(anio, mes, dia);
+      DateTime fechaParto = fechaInicial.add(const Duration(days: 7)); // Sumar 7 días
+
+      // Restar 3 meses y sumar 1 año
+      int nuevoMes = fechaParto.month - 3;
+      int nuevoAnio = fechaParto.year +1;
+
+      if (nuevoMes <= 0) {
+        nuevoMes += 12;
+        nuevoAnio -= 1;
+      }
+
+      return "${fechaParto.day}/$nuevoMes/$nuevoAnio";
+    } catch (e) {
+      return "Fecha inválida";
     }
   }
 
@@ -75,32 +108,69 @@ class _ProfileBottomSheetState extends State<ProfileBottomSheet> {
                 : ListView(
               children: [
                 ListTile(
-                  title:
-                  Text('Nombre: ${userData?['nombres'] ?? 'Sin nombre'}'),
+                  title: Text('Nombre: ${userData?['nombres'] ?? 'Sin nombre'}'),
                 ),
                 ListTile(
-                  title: Text(
-                      'Apellido: ${userData?['apellidos'] ?? 'Sin apellido'}'),
+                  title: Text('Apellido: ${userData?['apellidos'] ?? 'Sin apellido'}'),
                 ),
                 ListTile(
-                  title: Text(
-                      'Cédula: ${userData?['cedula'] ?? 'Sin cédula'}'),
+                  title: Text('Cédula: ${userData?['cedula'] ?? 'Sin cédula'}'),
                 ),
                 ListTile(
-                  title: Text(
-                      'Correo: ${userData?['correo'] ?? 'No especificado'}'),
+                  title: Text('Correo: ${userData?['correo'] ?? 'No especificado'}'),
                 ),
                 ListTile(
-                  title: Text(
-                      'Teléfono: ${userData?['telefono'] ?? 'No especificado'}'),
+                  title: Text('Teléfono: ${userData?['telefono'] ?? 'No especificado'}'),
                 ),
                 ListTile(
-                  title: Text(
-                      'Dirección: ${userData?['direccion'] ?? 'No especificado'}'),
+                  title: Text('Dirección: ${userData?['direccion'] ?? 'No especificado'}'),
                 ),
                 ListTile(
-                  title: Text(
-                      'Intolerancia: ${userData?['intolerancia'] ?? 'No especificado'}'),
+                  title: Text('Intolerancia: ${userData?['intolerancia'] ?? 'No especificado'}'),
+                ),
+                ListTile(
+                  title: Text('Fecha de Última Menstruación: ${_ultimaMenstruacionController.text}'),
+                ),
+                ListTile(
+                  title: Text('Fecha Probable de Parto: ${fechaProbableParto ?? 'No calculado'}'),
+                ),
+                const SizedBox(height: 20),
+                FractionallySizedBox(
+                  widthFactor: 0.85,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: GestureDetector(
+                      onTap: () {
+                        dtp.DatePicker.showDatePicker(
+                          context,
+                          showTitleActions: true,
+                          minTime: DateTime(1900, 1, 1),
+                          maxTime: DateTime.now(),
+                          locale: dtp.LocaleType.es,
+                          onConfirm: (date) {
+                            setState(() {
+                              _ultimaMenstruacionController.text =
+                              "${date.day}/${date.month}/${date.year}";
+                              fechaProbableParto =
+                                  calcularFechaProbableDeParto(_ultimaMenstruacionController.text);
+                            });
+                          },
+                        );
+                      },
+                      child: AbsorbPointer(
+                        child: TextField(
+                          controller: _ultimaMenstruacionController,
+                          decoration: const InputDecoration(
+                            labelText: 'Fecha de Última Menstruación',
+                            border: OutlineInputBorder(),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -109,17 +179,15 @@ class _ProfileBottomSheetState extends State<ProfileBottomSheet> {
             padding: const EdgeInsets.symmetric(vertical: 16.0),
             child: ElevatedButton(
               onPressed: () async {
-                await _authService.signOut(); // Cierra sesión con tu servicio de autenticación
+                await _authService.signOut();
 
-                // Reinicia la navegación a la pantalla de login y elimina todo el historial
                 Navigator.of(context).pushAndRemoveUntil(
-                  MaterialPageRoute(builder: (context) => LoginPage()), // Reemplaza con tu pantalla de login
-                      (route) => false, // Esto asegura que ninguna ruta previa permanezca en el historial
+                  MaterialPageRoute(builder: (context) => LoginPage()),
+                      (route) => false,
                 );
               },
               child: const Text('Cerrar Sesión'),
             ),
-
           ),
         ],
       ),
