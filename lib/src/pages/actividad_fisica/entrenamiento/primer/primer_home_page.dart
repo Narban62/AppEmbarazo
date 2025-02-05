@@ -180,7 +180,7 @@ class _PrimerHomePageState extends State<PrimerHomePage> {
                       buttonColor: colorButton,
                       onPressed: () {
                         Navigator.pushNamed(
-                            context, '/calentamiento_instrucciones');
+                            context, '/cronometro');
                       },
                     ),
                   ),

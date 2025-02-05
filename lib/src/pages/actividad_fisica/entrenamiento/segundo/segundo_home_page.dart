@@ -183,7 +183,7 @@ class _SegundoHomePageState extends State<SegundoHomePage> {
                       buttonColor: colorButton,
                       onPressed: () {
                         Navigator.pushNamed(
-                            context, '/calentamiento_instrucciones');
+                            context, '/cronometro');
                       },
                     ),
                   ),

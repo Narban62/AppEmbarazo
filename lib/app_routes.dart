@@ -483,6 +483,14 @@ class AppRoutes {
       ),
 
 
+      //-- cronometr
+      '/cronometro': (context) => BaseScaffold(
+        body: const ExerciseScreen(),
+        title: 'Cronómetro',
+        selectedIndex: 63,
+        onItemTapped: onItemTapped,
+      ),
+
     };
   }
 }

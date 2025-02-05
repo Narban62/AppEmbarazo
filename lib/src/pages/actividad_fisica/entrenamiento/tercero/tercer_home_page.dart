@@ -183,7 +183,7 @@ class _TercerHomePageState extends State<TercerHomePage> {
                       buttonColor: colorButton,
                       onPressed: () {
                         Navigator.pushNamed(
-                            context, '/calentamiento_instrucciones');
+                            context, '/cronometro');
                       },
                     ),
                   ),

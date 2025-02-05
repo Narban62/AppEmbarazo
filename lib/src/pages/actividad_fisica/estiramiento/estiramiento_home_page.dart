@@ -53,7 +53,7 @@ class _EstiramientoHomePageState extends State<EstiramientoHomePage> {
                         buttonName: 'Inicio',
                         buttonColor: colorButton,
                         onPressed: () {
-                          Navigator.pushNamed(context, '/calentamiento_instrucciones');
+                          Navigator.pushNamed(context, '/cronometro');
                         },
                       ),
                     ),
