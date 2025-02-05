@@ -4,6 +4,8 @@ import 'package:app_embarazo/src/widgets/image_widget.dart';
 import 'package:app_embarazo/src/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 
+import '../../widgets/square_button.dart';
+
 class CuepoMotorPage extends StatefulWidget {
   const CuepoMotorPage({super.key});
 
@@ -47,8 +49,98 @@ class _CuepoMotorPageState extends State<CuepoMotorPage> {
             showButton: false),
         TextWidget(
             text:
-                'Son acciones periódicas destinadas la prevención, diagnóstico y tratamiento de las mujeres embarazadas. Si presentas alguno de estos síntomas acude inmediatamente a tu centro de salud más cercano.'),
-        ImagenWidget(imagesrc: 'assets/images/psicoprofilaxis/motora.jpeg', isPrincipal: false),
+                'Son acciones periódicas destinadas la prevención, diagnóstico y tratamiento de las mujeres embarazadas.'),
+
+            TextWidget(
+                text:
+                'Si presentas alguno de estos síntomas acude inmediatamente a tu centro de salud más cercano:'),
+
+
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: SquareButton(
+                      imageSrc: 'assets/images/calidad_vida/prenatales/img.png',
+                      text: 'Ausencia de tu periodo menstrual',
+                      color: colorButton,
+                      onPressed: () {
+                      },
+                    ),
+                  ),
+                  const SizedBox(width: 16),
+                  Expanded(
+                    child: SquareButton(
+                      imageSrc: 'assets/images/calidad_vida/prenatales/img_1.png',
+                      text: 'Nauseas y vómito',
+                      color: colorButton,
+                      onPressed: () {
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: SquareButton(
+                      imageSrc: 'assets/images/calidad_vida/prenatales/img_2.png',
+                      text: 'Sensibilidad mamaria',
+                      color: colorButton,
+                      onPressed: () {
+                      },
+                    ),
+                  ),
+                  const SizedBox(width: 16),
+                  Expanded(
+                    child: SquareButton(
+                      imageSrc: 'assets/images/calidad_vida/prenatales/img_3.png',
+                      text: 'Sangrado de implantación',
+                      color: colorButton,
+                      onPressed: () {
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: SquareButton(
+                      imageSrc: 'assets/images/calidad_vida/prenatales/img_4.png',
+                      text: 'Orina frecuente',
+                      color: colorButton,
+                      onPressed: () {
+                      },
+                    ),
+                  ),
+                  const SizedBox(width: 16),
+                  Expanded(
+                    child: SquareButton(
+                      imageSrc: 'assets/images/calidad_vida/prenatales/img_5.png',
+                      text: 'Sueño/cansancio',
+                      color: colorButton,
+                      onPressed: () {
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
         Button(
             buttonName: 'Más información',
             buttonColor: colorButton,

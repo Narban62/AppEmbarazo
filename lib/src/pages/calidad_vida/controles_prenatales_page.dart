@@ -4,6 +4,8 @@ import 'package:app_embarazo/src/widgets/image_widget.dart';
 import 'package:app_embarazo/src/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 
+import '../../widgets/square_button.dart';
+
 class ControlesPrenatalesPage extends StatefulWidget {
   const ControlesPrenatalesPage({super.key});
 
@@ -38,7 +40,98 @@ class _ControlesPrenatalesPageState extends State<ControlesPrenatalesPage> {
             TextWidget(
                 text:
                     'El primer control debes realizarlo lo más pronto posible. '),
-            ImagenWidget(imagesrc: 'assets/images/calidad_vida/salud.jpeg', isPrincipal: false),
+
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox( // Mantiene el tamaño del botón sin expandirse
+                        width: 150,
+                        height: 150,// Tamaño deseado, o puedes usar `size`
+                        child: ImagenWidget(
+                            imagesrc: 'assets/images/calidad_vida/control/img.png',
+                            isPrincipal: true),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 10), // Espacio entre el botón y el texto
+                  const Text(
+                    'Cada 4 semanas \nHasta las 28 semanas de embarazo.',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black54,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox( // Mantiene el tamaño del botón sin expandirse
+                        width: 150,
+                        height: 150,// Tamaño deseado, o puedes usar `size`
+                        child: ImagenWidget(
+                            imagesrc: 'assets/images/calidad_vida/control/img_1.png',
+                            isPrincipal: true),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 10), // Espacio entre el botón y el texto
+                  const Text(
+                    'Cada 2 semanas \nHasta las 28 y 36 semanas de embarazo.',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black54,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox( // Mantiene el tamaño del botón sin expandirse
+                        width: 150,
+                        height: 150,// Tamaño deseado, o puedes usar `size`
+                        child: ImagenWidget(
+                            imagesrc: 'assets/images/calidad_vida/control/img_2.png',
+                            isPrincipal: true),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 10), // Espacio entre el botón y el texto
+                  const Text(
+                    'Una vez por semana \nDesde la semana 36 hasta el nacimiento de tu bebé.',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black54,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
+            ),
+
             TextWidget(
                 text:
                     'Recuerda que debes realizarte mínimo 5 controles prenatales para evitar complicaciones con tu bebé.'),
@@ -57,31 +150,49 @@ class _ControlesPrenatalesPageState extends State<ControlesPrenatalesPage> {
                 }).toList(),
               ),
             ),
-            ImagenWidget(imagesrc: 'assets/images/calidad_vida/consulta medica.jpeg', isPrincipal: false),
+            ImagenWidget(imagesrc: 'assets/images/calidad_vida/control/img_3.png', isPrincipal: false),
             TextWidget(
                 text:
                     '¿Qué exámenes me deben realizar?'),
-             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16.0),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: ImagenWidget(imagesrc: imagesrc, isPrincipal: false),
+                    child: SquareButton(
+                      imageSrc: 'assets/images/calidad_vida/control/img_4.png',
+                      text: 'Acudir a la cita médica',
+                      color: colorButton,
+                      onPressed: () {
+                      },
                     ),
                   ),
+                  const SizedBox(width: 16),
                   Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: ImagenWidget(imagesrc: imagesrc, isPrincipal: false),
+                    child: SquareButton(
+                      imageSrc: 'assets/images/calidad_vida/control/img_5.png',
+                      text: 'Ecografía',
+                      color: colorButton,
+                      onPressed: () {
+                      },
                     ),
                   ),
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: ImagenWidget(imagesrc: imagesrc, isPrincipal: false),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox( // Mantiene el tamaño del botón sin expandirse
+                    width: 150, // Tamaño deseado, o puedes usar `size`
+                    child: SquareButton(
+                      imageSrc: 'assets/images/calidad_vida/control/img_6.png',
+                      text: 'Análisis de sangre y orina',
+                      color: colorButton,
+                      onPressed: () {},
                     ),
                   ),
                 ],
@@ -95,22 +206,28 @@ class _ControlesPrenatalesPageState extends State<ControlesPrenatalesPage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Expanded(
+                  SizedBox(
+                    width: 100,
+                    height: 100,
                     child: Padding(
                       padding: const EdgeInsets.all(4.0),
-                      child: ImagenWidget(imagesrc: imagesrc, isPrincipal: false),
+                      child: ImagenWidget(imagesrc: 'assets/images/calidad_vida/control/img_6.png', isPrincipal: false),
                     ),
                   ),
-                  Expanded(
+                  SizedBox(
+                    width: 100,
+                    height: 100,
                     child: Padding(
                       padding: const EdgeInsets.all(4.0),
-                      child: ImagenWidget(imagesrc: imagesrc, isPrincipal: false),
+                      child: ImagenWidget(imagesrc: 'assets/images/calidad_vida/control/img_7.png', isPrincipal: false),
                     ),
                   ),
-                  Expanded(
+                  SizedBox(
+                    width: 100,
+                    height: 100,
                     child: Padding(
                       padding: const EdgeInsets.all(4.0),
-                      child: ImagenWidget(imagesrc: imagesrc, isPrincipal: false),
+                      child: ImagenWidget(imagesrc: 'assets/images/calidad_vida/control/img_8.png', isPrincipal: false),
                     ),
                   ),
                 ],
@@ -122,22 +239,28 @@ class _ControlesPrenatalesPageState extends State<ControlesPrenatalesPage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Expanded(
+                  SizedBox(
+                    width: 100,
+                    height: 100,
                     child: Padding(
                       padding: const EdgeInsets.all(4.0),
-                      child: ImagenWidget(imagesrc: imagesrc, isPrincipal: false),
+                      child: ImagenWidget(imagesrc: 'assets/images/calidad_vida/control/img_9.png', isPrincipal: false),
                     ),
                   ),
-                  Expanded(
+                  SizedBox(
+                    width: 100,
+                    height: 100,
                     child: Padding(
                       padding: const EdgeInsets.all(4.0),
-                      child: ImagenWidget(imagesrc: imagesrc, isPrincipal: false),
+                      child: ImagenWidget(imagesrc: 'assets/images/calidad_vida/control/img_10.png', isPrincipal: false),
                     ),
                   ),
-                  Expanded(
+                  SizedBox(
+                    width: 100,
+                    height: 100,
                     child: Padding(
                       padding: const EdgeInsets.all(4.0),
-                      child: ImagenWidget(imagesrc: imagesrc, isPrincipal: false),
+                      child: ImagenWidget(imagesrc: 'assets/images/calidad_vida/control/img_11.png', isPrincipal: false),
                     ),
                   ),
                 ],
@@ -146,31 +269,97 @@ class _ControlesPrenatalesPageState extends State<ControlesPrenatalesPage> {
             TextWidget(text: '¿Cuáles son los factores de riesgo que NO puedo modificar? '),
             // Primera fila de tres columnas  
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 18.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: ImagenWidget(imagesrc: imagesrc, isPrincipal: false),
-                    ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox( // Mantiene el tamaño del botón sin expandirse
+                        width: 150,
+                        height: 250,// Tamaño deseado, o puedes usar `size`
+                        child: ImagenWidget(
+                            imagesrc: 'assets/images/calidad_vida/control/img_12.png',
+                            isPrincipal: true),
+                      ),
+                    ],
                   ),
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: ImagenWidget(imagesrc: imagesrc, isPrincipal: false),
+                  const SizedBox(height: 10), // Espacio entre el botón y el texto
+                  const Text(
+                    'Menores de 18 años',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black54,
                     ),
-                  ),
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: ImagenWidget(imagesrc: imagesrc, isPrincipal: false),
-                    ),
+                    textAlign: TextAlign.center,
                   ),
                 ],
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox( // Mantiene el tamaño del botón sin expandirse
+                        width: 120,
+                        height: 250,// Tamaño deseado, o puedes usar `size`
+                        child: ImagenWidget(
+                            imagesrc: 'assets/images/calidad_vida/control/img_13.png',
+                            isPrincipal: true),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 10), // Espacio entre el botón y el texto
+                  const Text(
+                    'Talla < 1.45',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black54,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox( // Mantiene el tamaño del botón sin expandirse
+                        width: 150,
+                        height: 150,// Tamaño deseado, o puedes usar `size`
+                        child: ImagenWidget(
+                            imagesrc: 'assets/images/calidad_vida/control/img_14.png',
+                            isPrincipal: true),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 10), // Espacio entre el botón y el texto
+                  const Text(
+                    'Malnutrición',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black54,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
+            ),
+            TextWidget(text: 'Recuerda: nos amamos, nos queremos y somos únicas. Tu eres valiosa tal y como eres y tu bebe te ama por eso.'),
+          ImagenWidget(imagesrc: 'assets/images/calidad_vida/control/img_15.png', isPrincipal: true),
 
           Button(buttonName: 'REGISTRA TU NUEVO CONTROL', buttonColor: colorButton, onPressed: ()=> Navigator.pushNamed(context, '/calendario')),
           ]),

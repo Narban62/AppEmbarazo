@@ -46,6 +46,8 @@ dependencies:
   table_calendar: ^3.0.6
   url_launcher: ^6.3.1
   flutter_datetime_picker_plus: ^2.2.0
+  flutter_local_notifications: ^9.0.0
+
 
 dev_dependencies:
   flutter_test:
@@ -77,6 +79,11 @@ flutter:
     - assets/images/calidad_vida/causando_cuerpo/
     - assets/images/calidad_vida/beneficios/
     - assets/images/calidad_vida/vestir/
+    - assets/images/calidad_vida/prenatales/
+    - assets/images/calidad_vida/emociones/
+    - assets/images/calidad_vida/clima/
+    - assets/images/calidad_vida/consejeria/
+    - assets/images/calidad_vida/control/
     - assets/images/calidad_vida/belleza/
     - assets/images/calidad_vida/fetos/
     - assets/images/proyecto_de_vida/

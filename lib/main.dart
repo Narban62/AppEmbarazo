@@ -1,18 +1,74 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'firebase_options.dart';
 import 'app_routes.dart';
+import 'package:timezone/timezone.dart' as tz;
+import 'package:timezone/data/latest.dart' as tzData;
+
+late FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+  // Inicializar la base de datos de zonas horarias
+  tzData.initializeTimeZones();
+
+  await _initializeNotifications();
   runApp(const MyApp());
+}
+
+Future<void> _initializeNotifications() async {
+  flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
+
+  const AndroidInitializationSettings initializationSettingsAndroid =
+  AndroidInitializationSettings('@mipmap/ic_launcher');
+
+  final InitializationSettings initializationSettings =
+  InitializationSettings(android: initializationSettingsAndroid);
+
+  await flutterLocalNotificationsPlugin.initialize(initializationSettings);
+}
+
+Future<void> programarNotificaciones(List<String> habits) async {
+  if (habits.isEmpty) return;
+
+  Random random = Random();
+  int habitIndex = random.nextInt(habits.length);
+  String habit = habits[habitIndex];
+
+  // Genera un intervalo aleatorio entre 1 y 2 horas
+  int randomHourInterval = 1 + random.nextInt(2);  // 1 o 2 horas
+
+  // Configurar la notificación
+  var scheduledTime = tz.TZDateTime.now(tz.local).add(Duration(seconds: 10));
+
+  await flutterLocalNotificationsPlugin.zonedSchedule(
+    0,
+    'Recordatorio de hábito',
+    'Es hora de: $habit',
+    scheduledTime,
+    const NotificationDetails(
+      android: AndroidNotificationDetails(
+        'habit_channel_id',
+        'Hábito Recordatorio',
+        importance: Importance.max,
+        priority: Priority.high,
+      ),
+    ),
+    androidAllowWhileIdle: true,
+    uiLocalNotificationDateInterpretation:
+    UILocalNotificationDateInterpretation.absoluteTime,
+  );
 }
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
   @override
   _MyAppState createState() => _MyAppState();
 }
@@ -192,9 +248,8 @@ class _MyAppState extends State<MyApp> {
       case 54:
         Navigator.pushNamed(context, '/summary');
         break;
-    // Agrega más casos aquí si es necesario
-    }
 
+    }
   }
 
   @override
