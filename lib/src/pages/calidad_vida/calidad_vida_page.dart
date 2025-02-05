@@ -45,6 +45,16 @@ class _CalidadVidaNPageState extends State<CalidadVidaNPage> {
                   buttonColor: colorButton,
                   onPressed: () => Navigator.pushNamed(context, '/mente_guia')
                   ),
+              Button(
+                  buttonName: 'Consejería y Red',
+                  buttonColor: colorButton,
+                  onPressed: () => Navigator.pushNamed(context, '/consejeria')
+                  ),
+              Button(
+                  buttonName: 'Hábitos saludables',
+                  buttonColor: colorButton,
+                  onPressed: () => Navigator.pushNamed(context, '/habitos')
+              ),
             ],
           ),
         ));

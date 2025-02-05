@@ -3,6 +3,7 @@ import 'package:app_embarazo/src/widgets/header_widget.dart';
 import 'package:app_embarazo/src/widgets/image_widget.dart';
 import 'package:app_embarazo/src/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ConsejeriaPage extends StatefulWidget {
   const ConsejeriaPage({super.key});
@@ -16,7 +17,6 @@ class _ConsejeriaPageState extends State<ConsejeriaPage> {
   Widget build(BuildContext context) {
     const Color color = Color(0xffE7BAFF);
     const Color colorButton = Color(0xff734A91);
-    const String imagesrc = 'assets/images/inicio/inicio_sesion.jpg';
 
     return Scaffold(
       backgroundColor: color,
@@ -24,30 +24,45 @@ class _ConsejeriaPageState extends State<ConsejeriaPage> {
         child: Column(
           children: [
             HeaderWidget(
+                text: 'Consejería y Orientación Emocional',
+                color: color,
+                isSubtitle: true,
+                showButton: false),
+            ImagenWidget(
+                imagesrc: 'assets/images/calidad_vida/consejeria/img.png',
+                isPrincipal: true),
+
+            Button(buttonName: 'Agenda tu cita', buttonColor: colorButton, onPressed: abrirWhatsApp),
+
+            HeaderWidget(
               text: 'Red de Apoyo y Comunidad',
               color: color,
               isSubtitle: true,
               showButton: false,
             ),
-            TextWidget(text: 'Grupos de Apoyo: familia, amigos/as'),
-            ImagenWidget(imagesrc: imagesrc, isPrincipal: true),
-            TextWidget(
-                text:
-                    'Recuerda: nos amamos, nos queremos y somos únicas. Tu eres valiosa tal y como eres y tu bebe te ama por eso. '),
-            ImagenWidget(imagesrc: imagesrc, isPrincipal: true),
-            HeaderWidget(
-                text: 'Consejería y Orientación Emocional',
-                color: color,
-                isSubtitle: true,
-                showButton: false),
-            ImagenWidget(imagesrc: imagesrc, isPrincipal: true),
-            Button(buttonName: 'Agenda tu cita', buttonColor: colorButton, onPressed: test)
+            ImagenWidget(
+                imagesrc: 'assets/images/calidad_vida/consejeria/img_1.png',
+                isPrincipal: true),
+            Button(buttonName: 'Grupos de Apoyo: familia, amigos/as', buttonColor: colorButton, onPressed: abrirWhatsApp),
+            Button(buttonName: 'Historias de superación', buttonColor: colorButton, onPressed: abrirWhatsApp),
+
+
           ],
         ),
       ),
     );
   }
 }
-void test() {
-  print('test');
+void abrirWhatsApp() async {
+  const String telefono = "+1234567890"; // Reemplaza con el número real
+  const String mensaje = "Hola, quiero agendar una cita.";
+  final String url = "https://wa.me/$telefono?text=${Uri.encodeComponent(mensaje)}";
+
+  Uri uri = Uri.parse(url);
+
+  if (await canLaunchUrl(uri)) {
+    await launchUrl(uri, mode: LaunchMode.externalApplication);
+  } else {
+    print("No se pudo abrir WhatsApp");
+  }
 }
