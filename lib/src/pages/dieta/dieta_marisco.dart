@@ -24,7 +24,7 @@ class _DietaPageState extends State<DietaMarisco> {
             children: [
               const HeaderWidget(
                 color: colorButton,
-                text: 'No comas marisco crudo, ni smilares',
+                text: 'Marisco y pescado crudo',
                 isSubtitle: true,
                 showButton: true,
               ),

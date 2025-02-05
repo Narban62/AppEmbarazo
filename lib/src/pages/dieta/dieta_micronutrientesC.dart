@@ -8,14 +8,14 @@ import 'package:flutter/material.dart';
 import '../../widgets/menu_seleccionable_widget.dart';
 import '../../widgets/menu_widget.dart';
 
-class DietaNutricional extends StatefulWidget {
-  const DietaNutricional({super.key});
+class DietaMicronutrientes extends StatefulWidget {
+  const DietaMicronutrientes({super.key});
 
   @override
-  State<DietaNutricional> createState() => _DietaPageState();
+  State<DietaMicronutrientes> createState() => _DietaMicronutrientesState();
 }
 
-class _DietaPageState extends State<DietaNutricional> {
+class _DietaMicronutrientesState extends State<DietaMicronutrientes> {
   final TextEditingController intoleranciaController = TextEditingController(); // Controlador para Autoconocimiento
 
   @override
@@ -31,14 +31,14 @@ class _DietaPageState extends State<DietaNutricional> {
 
             const HeaderWidget(
               color: colorButton,
-              text: 'Macronutrientes',
+              text: 'Micronutrientes',
               isSubtitle: false,
             ),
             const ImagenWidget(
-              imagesrc: 'assets/images/dieta/Picture6.png',
+              imagesrc: 'assets/images/dieta/Picture7.png',
               isPrincipal: true,
             ),
-            const TextWidget(text: "Durante tu embarazo, los macronutrientes son nutrientes esenciales que el cuerpo necesita en grandes cantidades para funcionar correctamente y apoyar el crecimiento y desarrollo de tu bebé, así como para mantener tu propia salud. Aquí tenemos:\nCarbohidratos (45-65% total)\nGrasas (20% - 35% total)\nProteínas (10% - 35% total)"),
+            const TextWidget(text: "Son vitaminas y minerales que el cuerpo necesita en pequeñas cantidades para funcionar correctamente. Durante el embarazo, estos nutrientes son esenciales para el desarrollo saludable de tu bebé y tu bienestar.\nHierro\nAcido Fólico\nCalcio\nYodo\nVitaminas"),
 
             const HeaderWidget(
               color: colorButton,
@@ -51,7 +51,7 @@ class _DietaPageState extends State<DietaNutricional> {
               color: color,
               isSubtitle: true,
             ),
-            Padding(
+            /*Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -126,7 +126,7 @@ class _DietaPageState extends State<DietaNutricional> {
                 ],
               ),
             ),
-            /*Padding(
+            Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -145,12 +145,12 @@ class _DietaPageState extends State<DietaNutricional> {
                   Expanded(
                     child: MenuWidgetDieta(
                       titulo: 'Lípidos',
-                      informacionAdicional: 'consumo recomendado es de 200 mg/día y puede satisfacerse con una o dos porciones de pescado a la semana.',
+                      informacionAdicional: 'Consumo recomendado es de 200 mg/día y puede satisfacerse con una o dos porciones de pescado a la semana.',
                     ),
                   ),
                 ],
               ),
-            ),
+            ),*/
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Row(
@@ -195,7 +195,7 @@ class _DietaPageState extends State<DietaNutricional> {
                   Expanded(
                     child: MenuWidgetDieta(
                       titulo: 'Vitamina A 5.000 UI/día.',
-                      informacionAdicional: 'Es fundamental durante los períodos de crecimiento rápido y es importante en la diferenciación celular, el desarrollo ocular, la función inmunitaria y el desarrollo y la madurez pulmonar, así como en la expresión de los genes.',
+                      informacionAdicional: 'Es fundamental durante los períodos de crecimiento rápido y es importante en la diferenciación celular, el desarrollo ocular, la función inmunitaria y el desarrollo y la madurez pulmonar, así como en la expresión de los genes.\nEjm: frutas, pescado, vísceras.',
                     ),
                   ),
                 ],
@@ -222,7 +222,7 @@ class _DietaPageState extends State<DietaNutricional> {
                   Expanded(
                     child: MenuWidgetDieta(
                       titulo: 'Vitamina D',
-                      informacionAdicional: 'Consumo de 600 UI/día (15 µg/día) es suficiente cuando se considera la salud ósea ejemplo: el salmón y otros pescados azules, algunos cereales enriquecidos para el desayuno, los hongos expuestos a la luz ultravioleta, y el hígado de foca.',
+                      informacionAdicional: 'La vitamina D es importante en la salud ósea de la madre y especialmente en la mineralización de tu bebé. Puedes exponerte a la luz solar de 5 a 10 minutos en horas de la mañana, pero también puedes obtenerla en tu dieta por medio del consumo de aceite de hígado de pescado, hongos, yema de huevo e hígado. ',
                     ),
                   ),
                 ],
@@ -247,7 +247,7 @@ class _DietaPageState extends State<DietaNutricional> {
                   Expanded(
                     child: MenuWidgetDieta(
                       titulo: 'Minerales/ Calcio',
-                      informacionAdicional: 'Mantienen las concentraciones séricas de calcio maternas y promueven la retención de calcio para satisfacer las crecientes demandas de mineralización del esqueleto fetal. Aumenta de 50 mg/ día a las 20 semanas de gestación a 330 mg/día a las 35 semanas.',
+                      informacionAdicional: 'El calcio construye y mantiene tus dientes y huesos sanos y es esencial para el desarrollo de los huesos de tu bebé. Ejm: lácteos, algunos pescados, vegetales de color verde oscuro y algunos cereales y leguminosas.',
                     ),
                   ),
                 ],
@@ -297,7 +297,7 @@ class _DietaPageState extends State<DietaNutricional> {
                   Expanded(
                     child: MenuWidgetDieta(
                       titulo: 'Yodo',
-                      informacionAdicional: 'Tiene un papel fundamental en el metabolismo de los macronutrientes, así como en la mielinización neuronal fetal y la expresión de los genes',
+                      informacionAdicional: 'Papel fundamental en el funcionamiento de diversos órganos, incluidos el cerebro y la glándula tiroides, el consumo de yodo debe incrementarse de 200 μg a 250 μg por día.\nSu deficiencia afecta el desarrollo normal del cerebro, puede causar alteraciones serias del cerebro, defectos neurológicos, alteraciones del oído interno. Consume sal yodada y  mariscos.',
                     ),
                   ),
                 ],
@@ -322,12 +322,12 @@ class _DietaPageState extends State<DietaNutricional> {
                   Expanded(
                     child: MenuWidgetDieta(
                       titulo: 'Hierro',
-                      informacionAdicional: 'El consumo inadecuado de hierro puede provocar una producción deficiente de hemoglobina, seguida de un transporte reducido de oxígeno y de hierro, al útero, la placenta y el feto en desarrollo (Las carnes rojas, vísceras, aves y pescados).',
+                      informacionAdicional: 'Es un nutriente esencial y se duplica en el embarazo para el óptimo desarrollo mental, motor y conductual de tu bebe, se encuentra en todas las células de tu cuerpo y es fundamental para la producción de glóbulos rojos y para la función enzimática distribuyéndose en tu útero, placenta y tu bebé en desarrollo.  Lo encontramos en las carnes rojas, vísceras, aves y pescado.',
                     ),
                   ),
                 ],
               ),
-            ),*/
+            ),
           ],
         ),
       ),

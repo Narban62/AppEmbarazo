@@ -26,11 +26,11 @@ class _DietaPageState extends State<DietaEmbutidos> {
             children: [
               const HeaderWidget(
                 color: colorButton,
-                text: 'No comas embutidos, ni similares',
+                text: 'No comas carne, pollo ni huevo poco cocidos',
                 isSubtitle: true,
                 showButton: true,
               ),
-              const ImagenWidget(imagesrc: 'assets/images/dieta/embutidos .jpg', isPrincipal: true),
+              const ImagenWidget(imagesrc: 'assets/images/dieta/Picture9.png', isPrincipal: true),
               const HeaderWidget(
                 text: 'Información:',
                 color: color,

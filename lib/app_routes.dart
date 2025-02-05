@@ -32,8 +32,11 @@ import 'package:app_embarazo/src/pages/dieta/dieta_cafeina.dart';
 import 'package:app_embarazo/src/pages/dieta/dieta_carne_cruda.dart';
 import 'package:app_embarazo/src/pages/dieta/dieta_cerveza.dart';
 import 'package:app_embarazo/src/pages/dieta/dieta_embutidos.dart';
+import 'package:app_embarazo/src/pages/dieta/dieta_energiaC.dart';
 import 'package:app_embarazo/src/pages/dieta/dieta_evitar.dart';
+import 'package:app_embarazo/src/pages/dieta/dieta_info_nutricionalC.dart';
 import 'package:app_embarazo/src/pages/dieta/dieta_marisco.dart';
+import 'package:app_embarazo/src/pages/dieta/dieta_micronutrientesC.dart';
 import 'package:app_embarazo/src/pages/dieta/dieta_navegacion.dart';
 import 'package:app_embarazo/src/pages/dieta/dieta_nutricional.dart';
 import 'package:app_embarazo/src/pages/dieta/dieta_pescado.dart';
@@ -233,7 +236,7 @@ class AppRoutes {
       ),
       '/dieta_nutricional': (context) => BaseScaffold(
         body: const DietaNutricional(),
-        title: 'Dieta Nutricional',
+        title: 'Macronutrientes en la Dieta',
         selectedIndex: 22,
         onItemTapped: onItemTapped,
       ),
@@ -457,6 +460,29 @@ class AppRoutes {
         onItemTapped: onItemTapped,
       ),
       // Agrega más rutas aquí
+
+      //--Cambios para DIETA
+
+      '/dieta_info_nutricional': (context) => BaseScaffold(
+        body: const DietaInfoNutricional(),
+        title: 'Información Nutricional',
+        selectedIndex: 60,
+        onItemTapped: onItemTapped,
+      ),
+      '/dieta_energia': (context) => BaseScaffold(
+        body: const DietaEnergia(),
+        title: 'Energía',
+        selectedIndex: 61,
+        onItemTapped: onItemTapped,
+      ),
+      '/micronutrientes': (context) => BaseScaffold(
+        body: const DietaMicronutrientes(),
+        title: 'Micronutrientes',
+        selectedIndex: 62,
+        onItemTapped: onItemTapped,
+      ),
+
+
     };
   }
 }

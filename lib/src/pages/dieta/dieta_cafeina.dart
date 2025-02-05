@@ -36,7 +36,7 @@ class _DietaPageState extends State<DietaCafeina> {
               ),
               const TextWidget(
                   text:
-                  'limita la cafeína a menos de 200 miligramos (mg) al día. Una taza de 8 onzas (240 mililitros, o ml) de café filtrado contiene alrededor de 95 mg de cafeína, puede producir taquicardia en la embarazada y bajo peso al nacer.'),
+                  'Limita la cafeína a menos de 200 miligramos (mg) al día. Una taza de 8 onzas (240 mililitros, o ml) de café filtrado contiene alrededor de 95 mg de cafeína, esto puede producir un aumento de los latidos de tu corazón y bajo peso al nacer de tu bebé.'),
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Row(

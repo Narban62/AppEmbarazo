@@ -55,7 +55,7 @@ class _DietaEvitarState extends State<DietaEvitar> {
                       imageSrc: 'assets/images/dieta/pescado y marisco crudo.jpg',
                       text: 'Pescado crudo',
                       onPressed: () {
-                        Navigator.pushNamed(context, '/dieta_pescado');
+                        Navigator.pushNamed(context, '/dieta_marisco');
                       },
                     ),
                   ),
@@ -81,7 +81,7 @@ class _DietaEvitarState extends State<DietaEvitar> {
                   const SizedBox(width: 16),
                   Expanded(
                     child: SquareButton(
-                      imageSrc: 'assets/images/dieta/cerveza.jpeg',
+                      imageSrc: 'assets/images/dieta/Picture8.png',
                       text: 'No alcohol',
                       onPressed: () {
                         Navigator.pushNamed(context, '/dieta_cerveza');

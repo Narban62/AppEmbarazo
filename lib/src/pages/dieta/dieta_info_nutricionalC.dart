@@ -1,3 +1,4 @@
+import 'package:app_embarazo/src/widgets/image_widget.dart';
 import 'package:flutter/material.dart';
 import '../../widgets/background_widget.dart';
 import '../../widgets/bubble_widget.dart';
@@ -6,8 +7,8 @@ import '../../widgets/header_widget.dart';
 import '../../widgets/text_widget.dart';
 
 
-class DietaNavegacion extends StatelessWidget {
-  const DietaNavegacion({Key? key}) : super(key: key);
+class DietaInfoNutricional extends StatelessWidget {
+  const DietaInfoNutricional({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,33 +23,29 @@ class DietaNavegacion extends StatelessWidget {
           SingleChildScrollView(// Burbujas animadas
           child: Column(
             children: [
-              const HeaderWidget(
-                color: color,
-                text: 'Módulos',
-                isSubtitle: false,
-                showButton: false,
-              ),
-              const TextWidget(text: "Juntas hacia tu autocuidado"),
+              const TextWidget(text: "REQUERIMIENTOS DE NUTRIENTES ESPECÍFICOS DURANTE EL EMBARAZO"),
+              const ImagenWidget(imagesrc: 'assets/images/dieta/Picture1.jpg', isPrincipal: true),
+
               Button(
-                buttonName: "Información nutricional",
+                buttonName: "Energía",
                 buttonColor: colorButton,
                 onPressed: () {
-                  Navigator.pushNamed(context, '/dieta_info_nutricional');
+                  Navigator.pushNamed(context, '/dieta_energia');
                 },
               ),
               Button(
-                buttonName: "Alimentos a evitar",
+                buttonName: "Macronutrientes",
                 buttonColor: colorButton,
                 onPressed: () {
-                  Navigator.pushNamed(context, '/dieta_evitar');
+                  Navigator.pushNamed(context, '/dieta_nutricional');
                 },
               ),
               Button(
-                buttonName: "Recetas saludables",
+                buttonName: "micronutrientes",
                 buttonColor: colorButton,
                 onPressed: () {
 
-                  Navigator.pushNamed(context, '/plan_dieta');
+                  Navigator.pushNamed(context, '/micronutrientes');
                 },
               ),
 
