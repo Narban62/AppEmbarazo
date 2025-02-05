@@ -39,9 +39,11 @@ class _EstimulacionAuditivaPageState extends State<EstimulacionAuditivaPage> {
                     'Exponer al feto a estímulos auditivos, como música y la voz materna, a partir del quinto o sexto mes de embarazo, estimula su cerebro y favorece el desarrollo del lenguaje y la creatividad.'),
 
             const ImagenWidget(imagesrc: 'assets/images/psicoprofilaxis/auditiva.jpeg', isPrincipal: false),
-            
+            const TextWidget(text: "Actividad: Puedes cantarle a tu bebé, leerle cuentos, ponerle música suave y hablarle con amor. \nTambién puedes pedirle a tu pareja que hable con el bebé, para que se vaya familiarizando con su voz."),
             const HeaderWidget(text: 'Ejercicios:', color: Color(0xffFCDEE7), isSubtitle: true, showButton: false,),
             VideoWidget(videoUrl:video1 ,videoImage: videoImage,bgColor: bgVideoColor,),
+            //espacio
+            const SizedBox(height: 20),
             VideoWidget(videoUrl:video2 ,videoImage: videoImage,bgColor: bgVideoColor,)
           ],
         ),

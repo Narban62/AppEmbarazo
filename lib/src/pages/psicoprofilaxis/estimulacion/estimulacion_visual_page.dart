@@ -34,7 +34,7 @@ class _EstimulacionVisualPageState extends State<EstimulacionVisualPage> {
             const TextWidget(text:
                     'Practica que ayuda al desarrollo visual de tu bebé, a tráves de luces y colores durante tu embarazo'),
             const ImagenWidget(imagesrc: 'assets/images/psicoprofilaxis/estimulacion visual2.jpeg', isPrincipal: false),
-
+            const TextWidget(text: "Actividad: Hablándole a la altura del vientre. Apunte la luz a la mitad del abdomen de la madre y dígale: “se prende” manteniéndola así por cinco segundos. Luego apague la lámpara por otros cinco segundos, y avísele: “se apaga”. Se debe hacer esto en tres posiciones: arriba del vientre, en el centro y abajo; siguiendo una secuencia de 8 repeticiones. "),
             const HeaderWidget(
               text: 'Ejercicios:',
               color: colorButton,

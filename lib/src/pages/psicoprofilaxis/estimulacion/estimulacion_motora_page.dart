@@ -39,6 +39,9 @@ class _EstimulacionMotoraPageState extends State<EstimulacionMotoraPage> {
             const ImagenWidget(
                 imagesrc: 'assets/images/psicoprofilaxis/motora.jpeg',
                 isPrincipal: false),
+            const TextWidget(
+                text:
+                    'Actividad:   Baile (estimulación del movimiento), colocará música de su agrado (bachata), realiza movimientos circulares con tu cuerpo y con todos tus segmentos: cabeza, muñecas, codos, brazos, tobillos, piernas, cadera. Continúa bailando hasta sentirte relajada y libre de tensiones en todo este momento acaricie tu vientre.'),
             const HeaderWidget(
               text: 'Ejercicios:',
               color: colorButton,
@@ -50,6 +53,10 @@ class _EstimulacionMotoraPageState extends State<EstimulacionMotoraPage> {
               videoUrl: video1,
               videoImage: '',
               bgColor: bgVideoColor,
+            ),
+            //dar espacio
+            const SizedBox(
+              height: 20,
             ),
             VideoWidget(
               videoUrl: video2,
