@@ -31,7 +31,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_native_splash: ^2.0.5
-  flutter_local_notifications: ^16.3.0
+  #flutter_local_notifications: ^16.3.0
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   flutter_countdown_timer: ^4.1.0
@@ -47,7 +47,7 @@ dependencies:
   table_calendar: ^3.0.6
   url_launcher: ^6.3.1
   flutter_datetime_picker_plus: ^2.2.0
-  #flutter_local_notifications: ^9.0.0
+  flutter_local_notifications: ^9.8.0
 
 
 dev_dependencies:

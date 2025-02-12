@@ -21,6 +21,7 @@ class _InfoProyectoVidaPageState extends State<InfoProyectoVidaPage> {
   final TextEditingController interesesvocController = TextEditingController();
   final TextEditingController sitacionlaboralController = TextEditingController();
   final TextEditingController decisionesController = TextEditingController();
+  final TextEditingController controller = TextEditingController();
 
   @override
   void initState() {
@@ -73,10 +74,11 @@ class _InfoProyectoVidaPageState extends State<InfoProyectoVidaPage> {
               showButton: true,
             ),
             const SizedBox(height: 20),
-            _buildSection('Autoconocimiento', 'Más información sobre el autoconocimiento.', autoconocimientoController),
-            _buildSection('Intereses Vocacionales', 'Más información sobre tus intereses vocacionales.', interesesvocController),
-            _buildSection('Situación Laboral', 'Más información sobre tu situación laboral.', sitacionlaboralController),
-            _buildSection('Decisiones', 'Más información sobre tus decisiones futuras.', decisionesController),
+            _buildSection('Vida a fututo ', 'A continuación, debes  escribir  lo que te imaginas de tu vida a fututo.', autoconocimientoController),
+            _buildSection('¿Qué deseo?', 'Escribe tú respuesta ', interesesvocController),
+            _buildSection('¿En cuánto tiempo lo lograré?', 'Escribe tú respuesta ', sitacionlaboralController),
+            _buildSection('¿Cómo lo voy a hacer? ', 'Escribe tú respuesta ', decisionesController),
+            _buildSection('¿En quién me puedo apoyar para lograr? ', 'Escribe tú respuesta ', controller),
 
             const SizedBox(height: 20),
             Button(
@@ -134,10 +136,11 @@ class _InfoProyectoVidaPageState extends State<InfoProyectoVidaPage> {
           String nombreCompleto = '$nombres $apellidos';
 
           await FirebaseFirestore.instance.collection('proyecto_vida').doc(nombreCompleto).set({
-            'autoconocimiento': autoconocimientoController.text,
-            'interesesvoc': interesesvocController.text,
-            'situacionlaboral': sitacionlaboralController.text,
-            'decisiones': decisionesController.text,
+            'vida a fututo': autoconocimientoController.text,
+            '¿Qué deseo?': interesesvocController.text,
+            '¿En cuánto tiempo lo lograré?': sitacionlaboralController.text,
+            '¿Cómo lo voy a hacer?': decisionesController.text,
+            '¿En quién me puedo apoyar para lograr?': controller.text,
             'fecha': DateTime.now(),
           });
 
