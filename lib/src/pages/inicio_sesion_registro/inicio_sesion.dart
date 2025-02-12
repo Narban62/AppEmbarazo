@@ -84,7 +84,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               TextButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/'); // Navegar a la página de registro
+                  _showResetPasswordDialog(context, _authService); // Mostrar diálogo de restablecimiento de contraseña
                 },
                 child: const Text(
                   "¿Olvidaste tu contraseña? ",
@@ -163,3 +163,51 @@ class _LoginPageState extends State<LoginPage> {
     _passwordController.clear();
   }
 }
+
+void _showResetPasswordDialog(BuildContext context, AuthService _authService) {
+    final TextEditingController _resetEmailController = TextEditingController();
+
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text('Restablecer contraseña'),
+          content: TextField(
+            controller: _resetEmailController,
+            decoration: const InputDecoration(
+              labelText: 'Correo Electrónico',
+            ),
+            keyboardType: TextInputType.emailAddress,
+          ),
+          actions: [
+            TextButton(
+              onPressed: () async {
+                String email = _resetEmailController.text;
+                String? emailError = Validators.validateEmail(email);
+
+                if (emailError == null) {
+                  String? errorMessage = await _authService.resetPassword(email: email);
+                  if (errorMessage == null) {
+                    SnackbarHelper.show(context, 'Correo de restablecimiento enviado');
+                  } else {
+                    SnackbarHelper.show(context, errorMessage);
+                  }
+                } else {
+                  SnackbarHelper.show(context, emailError);
+                }
+
+                Navigator.of(context).pop();
+              },
+              child: const Text('Enviar'),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('Cancelar'),
+            ),
+          ],
+        );
+      },
+    );
+  }
