@@ -35,14 +35,17 @@ class _RespiracionPageState extends State<RespiracionPage> {
               isSubtitle: true,
               showButton: true,
             ),
-            const TextWidget(
+            const TextWidget(textAlign: TextAlign.center,
                 text:
-                    'Hola, mamita, ¿Cómo estás?. \nEl día de hoy aprenderás cómo respirar para cuando empiece tu labor de parto.'),
+                    'La respiración durante el trabajo de parto,  influye en la relajación muscular, la oxigenación de tu bebé y el manejo del dolor.'),
+                
+                    
             const HeaderWidget(
               text: 'Respiración normal:',
               color: color,
               isSubtitle: true,
               showButton: false,
+              
             ),
             VideoWidget(
               videoUrl: videoRN,
@@ -61,7 +64,7 @@ class _RespiracionPageState extends State<RespiracionPage> {
               videoUrl: videoRP,
               videoImage: '',
               bgColor: bgVideoColor,
-              description: "Ayuda a las mujeres durante el trabajo de parto, facilitando la relajación y el manejo del dolor. \nCaracterísticas de la Respiración Pausada\nControl del Ritmo: implica inhalar lentamente por la nariz y exhalar suavemente por la boca. Este control del ritmo respiratorio ayuda a mantener la calma y a reducir la ansiedad durante las contracciones.nfoque en la Relajación: Al concentrarse en una respiración más lenta y profunda, se promueve un estado de relajación que puede disminuir la percepción del dolor.\nOxigenación Adecuada: permite un mejor intercambio de gases, asegurando que tu y tu bebé reciban suficiente oxígeno durante el trabajo de parto.\nTécnicas de Respiración Pausada\nRespiración Abdominal:  Inhala profundamente por la nariz, permitiendo que el abdomen se expanda, y exhalar lentamente por la boca.\nBeneficios: Ayuda a relajar el cuerpo entre contracciones y mejora la oxigenación de tu bebè.",
+              description: "Ayuda a las mujeres durante el trabajo de parto, facilitando la relajación y el manejo del dolor.\nTécnicas de Respiración Pausada\nRespiración Abdominal:  Inhala profundamente por la nariz, permitiendo que el abdomen se expanda, y exhalar lentamente por la boca.\nBeneficios: Ayuda a relajar el cuerpo entre contracciones y mejora la oxigenación de tu bebé."
             ),
             const HeaderWidget(
               text: 'Respiración profunda:',
@@ -73,6 +76,7 @@ class _RespiracionPageState extends State<RespiracionPage> {
               videoUrl: videoRPro,
               videoImage: '',
               bgColor: bgVideoColor,
+              description: "Esta técnica ayuda a las mujeres gestantes a relajarse, reducir el estrés y manejar el dolor durante el trabajo de parto. \nCómo Realizar \nInhalación profunda: La mujer inhala lentamente por la nariz, llenando los pulmones de aire y expandiendo el abdomen. Esto asegura que el cuerpo reciba una cantidad adecuada de oxígeno.\n1. Retención breve: Después de inhalar, se mantiene el aire en los pulmones por unos segundos. Esto ayuda a maximizar la oxigenación de la sangre.\n2. Exhalación lenta: La mujer exhala lentamente por la boca, vaciando completamente los pulmones. Este proceso de exhalación debe ser más largo que la inhalación.\n3. Repetición: Este ciclo de respiración se repite varias veces, ayudando a la mujer a mantenerse calmada y enfocada.",
             ),
 
             //espacio
@@ -92,6 +96,7 @@ class _RespiracionPageState extends State<RespiracionPage> {
               videoUrl: videoJBB,
               videoImage: '',
               bgColor: bgVideoColor,
+              description: "Es una técnica utilizada durante el trabajo de parto, especialmente en la fase de dilatación y en la transición hacia el empuje. \nTECNICA \n1.Posición: Encuentra una posición cómoda, preferiblemente sentada o en cuclillas, con los ojos cerrados para minimizar distracciones.\n2. Inhalar y Exhalar: Inhala profundamente por la nariz y exhala rápidamente por la boca en pequeñas ráfagas, manteniendo un ritmo constante.\n3. Puedes seguir un patrón como: nariz-boca-boca o nariz-nariz-boca-boca\n4. Evitar Hiperventilación: Es crucial no exagerar con la velocidad para evitar mareos.",
             ),
             const HeaderWidget(
               text: 'Jadeo (nariz-boca):',
@@ -103,7 +108,7 @@ class _RespiracionPageState extends State<RespiracionPage> {
               videoUrl: videoJNB,
               videoImage: '',
               bgColor: bgVideoColor,
-              description: "Durante el Trabajo de Parto\nEsta técnica te ayudarà a manejar el dolor y a mantener la calma, evitando la hiperventilación y promoviendo una adecuada oxigenación.\nCaracterísticas de la Respiración de Jadeo\nInhalación y Exhalación Controladas: Consiste en inhalar por la nariz y exhalar por la boca en ráfagas cortas y rápidas, similar al jadeo. Esto se puede realizar siguiendo patrones como: nariz-boca-boca o nariz-nariz-boca-boca.\nRitmo Constante: Mantener un ritmo constante es crucial para evitar el aumento de la ansiedad y el estrés durante las contracciones.\nPosición Cómoda: Es recomendable realizar esta técnica en una posición cómoda, preferiblemente sentada o tumbada, para evitar mareos.\nCómo Realizar la Respiración de Jadeo\nEncuentra una Posición Cómoda: Siéntate o acuéstate en una posición que te resulte relajante.\ninhalar por la Nariz: Toma aire lentamente por la nariz.\nExhalar por la Boca: Expulsa el aire rápidamente por la boca en pequeñas ráfagas, siguiendo el patrón deseado.\nRepetir: Continúa este patrón durante las contracciones, manteniendo un enfoque en la respiración.",
+              description: ") Durante el Trabajo de Parto, esta técnica te ayudarà a manejar el dolor y a mantener la calma, evitando la hiperventilación y promoviendo una adecuada oxigenación.\nCómo Realizar la Respiración de Jadeo\n1. Encuentra una Posición Cómoda: Siéntate o acuéstate en una posición que te resulte relajante.\n2. Inhalar por la Nariz: Toma aire lentamente por la nariz.\n3.Exhalar por la Boca: Expulsa el aire rápidamente por la boca en pequeñas ráfagas, siguiendo el patrón deseado.\n4. Repetir: Continúa este patrón durante las contracciones, manteniendo un enfoque en la respiración.",
             ),
             const HeaderWidget(
               text: 'Jadeo (nariz-nariz):',
@@ -115,7 +120,7 @@ class _RespiracionPageState extends State<RespiracionPage> {
               videoUrl: videoJNN,
               videoImage: '',
               bgColor: bgVideoColor,
-              description: "se centra en inhalar y exhalar a través de la nariz, te ayudarà a mantener un flujo constante de oxígeno y a promover un estado de calma.\nCaracterísticas de la Respiración Nariz-Nariz\nInhalación Profunda: Consiste en inhalar profundamente por la nariz, llevando el aire hacia el abdomen. Esto permite una mayor oxigenación y te ayudarà a relajar los músculos.\nExhalación Controlada: La exhalación también se realiza por la nariz, lo que ayuda a mantener un ritmo constante y evita la hiperventilación.\nRitmo Suave: Mantener un ritmo suave y controlado es clave para evitar tensiones y mantener la calma durante las contracciones.\nCómo Realizar la Respiración Nariz-Nariz\nPosición Cómoda: Encuentra una posición cómoda, ya sea sentada o en cuclillas, donde te sientas relajada.\nInhalar por la Nariz: Toma aire lentamente por la nariz, sintiendo cómo se expande tu abdomen.\nExhalar por la Nariz: Exhala suavemente también por la nariz, asegurándote de que el aire salga de manera controlada.\nRepetir: Continúa este patrón durante las contracciones, concentrándote en tu respiración.\nBeneficios de la Respiración Nariz-Nariz\nOxigenación Eficiente: Al respirar por la nariz, se filtra y calienta el aire, lo que puede ser beneficioso para ambos.\nReducción del Estrés: Esta técnica ayuda a reducir el estrés y la ansiedad.",
+              description: "se centra en inhalar y exhalar a través de la nariz, te ayudarà a mantener un flujo constante de oxígeno y a promover un estado de calma.\nCómo Realizar la Respiración Nariz-Nariz\n1. Posición Cómoda: Encuentra una posición cómoda, ya sea sentada o en cuclillas, donde te sientas relajada.\n2. Inhalar por la Nariz: Toma aire lentamente por la nariz, sintiendo cómo se expande tu abdomen.\n3. Exhalar por la Nariz: Exhala suavemente también por la nariz, asegurándote de que el aire salga de manera controlada.\n4. Repetir: Continúa este patrón durante las contracciones, concentrándote en tu respiración.\nBeneficios de la Respiración Nariz-Nariz\n* Oxigenación Eficiente: Al respirar por la nariz, se filtra y calienta el aire, lo que puede ser beneficioso para ambos.\n* Reducción del Estrés: Esta técnica ayuda a reducir el estrés y la ansiedad.",
             ),
             Padding(padding: const EdgeInsets.all(20)),
           ],
