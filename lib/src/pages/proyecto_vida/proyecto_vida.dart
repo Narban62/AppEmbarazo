@@ -33,7 +33,7 @@ class _ProyectoVidaPageState extends State<ProyectoVidaPage> {
           const Padding(padding: EdgeInsets.only(bottom: 20.0)),
           const TextWidget(
               text:
-                  'Es un ejercicio necesario que debes realizar durante tu embarazo, ya que contribuirá a tu desarrollo integral y permitira trazar las rutas para alcanzar tus metas.'),
+                  'Es un ejercicio necesario que debes realizar durante tu embarazo, ya que contribuirá a tu desarrollo integral y permitirá trazar las rutas para alcanzar tus metas.'),
           const Padding(padding: EdgeInsets.only(bottom: 20.0)),
           const ImagenWidget(
               imagesrc: 'assets/images/proyecto_de_vida/2.jpeg',

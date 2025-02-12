@@ -33,7 +33,7 @@ class _ProyectoVidaPageState extends State<ProyectoVidaPage3> {
           const Padding(padding: EdgeInsets.only(bottom: 20.0)),
           const TextWidget(
               text:
-                  'Todas las personas tenemos sueños y metas que desea mos alcanzar sin importar la edad o el momento en que nos encontremos'),
+                  'Todas las personas tenemos sueños y metas que deseamos alcanzar sin importar la edad o el momento en que nos encontremos'),
           const Padding(padding: EdgeInsets.only(bottom: 20.0)),
           const ImagenWidget(
               imagesrc: 'assets/images/proyecto_de_vida/6.jpeg',

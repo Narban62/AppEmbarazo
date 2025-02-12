@@ -10,7 +10,6 @@ class OpcionesPage extends StatefulWidget {
 }
 
 class _OpcionesPageState extends State<OpcionesPage> {
-
   Color backgroundColor = Color(0xffFFC5AA);
   Color buttonColor = Color(0xffFF8243);
   @override
@@ -25,21 +24,6 @@ class _OpcionesPageState extends State<OpcionesPage> {
             isSubtitle: true,
             showButton: false,
           ),
-
-          
-     
-          Button(
-              buttonName: "Entrenamiento",
-              buttonColor: buttonColor,
-              onPressed: () {
-                Navigator.pushNamed(context, '/trimestre');
-              }),
-          Button(
-              buttonName: "Calendario",
-              buttonColor: buttonColor,
-              onPressed: () {
-                Navigator.pushNamed(context, '/calendario');
-              }),
           Button(
               buttonName: "Calentamiento",
               buttonColor: buttonColor,
@@ -47,12 +31,23 @@ class _OpcionesPageState extends State<OpcionesPage> {
                 Navigator.pushNamed(context, '/calentamiento');
               }),
           Button(
+              buttonName: "Entrenamiento",
+              buttonColor: buttonColor,
+              onPressed: () {
+                Navigator.pushNamed(context, '/trimestre');
+              }),
+          Button(
               buttonName: "Estiramiento",
-              buttonColor:buttonColor,
+              buttonColor: buttonColor,
               onPressed: () {
                 Navigator.pushNamed(context, '/estiramiento_home');
               }),
-          
+          /*Button(
+              buttonName: "Calendario",
+              buttonColor: buttonColor,
+              onPressed: () {
+                Navigator.pushNamed(context, '/calendario');
+              }),*/
         ],
       ),
     );

@@ -48,7 +48,7 @@ class _InfoProyectoVidaPageState extends State<InfoQueProyectoVidaPage> {
             // El saludo dinámico se pasa al HeaderWidget
             HeaderWidget(
               color: colorButton,
-              text: '¿Para qué te sirve el proyecto de vida?',
+              text: 'Recuerda que tu proyecto de vida es único y personal, no olvides',
               isSubtitle: true,
               showButton: true,
             ),

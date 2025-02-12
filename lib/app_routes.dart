@@ -369,6 +369,7 @@ class AppRoutes {
         selectedIndex: 44,
         onItemTapped: onItemTapped,
       ),
+      //----------------------------------------
       '/estiramiento_instrucciones': (context) => BaseScaffold(
         body: const EstiramientoInstruccionesPage(),
         title: 'Instrucciones de Estiramiento',
@@ -488,6 +489,14 @@ class AppRoutes {
         body: const ExerciseScreen(),
         title: 'Cronómetro',
         selectedIndex: 63,
+        onItemTapped: onItemTapped,
+      ),
+
+      //-- estiramiento
+      '/estiramientos_instrucciones': (context) => BaseScaffold(
+        body: EstiramientoInstruccionesPage(),
+        title: 'Estiramiento',
+        selectedIndex: 64,
         onItemTapped: onItemTapped,
       ),
 

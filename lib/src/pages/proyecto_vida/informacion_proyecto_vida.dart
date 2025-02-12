@@ -1,3 +1,4 @@
+import 'package:app_embarazo/src/widgets/text_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -73,6 +74,7 @@ class _InfoProyectoVidaPageState extends State<InfoProyectoVidaPage> {
               isSubtitle: true,
               showButton: true,
             ),
+            TextWidget(text: "En esta sección podrás escribir tus metas y objetivos a futuro, así como las acciones que realizarás para lograrlas, no olvides que es importante que sean metas alcanzables y medibles."),
             const SizedBox(height: 20),
             _buildSection('Vida a fututo ', 'A continuación, debes  escribir  lo que te imaginas de tu vida a fututo.', autoconocimientoController),
             _buildSection('¿Qué deseo?', 'Escribe tú respuesta ', interesesvocController),
