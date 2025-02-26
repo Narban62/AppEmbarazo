@@ -48,12 +48,12 @@ class _InfoProyectoVidaPageState extends State<InfoQueProyectoVidaPage> {
             // El saludo dinámico se pasa al HeaderWidget
             HeaderWidget(
               color: colorButton,
-              text: 'Recuerda que tu proyecto de vida es único y personal, no olvides',
+              text: 'Recuerda que tu proyecto de vida es único y personal, no olvides.',
               isSubtitle: true,
               showButton: true,
             ),
             HeaderWidget(
-              text: 'Darle sentido a tu vida',
+              text: 'Darle sentido a tu vida.',
               color: color,
               isSubtitle: true,
             ),
@@ -70,7 +70,7 @@ class _InfoProyectoVidaPageState extends State<InfoQueProyectoVidaPage> {
               informacionAdicional: 'Al definir tus objetivos y valores, comprendes mejor quién eres y hacia dónde quieres dirigirte.',
             ),
             HeaderWidget(
-              text: 'Tomar mejores decisiones',
+              text: 'Tomar mejores decisiones.',
               color: color,
               isSubtitle: true,
             ),
@@ -87,7 +87,7 @@ class _InfoProyectoVidaPageState extends State<InfoQueProyectoVidaPage> {
               informacionAdicional: 'Al tener claro tu rumbo, podrás elegir las opciones que te acerquen a tus metas, evitando perderte en caminos que no te llevan a ninguna parte.',
             ),
             HeaderWidget(
-              text: 'Aumentar tu motivación',
+              text: 'Aumentar tu motivación.',
               color: color,
               isSubtitle: true,
             ),
@@ -101,10 +101,10 @@ class _InfoProyectoVidaPageState extends State<InfoQueProyectoVidaPage> {
             MenuWidget(
               titulo: '\nMás información',
               contenido: '',
-              informacionAdicional: 'Al visualizar tu futuro ideal y establecer pasos concretos para alcanzarlo, te sentirás más motivado y enfocado.',
+              informacionAdicional: 'Al visualizar tu futuro ideal y establecer pasos concretos para alcanzarlo, te sentirás más motivada y enfocada.',
             ),
             HeaderWidget(
-              text: 'Desarrollar tus habilidades',
+              text: 'Desarrollar tus habilidades.',
               color: color,
               isSubtitle: true,
             ),
@@ -124,7 +124,7 @@ class _InfoProyectoVidaPageState extends State<InfoQueProyectoVidaPage> {
                   'te permitirá crecer como persona.',
             ),
             HeaderWidget(
-              text: 'Superar obstáculos',
+              text: 'Superar obstáculos.',
               color: color,
               isSubtitle: true,
             ),
@@ -139,7 +139,7 @@ class _InfoProyectoVidaPageState extends State<InfoQueProyectoVidaPage> {
               titulo: '\nMás información',
               contenido: '',
               informacionAdicional: 'Al tener un plan claro, '
-                  'estarás mejor preparado para enfrentar los desafíos que '
+                  'estarás mejor preparada para enfrentar los desafíos que '
                   'surjan en el camino.',
             ),
             const Padding(padding: EdgeInsets.only(bottom: 20.0)),

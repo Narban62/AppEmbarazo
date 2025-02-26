@@ -64,6 +64,14 @@ class PrimerInstruccionesPageState extends State<PrimerInstruccionesPage> {
               description:
                   'Colócate de pie, con los piernas separadas al ancho de los hombros, flexiona ligeramente las rodillas, estira los brazos a los lados y llévalos hacia adelante, encorvando ligeramente la espalda. Luego lleva los brazos hacia a tras y estira el troco hacia adelante. Repite el ejercicio 8 veces.',
             ),
+            Button(
+                buttonName: 'Inicio',
+                buttonColor: colorButton,
+                onPressed: () {
+                  Navigator.pushNamed(
+                      context, '/cronometro');
+                },
+            ),
             TextWidget(text: "2. Flexión de espalda"),
             VideoWidget(
               videoUrl: espalda,
@@ -71,6 +79,14 @@ class PrimerInstruccionesPageState extends State<PrimerInstruccionesPage> {
               bgColor: bgVideoColor,
               description:
                   'Con las piernas abiertas al ancho de las caderas, eleva ambos brazos e inclina lentamente tu espalda hacia adelante, luego mueve tu brazos hacia un lado, arriba y al otro lado como dibujando un gran círculo. Repetir el mismo ejercicio iniciando por el lado contrario.',
+            ),
+            Button(
+              buttonName: 'Inicio',
+              buttonColor: colorButton,
+              onPressed: () {
+                Navigator.pushNamed(
+                    context, '/cronometro');
+              },
             ),
             TextWidget(text: "3. Retroversión de pelvis"),
             VideoWidget(
@@ -80,6 +96,14 @@ class PrimerInstruccionesPageState extends State<PrimerInstruccionesPage> {
               description:
                   'Colócate de pie, con los piernas separadas más allá del ancho de tus caderas, las rodillas ligeramente flexionadas, manos en la cintura, mueve tu pelvis lentamente hacia adelante y hacia atrás intentando no mover el tórax ni las rodillas. Repite el ejercicio 8 veces',
             ),
+            Button(
+              buttonName: 'Inicio',
+              buttonColor: colorButton,
+              onPressed: () {
+                Navigator.pushNamed(
+                    context, '/cronometro');
+              },
+            ),
             TextWidget(text: "4. Movimiento lateral de pelvis"),
             VideoWidget(
               videoUrl: movimientoLateral,
@@ -87,6 +111,14 @@ class PrimerInstruccionesPageState extends State<PrimerInstruccionesPage> {
               bgColor: bgVideoColor,
               description:
                   'Colócate de pie, con los piernas separadas más allá del ancho de tus caderas, las rodillas ligeramente flexionadas, manos en la cintura, mueve tu pelvis lentamente de izquierda a derecha. Repite el ejercicio 8 veces.',
+            ),
+            Button(
+              buttonName: 'Inicio',
+              buttonColor: colorButton,
+              onPressed: () {
+                Navigator.pushNamed(
+                    context, '/cronometro');
+              },
             ),
             TextWidget(text: "5. Movimiento circular de pelvis"),
             VideoWidget(
@@ -96,6 +128,14 @@ class PrimerInstruccionesPageState extends State<PrimerInstruccionesPage> {
               description:
                   'Colócate de pie, con los piernas separadas más allá del ancho de tus caderas, las rodillas ligeramente flexionadas, manos en la cintura, mueve tu pelvis lentamente dibujando u círculo con tus caderas. Repite el ejercicio dibujando el círculo por el lado contario. Repite el ejercicio 8 veces.',
             ),
+            Button(
+              buttonName: 'Inicio',
+              buttonColor: colorButton,
+              onPressed: () {
+                Navigator.pushNamed(
+                    context, '/cronometro');
+              },
+            ),
             TextWidget(text: "6. Elevación de pelvis"),
             VideoWidget(
               videoUrl: elevacion,
@@ -103,6 +143,14 @@ class PrimerInstruccionesPageState extends State<PrimerInstruccionesPage> {
               bgColor: bgVideoColor,
               description:
                   'Recostada en el piso, los brazos a lo largo del cuerpo, rodillas dobladas, plantas de los pies sobre el piso. Levanta la pelvis y mantenla elevada por 5 segundos, luego vuelve a la posición original por 5 segundos. Repite el movimiento. Cuando la pelvis esté abajo, mete aire y cuando eleves la pelvis, saca el aire. Repite el ejercicio 8 veces.',
+            ),
+            Button(
+              buttonName: 'Inicio',
+              buttonColor: colorButton,
+              onPressed: () {
+                Navigator.pushNamed(
+                    context, '/cronometro');
+              },
             ),
             TextWidget(text: "7. Movilidad de tronco"),
             VideoWidget(
@@ -118,6 +166,14 @@ class PrimerInstruccionesPageState extends State<PrimerInstruccionesPage> {
               videoImage: videoImage,
               bgColor: bgVideoColor,
               ),
+            Button(
+              buttonName: 'Inicio',
+              buttonColor: colorButton,
+              onPressed: () {
+                Navigator.pushNamed(
+                    context, '/cronometro');
+              },
+            ),
             TextWidget(text: "8. Apertura de rodillas y pies"),
             VideoWidget(
               videoUrl: apertura,
@@ -125,6 +181,14 @@ class PrimerInstruccionesPageState extends State<PrimerInstruccionesPage> {
               bgColor: bgVideoColor,
               description:
                   'Recostada de lado, con la cabeza reposando sobre tu brazo flexionado, rodillas flexionadas. Abre las rodillas manteniendo juntos los pies y cierra. Luego abre los pies manteniendo juntas las rodillas y cierra. Repite el ejercicio 8 veces. No te olvides de respirar lentamente.',
+            ),
+            Button(
+              buttonName: 'Inicio',
+              buttonColor: colorButton,
+              onPressed: () {
+                Navigator.pushNamed(
+                    context, '/cronometro');
+              },
             ),
             TextWidget(text: "9. Movimiento de gato"),
             VideoWidget(
@@ -134,6 +198,14 @@ class PrimerInstruccionesPageState extends State<PrimerInstruccionesPage> {
               description:
                   'Arrodíllate en el piso y pon las manos en el suelo delante de ti. Mantén las manos separadas al ancho de los hombros y las rodillas directamente debajo de las caderas. Inhala profundamente mientras curvas la parte baja de la espalda y levantas la cabeza, inclinando la pelvis hacia arriba. Exhala profundamente y mete el abdomen hacia adentro, arqueando la columna vertebral y bajando la cabeza y la pelvis como un "gato". Repite esto 8 veces.',
             ),
+            Button(
+              buttonName: 'Inicio',
+              buttonColor: colorButton,
+              onPressed: () {
+                Navigator.pushNamed(
+                    context, '/cronometro');
+              },
+            ),
             TextWidget(text: "10. Preparación pélvica"),
             VideoWidget(
               videoUrl: preparacion,
@@ -142,6 +214,14 @@ class PrimerInstruccionesPageState extends State<PrimerInstruccionesPage> {
               description:
                   'Acuéstate boca arriba con las rodillas dobladas y los pies apoyados en el suelo, separados aproximadamente a la altura de las caderas, la espalda no debe presionarse contra el suelo. Inhala para prepararte, luego exhala para realizar una contracción (de Kegel) cerrando suavemente las aberturas de la uretra, la vagina y el ano. Mientras realizas esta contracción, contrae ligeramente los músculos abdominales. Luego Inhala, relaja los abdominales y el suelo pélvico, exhala y repite la contracción. Haz 2 series de 8 a 15 repeticiones de 3 a 5 segundos, una o dos veces al día.',
             ),
+            Button(
+              buttonName: 'Inicio',
+              buttonColor: colorButton,
+              onPressed: () {
+                Navigator.pushNamed(
+                    context, '/cronometro');
+              },
+            ),
             TextWidget(text: "11. Sentadillas con silla"),
             VideoWidget(
               videoUrl: sentadilla,
@@ -149,6 +229,14 @@ class PrimerInstruccionesPageState extends State<PrimerInstruccionesPage> {
               bgColor: bgVideoColor,
               description:
                   'Párate frente a una silla, con la espalda hacia la silla. Comienza con los pies ligeramente más separados que el ancho de las caderas. Utiliza la silla como guía para garantizar la posición adecuada. Agáchate como si estuvieras a punto de sentarte en la silla, pero vuelve a subir justo cuando tus muslos comiencen a tocarla. Asegúrate de tomar 5 segundos para bajar y 3 segundos para volver a subir. Exhala mientras te agachas; inhala mientras estás de pie. Haz 2 series de 8 repeticiones.',
+            ),
+            Button(
+              buttonName: 'Inicio',
+              buttonColor: colorButton,
+              onPressed: () {
+                Navigator.pushNamed(
+                    context, '/cronometro');
+              },
             ),
             TextWidget(
               text:

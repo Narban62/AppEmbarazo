@@ -99,7 +99,7 @@ class _HabitosPageState extends State<HabitosPage> {
 
     Navigator.pushNamed(context, '/calidad_vida');
 // Programar las notificaciones
-    await programarNotificaciones(selectedHabits);
+    //await programarNotificaciones(selectedHabits);
     // Navegar a otra página
 
   }
@@ -109,7 +109,12 @@ class _HabitosPageState extends State<HabitosPage> {
   Widget build(BuildContext context) {
     const Color color = Color(0xffE7BAFF);
     const Color colorButton = Color(0xff734A91);
-    const String imagesrc = 'assets/images/inicio/inicio_sesion.jpg';
+    const String agua = 'assets/images/calidad_vida/beneficios/img_4.png';
+    const String meditar = 'assets/images/calidad_vida/beneficios/img_5.png';
+    const String sonreir = 'assets/images/calidad_vida/beneficios/img_6.png';
+    const String fruta = 'assets/images/calidad_vida/beneficios/img_7.png';
+    const String paseo = 'assets/images/calidad_vida/beneficios/img_8.png';
+    const String orar = 'assets/images/calidad_vida/beneficios/img_9.png';
 
     return Scaffold(
       backgroundColor: color,
@@ -117,14 +122,14 @@ class _HabitosPageState extends State<HabitosPage> {
         child: Column(
           children: [
             HeaderWidget(
-              text: 'Los buenos hábitos traen felicidad',
+              text: 'los buenos hábitos traen felicidad, registra los hábitos que realizaste hoy.',
               color: color,
               isSubtitle: true,
               showButton: false,
             ),
             // Reemplaza ImageWithDescriptionCheckbox con tus checkboxes
             ImageWithDescriptionCheckbox(
-              imagePath: imagesrc,
+              imagePath: agua,
               description: 'Beber agua',
               isChecked: _beberAgua,
               onChanged: (bool? newValue) {
@@ -135,7 +140,7 @@ class _HabitosPageState extends State<HabitosPage> {
             ),
             SizedBox(height: 10),
             ImageWithDescriptionCheckbox(
-              imagePath: imagesrc,
+              imagePath: meditar,
               description: 'Meditar',
               isChecked: _meditar,
               onChanged: (bool? newValue) {
@@ -146,7 +151,7 @@ class _HabitosPageState extends State<HabitosPage> {
             ),
             SizedBox(height: 10),
             ImageWithDescriptionCheckbox(
-              imagePath: imagesrc,
+              imagePath: sonreir,
               description: 'Sonreir',
               isChecked: _sonreir,
               onChanged: (bool? newValue) {
@@ -157,7 +162,7 @@ class _HabitosPageState extends State<HabitosPage> {
             ),
             SizedBox(height: 10),
             ImageWithDescriptionCheckbox(
-              imagePath: imagesrc,
+              imagePath: fruta,
               description: 'Comer Fruta',
               isChecked: _comerFruta,
               onChanged: (bool? newValue) {
@@ -168,7 +173,7 @@ class _HabitosPageState extends State<HabitosPage> {
             ),
             SizedBox(height: 10),
             ImageWithDescriptionCheckbox(
-              imagePath: imagesrc,
+              imagePath: paseo,
               description: 'Dar un paseo',
               isChecked: _darPaseo,
               onChanged: (bool? newValue) {
@@ -179,7 +184,7 @@ class _HabitosPageState extends State<HabitosPage> {
             ),
             SizedBox(height: 10),
             ImageWithDescriptionCheckbox(
-              imagePath: imagesrc,
+              imagePath: orar,
               description: 'Orar',
               isChecked: _orar,
               onChanged: (bool? newValue) {

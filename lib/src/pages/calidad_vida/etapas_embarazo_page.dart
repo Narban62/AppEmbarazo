@@ -49,8 +49,12 @@ class _EtapasEmbarazoPageState extends State<EtapasEmbarazoPage> {
                         ' preparar las glándulas mamarias para la '
                         'lactancia (estrógenos y prolactina), '
                         'inducir el parto (oxitocina).'),
-            TextWidget(
+
+            HeaderWidget(
               text: 'Causando en tu cuerpo:',
+              color: color,
+              isSubtitle: true,
+              showButton: false,
             ),
             // Primera fila de botones
             Padding(
@@ -126,9 +130,13 @@ class _EtapasEmbarazoPageState extends State<EtapasEmbarazoPage> {
                 ],
               ),
             ),
-            TextWidget(
-                text:
-                    '¿Como esta tu bebito en el primer trimestre del embarazo? '),
+
+            HeaderWidget(
+              text: '¿Como esta tu bebito en el primer trimestre del embarazo?',
+              color: color,
+              isSubtitle: true,
+              showButton: false,
+            ),
             TextWidget(
                 text:
                     'Desde que sabes que estas embarazada hasta las 8 semanas se considera embrión, posterior a ello tendrá el nombre de feto. '),
@@ -186,7 +194,7 @@ class _EtapasEmbarazoPageState extends State<EtapasEmbarazoPage> {
                   ),
                   const SizedBox(height: 10), // Espacio entre el botón y el texto
                   const Text(
-                    'Tamaño: Franbueza',
+                    'Tamaño: Frutilla',
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.black54,
@@ -248,9 +256,12 @@ class _EtapasEmbarazoPageState extends State<EtapasEmbarazoPage> {
             '\n-El ritmo intestinal se ralentiza, ardor de estómago, flatulencias y estreñimiento.'
             '\n-Las encías también se vuelven más sensibles y pueden sangrar.'
                 '\n-Las náuseas o el cansancio, desaparecen durante estas semanas.'),
-            TextWidget(
-                text:
-                    '¿Como esta tu bebito en el segundo trimestre del embarazo? '),
+            HeaderWidget(
+              text: '¿Como esta tu bebito en el segundo trimestre del embarazo?',
+              color: color,
+              isSubtitle: true,
+              showButton: false,
+            ),
             TextWidget(
                 text:
                     'El desarrollo y los cambios se siguen produciendo en tu interior. Las conexiones nerviosas se van extendiendo, lo que puede producir movimientos involuntarios. Aunque aún es improbable que se noten.'),
@@ -309,7 +320,7 @@ class _EtapasEmbarazoPageState extends State<EtapasEmbarazoPage> {
                   ),
                   const SizedBox(height: 10), // Espacio entre el botón y el texto
                   const Text(
-                    'Tamaño: Alcachofa',
+                    'Tamaño: Naranja',
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.black54,
@@ -341,7 +352,7 @@ class _EtapasEmbarazoPageState extends State<EtapasEmbarazoPage> {
                   ),
                   const SizedBox(height: 10), // Espacio entre el botón y el texto
                   const Text(
-                    'Tamaño: Maíz',
+                    'Tamaño: Mazorca de maíz',
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.black54,
@@ -354,7 +365,15 @@ class _EtapasEmbarazoPageState extends State<EtapasEmbarazoPage> {
             TextWidget(
                 text:
                     'Recuerda: En estas semanas del embarazo tu bebé ya parece completo, aunque le falta ganar peso porque tiene entre medio kilo y unos 800 gramos. La piel, las uñas y el pelo de los párpados y las cejas son notables.'),
-            TextWidget(text: 'Recomendaciones al vestir durante el embarazo.'),
+
+            HeaderWidget(
+              text: '¿Recomendaciones al vestir durante el embarazo.?',
+              color: color,
+              isSubtitle: true,
+              showButton: false,
+            ),
+
+
             TextWidget(
                 text:
                     'A partir de las 14 semana de gestación debes utilizar ropa holgada y zapatos con tacón bajo para mejorar tu salud y la de tú bebé.'),
@@ -404,7 +423,7 @@ class _EtapasEmbarazoPageState extends State<EtapasEmbarazoPage> {
               ),
             ),
 
-            TextWidget(text: 'Dentro de los beneficios se encuentra:'),
+            TextWidget(text: 'Este tipo de vestimenta te ayuda a:'),
 
             Padding(
               padding: const EdgeInsets.all(16.0),
@@ -461,8 +480,12 @@ class _EtapasEmbarazoPageState extends State<EtapasEmbarazoPage> {
                 ],
               ),
             ),
-
-            TextWidget(text: 'Tips de belleza interior y exterior'),
+            HeaderWidget(
+              text: 'Tips de belleza interior y exterior',
+              color: color,
+              isSubtitle: true,
+              showButton: false,
+            ),
 
             Padding(
               padding: const EdgeInsets.all(16.0),
@@ -514,7 +537,7 @@ class _EtapasEmbarazoPageState extends State<EtapasEmbarazoPage> {
                   ),
                   const SizedBox(height: 10), // Espacio entre el botón y el texto
                   const Text(
-                    'PRESTA atención a tu salud bucodental, cepilla tus dientes tres veces al día y utiliza hilo dental. manchas, utiliza.',
+                    'PRESTA atención a tu salud bucodental, cepilla tus dientes tres veces al día y utiliza hilo dental.',
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.black54,
@@ -575,7 +598,7 @@ class _EtapasEmbarazoPageState extends State<EtapasEmbarazoPage> {
                   ),
                   const SizedBox(height: 10), // Espacio entre el botón y el texto
                   const Text(
-                    'SIGUE alimentación variada y equilibrada y bebe entre 1 y 2 litros de agua al día.',
+                    'SIGUE una alimentación variada y equilibrada y bebe entre 1 y 2 litros de agua al día.',
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.black54,
@@ -601,9 +624,13 @@ class _EtapasEmbarazoPageState extends State<EtapasEmbarazoPage> {
             '\n- Estiramiento de los ligamentos del cuerpo, principalmente en caderas y pelvis, preparándose para el parto.'
             '\n- En las últimas semanas de gestación o en los primeros días tras el parto, las mamas, pueden producir un líquido amarillento o blanco denominado calostro que contiene gran cantidad de minerales y anticuerpos.'
             '\n- Aumento de las ganas de orinar, cuando la cabeza del bebé ya está encajada en la pelvis.'),
-            TextWidget(
-                text:
-                '¿Como esta tu bebito en el tercer trimestre del embarazo? '),
+
+            HeaderWidget(
+              text: '¿Como esta tu bebito en el tercer trimestre del embarazo?',
+              color: color,
+              isSubtitle: true,
+              showButton: false,
+            ),
             TextWidget(
                 text:
                 'Con unas 32 semanas de embarazo se puede decir, que tu bebé está formado por completo, aunque los pulmones todavía no han madurado del todo. '),

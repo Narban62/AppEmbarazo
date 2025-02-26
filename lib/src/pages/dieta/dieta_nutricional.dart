@@ -95,7 +95,7 @@ class _DietaPageState extends State<DietaNutricional> {
                   Expanded(
                     child: MenuWidgetDieta(
                       titulo: 'Hidratos de Carbono',
-                      informacionAdicional: 'Procedentes de cereales integrales, frutas y verduras en lugar de los azúcares simples, incluidos los azúcares líquidos refinados, ya sean naturales (zumos) o producidos de forma industrial (soda).\nAportan energía al cuerpo humano, especialmente a los músculos, al cerebro y al sistema nervioso y poseen un papel importante en la estructura de los órganos del cuerpo y las neuronas.',
+                      informacionAdicional: 'Procedentes de cereales integrales, frutas y verduras en lugar de los azúcares simples, incluidos los azúcares líquidos refinados, ya sean naturales (zumos) o producidos de forma industrial (soda).\nAportan energía al cuerpo humano, especialmente a los músculos, al cerebro y al sistema nervioso y poseen un papel importante en la estructura de los órganos del cuerpo y las neuronas.\nEjm: arroz, el verde, el maiz, granos secos, papa.',
                     ),
                   ),
                 ],
@@ -120,7 +120,7 @@ class _DietaPageState extends State<DietaNutricional> {
                   Expanded(
                     child: MenuWidgetDieta(
                       titulo: 'Grasas',
-                      informacionAdicional: 'Son necesarios porque se relacionan con el desarrollo celular del sistema nervioso central del embrión, la retina, los músculos y otros órganos, ayudan a realizar otros procesos orgánicos, como la absorción de las vitaminas A, D, E y K. Se las obtiene del consumo de aceites vegetales de maíz, girasol, ajonjolí, canola, palma, coco, maní (cacahuate), oliva, aguacate (palta) y soya; de alimentos procesados como la margarina o la manteca vegetal clarificada para cocinar.',
+                      informacionAdicional: 'Son necesarios porque se relacionan con el desarrollo celular del sistema nervioso central del embrión, la retina, los músculos y otros órganos, ayudan a realizar otros procesos orgánicos, como la absorción de las vitaminas A, D, E y K. Se las obtiene del consumo de aceites vegetales de maíz, girasol, oliva, consumir una porción de aguacate diario y de alimentos procesados como la margarina o la manteca vegetal clarificada para cocinar.',
                     ),
                   ),
                 ],

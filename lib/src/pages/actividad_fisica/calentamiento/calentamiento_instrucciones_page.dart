@@ -57,12 +57,26 @@ class InstruccionesCalentamientoStateState extends State<InstruccionesCalentamie
               bgColor: bgVideoColor,
               description: 'Colócate de pie, con los piernas separadas al ancho de los hombros, gira los hombros hacia atrás como dibujando un círculo. Recuerda respirar  por la nariz y soltar el aire por la boca. Repite el movimiento 8 veces y luego dibuja los círculos hacia adelante 8 veces más.',
             ),
+            Button(
+                buttonName: 'Inicio',
+                buttonColor: colorButton,
+                onPressed: () {
+                  Navigator.pushNamed(context, '/cronometro');
+                },
+              ),
             TextWidget(text: "2. Elevación de brazos"),
             VideoWidget(
               videoUrl: brazos,
               videoImage: videoImage,
               bgColor: bgVideoColor,
               description: 'En la misma posición de pie, levanta tu brazo derecho y luego bájalo. Repite el ejercicio 8 veces y luego haz lo mismo con el brazo izquierdo. Ahora estira tus brazos a los lados y cruza  ambos brazos por delante de tu pecho, repite 8 veces.',
+            ),
+            Button(
+              buttonName: 'Inicio',
+              buttonColor: colorButton,
+              onPressed: () {
+                Navigator.pushNamed(context, '/cronometro');
+              },
             ),
             TextWidget(text: "3. Rotación de brazos"),
             VideoWidget(
@@ -71,13 +85,26 @@ class InstruccionesCalentamientoStateState extends State<InstruccionesCalentamie
               bgColor: bgVideoColor,
               description: 'Colócate de pie, con los piernas separadas al ancho de los hombros, con tus brazos estirados Dibuja círculos amplios y grandes primero hacia adelante y luego hacia atrás 8 veces cada uno.',
             ),
-
+            Button(
+              buttonName: 'Inicio',
+              buttonColor: colorButton,
+              onPressed: () {
+                Navigator.pushNamed(context, '/cronometro');
+              },
+            ),
             TextWidget(text: "4. Flexión de cuello"),
             VideoWidget(
               videoUrl: cuello,
               videoImage: videoImage,
               bgColor: bgVideoColor,
               description: 'En la misma posición de pie, lleva tu cabeza hacia adelante hasta que tu barbilla toque tu pecho, lentamente eleva la cabeza hacia atrás estirando completamente el cuello. Repite el movimiento 4 veces.Ahora gira tu cabeza hacia la derecha y luego hacia la izquierda, 4 veces.Finalmente dibuja con tu cabeza 4 círculos hacia la derecha y luego 4 hacia la izquierda.',
+            ),
+            Button(
+              buttonName: 'Inicio',
+              buttonColor: colorButton,
+              onPressed: () {
+                Navigator.pushNamed(context, '/cronometro');
+              },
             ),
             TextWidget(text: "5. Rotación de cadera"),
             VideoWidget(
@@ -86,12 +113,26 @@ class InstruccionesCalentamientoStateState extends State<InstruccionesCalentamie
               bgColor: bgVideoColor,
               description: 'Colócate de pie, con los piernas separadas al ancho de los hombros, flexiona la rodilla y levanta la pierna derecha llevándola hacia el lateral como formado un semicírculo hacia atrás, recupera la posición inicial y haz lo mismo con la otra pierna. Repite el movimiento 10 veces. Haz el mismo ejercicio pero esta vez forma el semicírculos hacia adelante.',
             ),
+            Button(
+              buttonName: 'Inicio',
+              buttonColor: colorButton,
+              onPressed: () {
+                Navigator.pushNamed(context, '/cronometro');
+              },
+            ),
             TextWidget(text: "6. Elevación de piernas"),
             VideoWidget(
               videoUrl:   piernas,
               videoImage: videoImage,
               bgColor: bgVideoColor,
               description: 'Colócate de lado arrimada en una pared, usa tu brazo izquierdo como soporte, una vez  en posición firme levanta tu pierna a la máxima altura que pinedas, sin flexionar la rodilla, lleva tu pierna lo más atrás que puedas. Repite el movimiento 8 veces. Cambia de lado y repite el ejercicio con la pierna contraria 8 veces.',
+            ),
+            Button(
+              buttonName: 'Inicio',
+              buttonColor: colorButton,
+              onPressed: () {
+                Navigator.pushNamed(context, '/cronometro');
+              },
             ),
             TextWidget(text: "7. Cruce de piernas"),
             VideoWidget(
@@ -100,6 +141,13 @@ class InstruccionesCalentamientoStateState extends State<InstruccionesCalentamie
               bgColor: bgVideoColor,
               description: 'Colócate de lado arrimada en una pared, usa tu brazo izquierdo como soporte y tu mano derecha en la cintura, una vez  en posición firme, abre tu pierna hacia un lado y luego crúzala por delante de la pierna que está fija en el suelo, sin asentar la pierna, abre nuevamente y repite el movimiento 8 veces. Cambia de lado y haz lo mismo con la otra pierna.',
             ),
+            Button(
+              buttonName: 'Inicio',
+              buttonColor: colorButton,
+              onPressed: () {
+                Navigator.pushNamed(context, '/cronometro');
+              },
+            ),
             TextWidget(text: "8. Sentadillas y elevación de rodilla"),
             VideoWidget(
               videoUrl: sentadillas,
@@ -107,12 +155,26 @@ class InstruccionesCalentamientoStateState extends State<InstruccionesCalentamie
               bgColor: bgVideoColor,
               description: 'Con los pies ligeramente separados al ancho de los hombros, brazos extendidos y firmes hacia los lados, agáchate como si estuvieras a punto de sentarte en una silla imaginaria y al levantarte eleva la rodilla tratando de tocar el codo, sin bajar el brazo. Vuelve a hacer la sentadilla y alterna el movimiento con la rodilla de la otra pierna. Repite el ejercicio 8 veces',
             ),
+            Button(
+              buttonName: 'Inicio',
+              buttonColor: colorButton,
+              onPressed: () {
+                Navigator.pushNamed(context, '/cronometro');
+              },
+            ),
             TextWidget(text: "9. Estiramiento de piernas"),
             VideoWidget(
               videoUrl: estiramientoPiernas,
               videoImage: videoImage,
               bgColor: bgVideoColor,
               description: 'Colócate de pie, con las piernas abiertas al máximo de tu capacidad, las puntas de los pies apuntan hacia afuera, manos al frente, sostenidas en posición de oración, espalda recta. Flexiona la rodilla y dirige tu cadera hacia un lado, estira la pierna contraria sin levantarla del piso, vuelve al centro, apretando los glúteos y repite el movimiento del otro lado. Completa una serie de 8 repeticiones.',
+            ),
+            Button(
+              buttonName: 'Inicio',
+              buttonColor: colorButton,
+              onPressed: () {
+                Navigator.pushNamed(context, '/cronometro');
+              },
             ),
 
             TextWidget(text: 'FELICITACIONES\nCOMPLETASTE EL CALENTAMIENTO\nAhora puedes empezar tu rutina de ejercicios',textAlign: TextAlign.center,),

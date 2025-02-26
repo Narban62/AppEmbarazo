@@ -24,17 +24,6 @@ class _ConsejeriaPageState extends State<ConsejeriaPage> {
         child: Column(
           children: [
             HeaderWidget(
-                text: 'Consejería y Orientación Emocional',
-                color: color,
-                isSubtitle: true,
-                showButton: false),
-            ImagenWidget(
-                imagesrc: 'assets/images/calidad_vida/consejeria/img.png',
-                isPrincipal: true),
-
-            Button(buttonName: 'Agenda tu cita', buttonColor: colorButton, onPressed: abrirWhatsApp),
-
-            HeaderWidget(
               text: 'Red de Apoyo y Comunidad',
               color: color,
               isSubtitle: true,
@@ -44,8 +33,6 @@ class _ConsejeriaPageState extends State<ConsejeriaPage> {
                 imagesrc: 'assets/images/calidad_vida/consejeria/img_1.png',
                 isPrincipal: true),
             Button(buttonName: 'Grupos de Apoyo: familia, amigos/as', buttonColor: colorButton, onPressed: abrirWhatsApp),
-            Button(buttonName: 'Historias de superación', buttonColor: colorButton, onPressed: abrirWhatsApp),
-
 
           ],
         ),

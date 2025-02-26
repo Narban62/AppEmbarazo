@@ -24,8 +24,8 @@ class DietaNavegacion extends StatelessWidget {
             children: [
               const HeaderWidget(
                 color: color,
-                text: 'Módulos',
-                isSubtitle: false,
+                text: 'Bienvenida a la sección de\ndieta.',
+                isSubtitle: true,
                 showButton: false,
               ),
               const TextWidget(text: "Juntas hacia tu autocuidado"),
@@ -51,7 +51,6 @@ class DietaNavegacion extends StatelessWidget {
                   Navigator.pushNamed(context, '/plan_dieta');
                 },
               ),
-
             ],
           ),
           ),

@@ -19,6 +19,7 @@ class _MostrarProyectoVidaPageState extends State<MostrarProyectoVidaPage> {
   final TextEditingController interesesVocacionalesController = TextEditingController();
   final TextEditingController situacionLaboralController = TextEditingController();
   final TextEditingController decisionesController = TextEditingController();
+  final TextEditingController controller = TextEditingController();
   String nombreUsuario = '';
 
   @override
@@ -61,10 +62,11 @@ class _MostrarProyectoVidaPageState extends State<MostrarProyectoVidaPage> {
           print("Datos obtenidos de Firestore: $data");
 
           setState(() {
-            autoconocimientoController.text = data['autoconocimiento'] ?? '';
-            interesesVocacionalesController.text = data['interesesvoc'] ?? '';
-            situacionLaboralController.text = data['situacionlaboral'] ?? ''; // Corregir el campo
-            decisionesController.text = data['decisiones'] ?? '';
+            autoconocimientoController.text = data['vida a fututo'] ?? '';
+            interesesVocacionalesController.text = data['¿Qué deseo?'] ?? '';
+            situacionLaboralController.text = data['¿En cuánto tiempo lo lograré?'] ?? ''; // Corregir el campo
+            decisionesController.text = data['¿Cómo lo voy a hacer?'] ?? '';
+            controller.text = data['¿En quién me puedo apoyar para lograr?'] ?? '';
           });
         } else {
           ScaffoldMessenger.of(context).showSnackBar(
@@ -96,42 +98,50 @@ class _MostrarProyectoVidaPageState extends State<MostrarProyectoVidaPage> {
               isSubtitle: true,
               showButton: false,
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 40),
 
             // Campo para "Autoconocimiento"
             CustomTextFieldProyecto(
-              labelText: 'Autoconocimiento',
+              labelText: 'Vida a fututo',
               controller: autoconocimientoController,
               isPassword: false,
               keyboardType: TextInputType.text,
               readOnly: true, // Para que no se pueda editar
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 40),
 
             // Campo para "Intereses Vocacionales"
             CustomTextFieldProyecto(
-              labelText: 'Intereses Vocacionales',
+              labelText: '¿Qué deseo?',
               controller: interesesVocacionalesController,
               isPassword: false,
               keyboardType: TextInputType.text,
               readOnly: true,
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 40),
 
             // Campo para "Situación Laboral"
             CustomTextFieldProyecto(
-              labelText: 'Situación Laboral',
+              labelText: '¿En cuánto tiempo lo lograré?',
               controller: situacionLaboralController,
               isPassword: false,
               keyboardType: TextInputType.text,
               readOnly: true,
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 40),
 
             // Campo para "Decisiones"
             CustomTextFieldProyecto(
-              labelText: 'Decisiones',
+              labelText: '¿Cómo lo voy a hacer?',
               controller: decisionesController,
+              isPassword: false,
+              keyboardType: TextInputType.text,
+              readOnly: true,
+            ),
+            const SizedBox(height: 40),
+            CustomTextFieldProyecto(
+              labelText: '¿En quién me puedo apoyar para lograr?',
+              controller: controller,
               isPassword: false,
               keyboardType: TextInputType.text,
               readOnly: true,

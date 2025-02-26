@@ -54,14 +54,14 @@ class _ControlesPrenatalesPageState extends State<ControlesPrenatalesPage> {
                         width: 150,
                         height: 150,// Tamaño deseado, o puedes usar `size`
                         child: ImagenWidget(
-                            imagesrc: 'assets/images/calidad_vida/control/img.png',
+                            imagesrc: 'assets/images/calidad_vida/salud.jpeg',
                             isPrincipal: true),
                       ),
                     ],
                   ),
                   const SizedBox(height: 10), // Espacio entre el botón y el texto
                   const Text(
-                    'Cada 4 semanas \nHasta las 28 semanas de embarazo.',
+                    'Cada 4 semanas. \nHasta las 28 semanas de embarazo.',
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.black54,
@@ -91,7 +91,7 @@ class _ControlesPrenatalesPageState extends State<ControlesPrenatalesPage> {
                   ),
                   const SizedBox(height: 10), // Espacio entre el botón y el texto
                   const Text(
-                    'Cada 2 semanas \nHasta las 28 y 36 semanas de embarazo.',
+                    'Cada 2 semanas. \nDesde las 28 hasta las 36 semanas de embarazo.',
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.black54,
@@ -121,7 +121,7 @@ class _ControlesPrenatalesPageState extends State<ControlesPrenatalesPage> {
                   ),
                   const SizedBox(height: 10), // Espacio entre el botón y el texto
                   const Text(
-                    'Una vez por semana \nDesde la semana 36 hasta el nacimiento de tu bebé.',
+                    'Una vez por semana. \nDesde la semana 36 hasta el nacimiento de tú bebé.',
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.black54,
@@ -134,7 +134,7 @@ class _ControlesPrenatalesPageState extends State<ControlesPrenatalesPage> {
 
             TextWidget(
                 text:
-                    'Recuerda que debes realizarte mínimo 5 controles prenatales para evitar complicaciones con tu bebé.'),
+                    'Recuerda que debes realizarte mínimo 5 controles prenatales para evitar complicaciones con tú bebé.'),
             TextWidget(text: '¿Qué profesionales debo consultar?'),
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -161,8 +161,8 @@ class _ControlesPrenatalesPageState extends State<ControlesPrenatalesPage> {
                 children: [
                   Expanded(
                     child: SquareButton(
-                      imageSrc: 'assets/images/calidad_vida/control/img_4.png',
-                      text: 'Acudir a la cita médica',
+                      imageSrc: 'assets/images/calidad_vida/control/img_5.png',
+                      text: 'Ecografía',
                       color: colorButton,
                       onPressed: () {
                       },
@@ -171,8 +171,38 @@ class _ControlesPrenatalesPageState extends State<ControlesPrenatalesPage> {
                   const SizedBox(width: 16),
                   Expanded(
                     child: SquareButton(
-                      imageSrc: 'assets/images/calidad_vida/control/img_5.png',
-                      text: 'Ecografía',
+                      imageSrc: 'assets/images/calidad_vida/control/img_6.png',
+                      text: 'Análisis de sangre y orina',
+                      color: colorButton,
+                      onPressed: () {
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            TextWidget(text: '¿Cuáles son los factores de riesgo que puedo modificar?'),
+
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: SquareButton(
+                      imageSrc: 'assets/images/calidad_vida/control/img_7.png',
+                      text: 'No alcohol',
+                      color: colorButton,
+                      onPressed: () {
+                      },
+                    ),
+                  ),
+                  const SizedBox(width: 16),
+                  Expanded(
+                    child: SquareButton(
+                      imageSrc: 'assets/images/calidad_vida/control/img_8.png',
+                      text: 'Controlar alimentación',
                       color: colorButton,
                       onPressed: () {
                       },
@@ -184,88 +214,32 @@ class _ControlesPrenatalesPageState extends State<ControlesPrenatalesPage> {
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  SizedBox( // Mantiene el tamaño del botón sin expandirse
-                    width: 150, // Tamaño deseado, o puedes usar `size`
+                  Expanded(
                     child: SquareButton(
-                      imageSrc: 'assets/images/calidad_vida/control/img_6.png',
-                      text: 'Análisis de sangre y orina',
+                      imageSrc: 'assets/images/calidad_vida/control/img_9.png',
+                      text: 'No drogas',
                       color: colorButton,
-                      onPressed: () {},
+                      onPressed: () {
+                      },
+                    ),
+                  ),
+                  const SizedBox(width: 16),
+                  Expanded(
+                    child: SquareButton(
+                      imageSrc: 'assets/images/calidad_vida/control/img_10.png',
+                      text: 'Evitar ejercicio extenuante',
+                      color: colorButton,
+                      onPressed: () {
+                      },
                     ),
                   ),
                 ],
               ),
             ),
-            TextWidget(text: '¿Cuáles son los factores de riesgo que puedo modificar?'),
-
             // Primera fila de tres columnas
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  SizedBox(
-                    width: 100,
-                    height: 100,
-                    child: Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: ImagenWidget(imagesrc: 'assets/images/calidad_vida/control/img_6.png', isPrincipal: false),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 100,
-                    height: 100,
-                    child: Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: ImagenWidget(imagesrc: 'assets/images/calidad_vida/control/img_7.png', isPrincipal: false),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 100,
-                    height: 100,
-                    child: Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: ImagenWidget(imagesrc: 'assets/images/calidad_vida/control/img_8.png', isPrincipal: false),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            // Segunda fila de tres columnas
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  SizedBox(
-                    width: 100,
-                    height: 100,
-                    child: Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: ImagenWidget(imagesrc: 'assets/images/calidad_vida/control/img_9.png', isPrincipal: false),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 100,
-                    height: 100,
-                    child: Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: ImagenWidget(imagesrc: 'assets/images/calidad_vida/control/img_10.png', isPrincipal: false),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 100,
-                    height: 100,
-                    child: Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: ImagenWidget(imagesrc: 'assets/images/calidad_vida/control/img_11.png', isPrincipal: false),
-                    ),
-                  ),
-                ],
-              ),
-            ),
+
             TextWidget(text: '¿Cuáles son los factores de riesgo que NO puedo modificar? '),
             // Primera fila de tres columnas  
             Padding(

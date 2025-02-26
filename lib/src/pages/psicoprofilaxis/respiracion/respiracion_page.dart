@@ -45,8 +45,8 @@ class _RespiracionPageState extends State<RespiracionPage> {
               color: color,
               isSubtitle: true,
               showButton: false,
-              
             ),
+            const SizedBox(height: 40),
             VideoWidget(
               videoUrl: videoRN,
               videoImage: '',
@@ -60,6 +60,7 @@ class _RespiracionPageState extends State<RespiracionPage> {
               isSubtitle: true,
               showButton: false,
             ),
+            const SizedBox(height: 40),
             VideoWidget(
               videoUrl: videoRP,
               videoImage: '',
@@ -72,6 +73,7 @@ class _RespiracionPageState extends State<RespiracionPage> {
               isSubtitle: true,
               showButton: false,
             ),
+            const SizedBox(height: 40),
             VideoWidget(
               videoUrl: videoRPro,
               videoImage: '',
@@ -92,6 +94,7 @@ class _RespiracionPageState extends State<RespiracionPage> {
               isSubtitle: true,
               showButton: false,
             ),
+            const SizedBox(height: 40),
             VideoWidget(
               videoUrl: videoJBB,
               videoImage: '',
@@ -104,11 +107,12 @@ class _RespiracionPageState extends State<RespiracionPage> {
               isSubtitle: true,
               showButton: false,
             ),
+            const SizedBox(height: 40),
             VideoWidget(
               videoUrl: videoJNB,
               videoImage: '',
               bgColor: bgVideoColor,
-              description: ") Durante el Trabajo de Parto, esta técnica te ayudarà a manejar el dolor y a mantener la calma, evitando la hiperventilación y promoviendo una adecuada oxigenación.\nCómo Realizar la Respiración de Jadeo\n1. Encuentra una Posición Cómoda: Siéntate o acuéstate en una posición que te resulte relajante.\n2. Inhalar por la Nariz: Toma aire lentamente por la nariz.\n3.Exhalar por la Boca: Expulsa el aire rápidamente por la boca en pequeñas ráfagas, siguiendo el patrón deseado.\n4. Repetir: Continúa este patrón durante las contracciones, manteniendo un enfoque en la respiración.",
+              description: "Durante el Trabajo de Parto, esta técnica te ayudarà a manejar el dolor y a mantener la calma, evitando la hiperventilación y promoviendo una adecuada oxigenación.\nCómo Realizar la Respiración de Jadeo\n1. Encuentra una Posición Cómoda: Siéntate o acuéstate en una posición que te resulte relajante.\n2. Inhalar por la Nariz: Toma aire lentamente por la nariz.\n3.Exhalar por la Boca: Expulsa el aire rápidamente por la boca en pequeñas ráfagas, siguiendo el patrón deseado.\n4. Repetir: Continúa este patrón durante las contracciones, manteniendo un enfoque en la respiración.",
             ),
             const HeaderWidget(
               text: 'Jadeo (nariz-nariz):',
@@ -116,11 +120,12 @@ class _RespiracionPageState extends State<RespiracionPage> {
               isSubtitle: true,
               showButton: false,
             ),
+            const SizedBox(height: 40),
             VideoWidget(
               videoUrl: videoJNN,
               videoImage: '',
               bgColor: bgVideoColor,
-              description: "se centra en inhalar y exhalar a través de la nariz, te ayudarà a mantener un flujo constante de oxígeno y a promover un estado de calma.\nCómo Realizar la Respiración Nariz-Nariz\n1. Posición Cómoda: Encuentra una posición cómoda, ya sea sentada o en cuclillas, donde te sientas relajada.\n2. Inhalar por la Nariz: Toma aire lentamente por la nariz, sintiendo cómo se expande tu abdomen.\n3. Exhalar por la Nariz: Exhala suavemente también por la nariz, asegurándote de que el aire salga de manera controlada.\n4. Repetir: Continúa este patrón durante las contracciones, concentrándote en tu respiración.\nBeneficios de la Respiración Nariz-Nariz\n* Oxigenación Eficiente: Al respirar por la nariz, se filtra y calienta el aire, lo que puede ser beneficioso para ambos.\n* Reducción del Estrés: Esta técnica ayuda a reducir el estrés y la ansiedad.",
+              description: "Se centra en inhalar y exhalar a través de la nariz, te ayudarà a mantener un flujo constante de oxígeno y a promover un estado de calma.\nCómo Realizar la Respiración Nariz-Nariz\n1. Posición Cómoda: Encuentra una posición cómoda, ya sea sentada o en cuclillas, donde te sientas relajada.\n2. Inhalar por la Nariz: Toma aire lentamente por la nariz, sintiendo cómo se expande tu abdomen.\n3. Exhalar por la Nariz: Exhala suavemente también por la nariz, asegurándote de que el aire salga de manera controlada.\n4. Repetir: Continúa este patrón durante las contracciones, concentrándote en tu respiración.\nBeneficios de la Respiración Nariz-Nariz\n* Oxigenación Eficiente: Al respirar por la nariz, se filtra y calienta el aire, lo que puede ser beneficioso para ambos.\n* Reducción del Estrés: Esta técnica ayuda a reducir el estrés y la ansiedad.",
             ),
             Padding(padding: const EdgeInsets.all(20)),
           ],

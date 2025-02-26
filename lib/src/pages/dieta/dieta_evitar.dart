@@ -43,7 +43,7 @@ class _DietaEvitarState extends State<DietaEvitar> {
                   Expanded(
                     child: SquareButton(
                       imageSrc: 'assets/images/dieta/embutidos .jpg',
-                      text: 'Embutidos',
+                      text: 'Carne poco cocida',
                       onPressed: () {
                         Navigator.pushNamed(context, '/dieta_embutidos');
                       },

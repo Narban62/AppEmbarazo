@@ -4,8 +4,16 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter/material.dart';
 
-class ContraindicacionesPage1 extends StatelessWidget {
+import 'advertencias_page_2.dart';
+
+class ContraindicacionesPage1 extends StatefulWidget {
   const ContraindicacionesPage1({super.key});
+
+  @override
+  State<ContraindicacionesPage1> createState() => _ContraindicacionesPage1State();
+}
+
+class _ContraindicacionesPage1State extends State<ContraindicacionesPage1> {
 
   @override
   Widget build(BuildContext context) {
@@ -24,36 +32,9 @@ class ContraindicacionesPage1 extends StatelessWidget {
           'Otro trastorno cardiovascular, respiratorio o sistémico grave',
         ],
         onSiPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const ContraindicacionesPage2(),
-            ),
-          );
+          Navigator.pushNamed(context, '/advertencias_page_2');
         },
       ),
-    );
-  }
-}
-
-class ContraindicacionesPage2 extends StatelessWidget {
-  const ContraindicacionesPage2({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return ContraindicacionesWidget(
-      titulo: 'OTROS CASOS DONDE SE DEBE CONSULTAR AL MÉDICO',
-      contenido: const [
-        'Dolor de cabeza severo',
-        'Mareos persistentes',
-        'Falta de aire en reposo',
-        'Fatiga extrema',
-        'Contracciones regulares antes de tiempo',
-        'Pérdida de líquido amniótico',
-      ],
-      onSiPressed: () {
-        Navigator.pushNamed(context, '/opciones');
-      },
     );
   }
 }

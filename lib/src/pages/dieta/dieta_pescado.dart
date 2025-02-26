@@ -29,11 +29,6 @@ class _DietaPageState extends State<DietaPescado> {
                 showButton: true,
               ),
               const ImagenWidget(imagesrc: 'assets/images/dieta/pescado y marisco crudo.jpg', isPrincipal: true),
-              const HeaderWidget(
-                text: 'Información:',
-                color: color,
-                isSubtitle: true,
-              ),
               const TextWidget(
                   text:
                   'Esta es toda la informacion acerca de el pescado crudo'),

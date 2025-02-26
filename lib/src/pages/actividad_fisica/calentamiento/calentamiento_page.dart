@@ -32,7 +32,7 @@ class _CalentamientoPageState extends State<CalentamientoPage> {
             ),
             const TextWidget(
                 text:
-                    'Vamos a preparar tus músculos para ejercitarse \nRECUERDA REALIZAR LA RUTINA DE CALENTAMIENTO POR LO MENOS DURANTE 5 MINUTOS'),
+                    'Vamos a preparar tus músculos para ejercitarse. \nRECUERDA REALIZAR LA RUTINA DE CALENTAMIENTO POR LO MENOS DURANTE 5 MINUTOS.'),
             const ImagenWidget(
                 imagesrc: 'assets/images/actividad_fisica/caminata2.jpeg',
                 isPrincipal: false),
@@ -47,16 +47,6 @@ class _CalentamientoPageState extends State<CalentamientoPage> {
                         buttonColor: colorButton,
                         onPressed: () {
                           Navigator.pushNamed(context, '/calentamiento_instrucciones');
-                        },
-                      ),
-                    ),
-                    const SizedBox(width: 10), // Espacio entre los botones
-                    Expanded(
-                      child: Button(
-                        buttonName: 'Inicio',
-                        buttonColor: colorButton,
-                        onPressed: () {
-                          Navigator.pushNamed(context, '/cronometro');
                         },
                       ),
                     ),

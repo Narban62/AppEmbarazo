@@ -14,7 +14,7 @@ class PrimerTrimestrePage extends StatefulWidget {
 class _PrimerTrimestrePageState extends State<PrimerTrimestrePage> {
   @override
   Widget build(BuildContext context) {
-    const String imagesrc = 'assets/images/psicoprofilaxis/Psico auditiva.jpg';
+    const String imagesrc = 'assets/images/actividad_fisica/primer_trimestre/img.png';
     return Scaffold(
       backgroundColor: const Color(0xffFFC5AA),
       body: SingleChildScrollView( // Agregado para evitar el overflow

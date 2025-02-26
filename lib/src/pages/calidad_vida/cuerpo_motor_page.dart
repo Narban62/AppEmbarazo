@@ -43,7 +43,7 @@ class _CuepoMotorPageState extends State<CuepoMotorPage> {
             buttonColor: colorButton,
             onPressed: () => Navigator.pushNamed(context, '/etapas_embarazo')),
         HeaderWidget(
-            text: '¿Qué y cuándo debo realizarme los controles prenatales?',
+            text: '¿Qué son los controles prenatales?',
             color: colorButton,
             isSubtitle: true,
             showButton: false),

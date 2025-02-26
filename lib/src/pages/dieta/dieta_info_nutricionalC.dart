@@ -23,7 +23,11 @@ class DietaInfoNutricional extends StatelessWidget {
           SingleChildScrollView(// Burbujas animadas
           child: Column(
             children: [
-              const TextWidget(text: "REQUERIMIENTOS DE NUTRIENTES ESPECÍFICOS DURANTE EL EMBARAZO"),
+              const HeaderWidget(
+                text: "Requerimientos de nutrientes específicos durante el embarazo",
+                  color: color,
+                  isSubtitle: true,),
+
               const ImagenWidget(imagesrc: 'assets/images/dieta/Picture1.jpg', isPrincipal: true),
 
               Button(

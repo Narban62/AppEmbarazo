@@ -29,11 +29,6 @@ class _DietaPageState extends State<DietaMarisco> {
                 showButton: true,
               ),
               const ImagenWidget(imagesrc: 'assets/images/dieta/pescado y marisco crudo.jpg', isPrincipal: true),
-              const HeaderWidget(
-                text: 'Información:',
-                color: color,
-                isSubtitle: true,
-              ),
               const TextWidget(
                   text:
                   'Algunos pescados y mariscos contienen niveles potencialmente dañinos de mercurio. Demasiado mercurio podría dañar el sistema nervioso en desarrollo de tu  bebé.'),

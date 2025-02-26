@@ -29,11 +29,6 @@ class _DietaPageState extends State<DietaCafeina> {
                 showButton: true,
               ),
               const ImagenWidget(imagesrc: 'assets/images/dieta/cafe.jpeg', isPrincipal: true),
-              const HeaderWidget(
-                text: 'Información:',
-                color: color,
-                isSubtitle: true,
-              ),
               const TextWidget(
                   text:
                   'Limita la cafeína a menos de 200 miligramos (mg) al día. Una taza de 8 onzas (240 mililitros, o ml) de café filtrado contiene alrededor de 95 mg de cafeína, esto puede producir un aumento de los latidos de tu corazón y bajo peso al nacer de tu bebé.'),

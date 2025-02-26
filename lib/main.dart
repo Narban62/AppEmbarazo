@@ -1,13 +1,13 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+//import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'firebase_options.dart';
 import 'app_routes.dart';
-import 'package:timezone/timezone.dart' as tz;
-import 'package:timezone/data/latest.dart' as tzData;
+//import 'package:timezone/timezone.dart' as tz;
+//import 'package:timezone/data/latest.dart' as tzData;
 
-late FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
+//late FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,13 +16,13 @@ Future<void> main() async {
   );
 
   // Inicializar la base de datos de zonas horarias
-  tzData.initializeTimeZones();
+  //tzData.initializeTimeZones();
 
-  await _initializeNotifications();
+  //await _initializeNotifications();
   runApp(const MyApp());
 }
 
-Future<void> _initializeNotifications() async {
+/*Future<void> _initializeNotifications() async {
   flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
 
   const AndroidInitializationSettings initializationSettingsAndroid =
@@ -64,7 +64,7 @@ Future<void> programarNotificaciones(List<String> habits) async {
     uiLocalNotificationDateInterpretation:
     UILocalNotificationDateInterpretation.absoluteTime,
   );
-}
+}*/
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});

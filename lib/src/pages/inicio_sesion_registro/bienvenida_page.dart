@@ -25,16 +25,16 @@ class _WelcomePageState extends State<WelcomePage> {
           children: [
             HeaderWidget(
               color: colorBackground,
-              text: 'Bienvenida a Wakuna',
+              text: 'Bienvenida a Wakakuna',
               isSubtitle: false,
               showButton: false,
             ),
             ImagenWidget(
-                imagesrc: 'assets/images/Test.jpeg',
+                imagesrc: 'assets/images/splash/img.png',
                 isPrincipal: true),
             TextWidget(
               text:
-                  '¡Unidas por el amor, fortaleciendo el vínculo. Aquí comienza tu hermoso viaje en familia.\n\n\nCaminemoa juntas en tu nueva historia.',
+                  '¡Unidas por el amor, fortaleciendo el vínculo. Aquí comienza tu hermoso viaje en familia.\n\n\nCaminemos juntas en tu nueva historia.',
             ),
             Button(
                 buttonName: 'Continuar',

@@ -48,15 +48,7 @@ class _EstiramientoHomePageState extends State<EstiramientoHomePage> {
                       ),
                     ),
                     const SizedBox(width: 10), // Espacio entre los botones
-                    Expanded(
-                      child: Button(
-                        buttonName: 'Inicio',
-                        buttonColor: colorButton,
-                        onPressed: () {
-                          Navigator.pushNamed(context, '/cronometro');
-                        },
-                      ),
-                    ),
+
                   ],
                 ),
               )

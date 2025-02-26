@@ -73,6 +73,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 import 'main.dart';
 import 'main_navigation_bar.dart';
+import 'src/pages/actividad_fisica/advertencias_page_2.dart';
 
 class AppRoutes {
   static Map<String, WidgetBuilder> getRoutes(ValueChanged<int> onItemTapped, int selectedIndex) {
@@ -248,7 +249,7 @@ class AppRoutes {
       ),
       '/dieta_embutidos': (context) => BaseScaffold(
         body: const DietaEmbutidos(),
-        title: 'Embutidos en la Dieta',
+        title: 'Poco cocido en la Dieta',
         selectedIndex: 24,
         onItemTapped: onItemTapped,
       ),

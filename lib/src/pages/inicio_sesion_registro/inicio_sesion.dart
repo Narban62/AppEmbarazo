@@ -47,7 +47,7 @@ class _LoginPageState extends State<LoginPage> {
 
               // Imagen ajustada para que escale correctamente
               const ImagenWidget(
-                  imagesrc: 'assets/images/splash/splah.jpeg',
+                  imagesrc: 'assets/images/splash/img.png',
                   isPrincipal: false),
 
               const Padding(padding: EdgeInsets.only(bottom: 20.0)),

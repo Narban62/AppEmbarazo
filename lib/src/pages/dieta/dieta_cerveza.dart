@@ -29,11 +29,6 @@ class _DietaPageState extends State<DietaCerveza> {
                 showButton: true,
               ),
               const ImagenWidget(imagesrc: 'assets/images/dieta/cerveza.jpeg', isPrincipal: true),
-              const HeaderWidget(
-                text: 'Información:',
-                color: color,
-                isSubtitle: true,
-              ),
               const TextWidget(
                   text:
                   'Beber alcohol durante el embarazo conlleva un mayor riesgo de aborto espontáneo y muerte fetal intrauterina. El consumo de alcohol también puede ocasionar el síndrome alcohólico fetal. Este síndrome puede hacer que la cara no se forme correctamente y que el nivel de inteligencia sea inferior.'),

@@ -47,7 +47,6 @@ dependencies:
   table_calendar: ^3.0.6
   url_launcher: ^6.3.1
   flutter_datetime_picker_plus: ^2.2.0
-  flutter_local_notifications: ^9.8.0
 
 
 dev_dependencies:
@@ -89,11 +88,15 @@ flutter:
     - assets/images/calidad_vida/fetos/
     - assets/images/proyecto_de_vida/
     - assets/images/actividad_fisica/
+    - assets/images/actividad_fisica/primer_trimestre/
+    - assets/images/actividad_fisica/segundo_trimestre/
+    - assets/images/actividad_fisica/tercer_trimestre/
     - assets/images/dieta/
     - assets/images/psicoprofilaxis/
-    - assets/images/splash/splah.jpeg
+    - assets/images/splash/img.png
     - assets/images/inicio/
     - assets/images/dieta/
+    - assets/images/splash/
 
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
@@ -131,7 +134,7 @@ flutter:
   # see https://flutter.dev/to/font-from-package
 
 flutter_native_splash:
-  color: ffffff # Color de fondo del splash screen
-  image: assets/images/splash/splah.jpeg # Ruta de la imagen del splash screen
+  color:  # Color de fondo del splash screen
+  image: assets/images/splash/img.png # Ruta de la imagen del splash screen
   android: true
   ios: true

@@ -157,7 +157,7 @@ class _PrimerHomePageState extends State<PrimerHomePage> {
               ),
             ),
             const ImagenWidget(
-                imagesrc: 'assets/images/psicoprofilaxis/Psico auditiva.jpg',
+                imagesrc: 'assets/images/actividad_fisica/primer_trimestre/img_1.png',
                 isPrincipal: false),
             Padding(
               padding: const EdgeInsets.all(16.0),
@@ -174,16 +174,6 @@ class _PrimerHomePageState extends State<PrimerHomePage> {
                     ),
                   ),
                   const SizedBox(width: 10),
-                  Expanded(
-                    child: Button(
-                      buttonName: 'Inicio',
-                      buttonColor: colorButton,
-                      onPressed: () {
-                        Navigator.pushNamed(
-                            context, '/cronometro');
-                      },
-                    ),
-                  ),
                 ],
               ),
             ),

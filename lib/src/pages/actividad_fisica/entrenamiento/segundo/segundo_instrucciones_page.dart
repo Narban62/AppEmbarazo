@@ -58,6 +58,14 @@ class SegundoInstruccionesPageState extends State<SegundoInstruccionesPage> {
               description:
                   'Párate frente a una pared y coloca las manos separadas a la altura de los hombros sobre la superficie. Coloca tu cuerpo en una posición de tabla de pie con la espalda en línea recta. Dobla los brazos y baja lentamente el pecho hacia la mesa o barandilla. Estira los brazos para volver a la posición inicial. Haz 2 series de 8 repeticiones.',
             ),
+            Button(
+                buttonName: 'Inicio',
+                buttonColor: colorButton,
+                onPressed: () {
+                  Navigator.pushNamed(
+                      context, '/cronometro');
+                },
+            ),
             TextWidget(text: "2. Sentadilla cruzada alterna"),
             VideoWidget(
               videoUrl: sentadilla,
@@ -65,6 +73,14 @@ class SegundoInstruccionesPageState extends State<SegundoInstruccionesPage> {
               bgColor: bgVideoColor,
               description:
                   'De pie, con los pies colocados ligeramente más anchos que los hombros. Haz una sentadilla bajando lo más que puedas, saca la cadera atrás y cuando te levantes aprieta el glúteo y da una zancada hacia atrás teniendo cuidado de que tu pierna forme un ángulo de 90 grados. Vuelve a la posición inicial y repite la sentadilla, pero alterna la pierna que da la zancada hacia atrás. Haz 2 series de 8 repeticiones.',
+            ),
+            Button(
+              buttonName: 'Inicio',
+              buttonColor: colorButton,
+              onPressed: () {
+                Navigator.pushNamed(
+                    context, '/cronometro');
+              },
             ),
             TextWidget(text: "3. Movimiento de pelvis"),
             VideoWidget(
@@ -74,6 +90,14 @@ class SegundoInstruccionesPageState extends State<SegundoInstruccionesPage> {
               description:
                   'Colócate de pie, con los piernas separadas más allá del ancho de tus caderas, las rodillas ligeramente flexionadas, manos en la cintura, mueve tu pelvis lentamente dibujando un cuadrado con tus caderas. Repite el ejercicio 8 veces.',
             ),
+            Button(
+              buttonName: 'Inicio',
+              buttonColor: colorButton,
+              onPressed: () {
+                Navigator.pushNamed(
+                    context, '/cronometro');
+              },
+            ),
             TextWidget(text: "4. Giro de espalda"),
             VideoWidget(
               videoUrl: giro,
@@ -81,6 +105,14 @@ class SegundoInstruccionesPageState extends State<SegundoInstruccionesPage> {
               bgColor: bgVideoColor,
               description:
                   'De pie, con una pierna adelante  y la otra atrás dejando el talón de la pierna de atrás levantado, brazos extendidos hacia los lados, espalda recta. Flexionar las dos rodillas a 90 grados y luego extender las piernas, cuando te hayas incorporado gira la espalda hacia la pierna que tienes delante. Repite el movimiento 8 veces, luego cambia de pierna y repite 8 veces más.',
+            ),
+            Button(
+              buttonName: 'Inicio',
+              buttonColor: colorButton,
+              onPressed: () {
+                Navigator.pushNamed(
+                    context, '/cronometro');
+              },
             ),
             TextWidget(text: "5. Gemelos"),
             VideoWidget(
@@ -90,6 +122,14 @@ class SegundoInstruccionesPageState extends State<SegundoInstruccionesPage> {
               description:
                   'De pie frente a una pared con las piernas ligeramente separadas, apoya tus manos en la pared, párate de puntillas y sostén la posición por 2 segundos, asienta los talones por 2 segundos y eleva neamente. Haz 2 series de 10  repeticiones.',
             ),
+            Button(
+              buttonName: 'Inicio',
+              buttonColor: colorButton,
+              onPressed: () {
+                Navigator.pushNamed(
+                    context, '/cronometro');
+              },
+            ),
             TextWidget(text: "6. Cuadrúpeda y pierna cruzada"),
             VideoWidget(
               videoUrl: cuadriceps,
@@ -97,6 +137,14 @@ class SegundoInstruccionesPageState extends State<SegundoInstruccionesPage> {
               bgColor: bgVideoColor,
               description:
                   'En el suelo, de rodillas y las manos apoyadas en el piso, manos colocadas debajo de los hombros y rodillas debajo de las caderas, espalda totalmente recta. Manteniendo los puntos de apoyo firmes en el piso, eleve la pierna derecha y estire la rodilla, baje la pierna, suba nuevamente pero esta vez al momento de bajar cruce la pierna al lado contrario. Cambia de lado y repite el ejercicio con la pierna izquierda. Haz 1 serie de 8 repeticiones con cada pierna.',
+            ),
+            Button(
+              buttonName: 'Inicio',
+              buttonColor: colorButton,
+              onPressed: () {
+                Navigator.pushNamed(
+                    context, '/cronometro');
+              },
             ),
             TextWidget(text: "7. Subir escalón en una pierna"),
             VideoWidget(
@@ -106,6 +154,14 @@ class SegundoInstruccionesPageState extends State<SegundoInstruccionesPage> {
               description:
                   'De pie, frente una grada o una silla, sube la grada con una pierna, cuando estés arriba, flexiona y estira la rodilla de la pierna que quedó atrás  Recupera la posición inicial y empieza nuevamente el movimiento. Haz 8 repeticiones con cada pierna.',
             ),
+            Button(
+              buttonName: 'Inicio',
+              buttonColor: colorButton,
+              onPressed: () {
+                Navigator.pushNamed(
+                    context, '/cronometro');
+              },
+            ),
             TextWidget(text: "8. Sumo gemelo"),
             VideoWidget(
               videoUrl: sumo,
@@ -114,6 +170,14 @@ class SegundoInstruccionesPageState extends State<SegundoInstruccionesPage> {
               description:
                   'De pie con las piernas abiertas más allá de la altura de tus hombros, espalda recta, manos hacia adelante frente al pecho con los dedos entrelazados. Baja tu cadera y mantén la posición de  sentadilla, sin soltar la posición, eleva los talones durante 2 segundos, luego asienta los talones otros 2 segundos. Repite el ejercicio 8 veces.',
             ),
+            Button(
+              buttonName: 'Inicio',
+              buttonColor: colorButton,
+              onPressed: () {
+                Navigator.pushNamed(
+                    context, '/cronometro');
+              },
+            ),
             TextWidget(text: "9. Ejercicio de Sirena"),
             VideoWidget(
               videoUrl: sirena,
@@ -121,6 +185,14 @@ class SegundoInstruccionesPageState extends State<SegundoInstruccionesPage> {
               bgColor: bgVideoColor,
               description:
                   'Siéntate con las piernas cruzadas en posición hindú. Levanta el brazo derecho e inclínate hacia la izquierda estirando el brazo derecho lo más que puedas mientras el brazo izquierdo se apoya en el piso. Vuelve al medio y haz lo mismo con el brazo izquierdo. Ten cuidado de no levantar el glúteo del piso.  Haz 2 series de 10 arepeticiones.',
+            ),
+            Button(
+              buttonName: 'Inicio',
+              buttonColor: colorButton,
+              onPressed: () {
+                Navigator.pushNamed(
+                    context, '/cronometro');
+              },
             ),
             TextWidget(
               text:

@@ -31,11 +31,6 @@ class _DietaPageState extends State<DietaEmbutidos> {
                 showButton: true,
               ),
               const ImagenWidget(imagesrc: 'assets/images/dieta/Picture9.png', isPrincipal: true),
-              const HeaderWidget(
-                text: 'Información:',
-                color: color,
-                isSubtitle: true,
-              ),
               const TextWidget(
                   text:
                   'Durante el embarazo, tienes mayor riesgo de sufrir una intoxicación alimentaria a causa de las bacterias. Es una enfermedad transmitida por los alimentos.'),
