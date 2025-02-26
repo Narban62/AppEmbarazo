@@ -170,7 +170,7 @@ class _DietaMicronutrientesState extends State<DietaMicronutrientes> {
                   Expanded(
                     child: MenuWidgetDieta(
                       titulo: 'Vitaminas /Ácido Fólico',
-                      informacionAdicional: 'La cantidad diaria recomendada es de 400 µg/día, apoya la eritropoyesis materna, la síntesis de ADN y el crecimiento fetal y placentario. Las concentraciones bajas de folato se asocian a abortos espontáneos, Bajo Peso al Nacer y nacimientos prematuros.',
+                      informacionAdicional: 'Todos los días debes consumir alimentos de hoja verde que contienen alta cantidad de ácido fólico y apoyarte con una tableta de 1mg del mismo suplemento, con la finalidad de apoyar ael cricimiento de tu bebé y de la placenta.\nEjemplo: Espinaca, acelga, brócoli, pimiento.',
                     ),
                   ),
                 ],
@@ -297,7 +297,7 @@ class _DietaMicronutrientesState extends State<DietaMicronutrientes> {
                   Expanded(
                     child: MenuWidgetDieta(
                       titulo: 'Yodo',
-                      informacionAdicional: 'Papel fundamental en el funcionamiento de diversos órganos, incluidos el cerebro y la glándula tiroides, el consumo de yodo debe incrementarse de 200 μg a 250 μg por día.\nSu deficiencia afecta el desarrollo normal del cerebro, puede causar alteraciones serias del cerebro, defectos neurológicos, alteraciones del oído interno. Consume sal yodada y  mariscos.',
+                      informacionAdicional: 'El consumo diario de sal ayudará al buen funcionamiento de los órganos como el cerebro de tu bebé.\nAsegúrate que en cada comida añadas sal yodada en cantidades adecuadas.',
                     ),
                   ),
                 ],
