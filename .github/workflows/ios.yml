@@ -1,4 +1,4 @@
-name: Build iOS IPA (unsigned)
+name: Build iOS IPA (unsigned, iOS 13)
 
 on:
   workflow_dispatch:
@@ -22,6 +22,18 @@ jobs:
       - name: Install Flutter dependencies
         run: flutter pub get
 
+      - name: Set iOS 13 deployment target
+        run: |
+          sed -i '' 's/IPHONEOS_DEPLOYMENT_TARGET = [0-9.]*/IPHONEOS_DEPLOYMENT_TARGET = 13.0/g' ios/Podfile
+          sed -i '' 's/platform :ios, .*/platform :ios, '13.0'/g' ios/Podfile
+          plutil -replace MinimumOSVersion -string "13.0" ios/Runner/Info.plist
+
+      - name: Install CocoaPods dependencies
+        run: |
+          cd ios
+          pod install
+          cd ..
+
       - name: Build iOS (debug mode, no signing)
         run: flutter build ios --no-codesign
 
@@ -36,6 +48,5 @@ jobs:
       - name: Upload unsigned IPA
         uses: actions/upload-artifact@v4
         with:
-            name: unsigned-ipa
-            path: output/app.ipa
-
+          name: unsigned-ipa
+          path: output/app.ipa
