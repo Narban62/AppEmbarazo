@@ -25,19 +25,15 @@ jobs:
           flutter-version: '3.24.3'
           architecture: arm64
 
-      - name: Clean previous build and pub cache
+      - name: Update Firebase dependencies to stable versions
         run: |
-          flutter clean
-          rm -rf ios/Pods ios/Podfile.lock pubspec.lock .dart_tool build
-
-      - name: Update Firebase versions in pubspec.yaml
-        run: |
-          sed -i '' "s/firebase_core:.*/firebase_core: 3.3.4/" pubspec.yaml || echo "firebase_core: 3.3.4" >> pubspec.yaml
-          sed -i '' "s/firebase_auth:.*/firebase_auth: 5.5.4/" pubspec.yaml || echo "firebase_auth: 5.5.4" >> pubspec.yaml
-          sed -i '' "s/firebase_analytics:.*/firebase_analytics: 11.7.4/" pubspec.yaml || echo "firebase_analytics: 11.7.4" >> pubspec.yaml
-          sed -i '' "s/firebase_messaging:.*/firebase_messaging: 14.7.4/" pubspec.yaml || echo "firebase_messaging: 14.7.4" >> pubspec.yaml
-          sed -i '' "s/firebase_storage:.*/firebase_storage: 12.4.4/" pubspec.yaml || echo "firebase_storage: 12.4.4" >> pubspec.yaml
-          sed -i '' "s/cloud_firestore:.*/cloud_firestore: 5.5.4/" pubspec.yaml || echo "cloud_firestore: 5.5.4" >> pubspec.yaml
+          # Establecer versiones compatibles en pubspec.yaml
+          sed -i '' "s/firebase_core:.*/firebase_core: ^2.30.0/" pubspec.yaml || echo "firebase_core: ^2.30.0" >> pubspec.yaml
+          sed -i '' "s/firebase_auth:.*/firebase_auth: ^4.17.8/" pubspec.yaml || echo "firebase_auth: ^4.17.8" >> pubspec.yaml
+          sed -i '' "s/firebase_analytics:.*/firebase_analytics: ^10.10.6/" pubspec.yaml || echo "firebase_analytics: ^10.10.6" >> pubspec.yaml
+          sed -i '' "s/firebase_messaging:.*/firebase_messaging: ^14.9.1/" pubspec.yaml || echo "firebase_messaging: ^14.9.1" >> pubspec.yaml
+          sed -i '' "s/firebase_storage:.*/firebase_storage: ^11.6.10/" pubspec.yaml || echo "firebase_storage: ^11.6.10" >> pubspec.yaml
+          sed -i '' "s/cloud_firestore:.*/cloud_firestore: ^4.17.5/" pubspec.yaml || echo "cloud_firestore: ^4.17.5" >> pubspec.yaml
 
       - name: Install Flutter dependencies
         run: flutter pub get
@@ -53,6 +49,7 @@ jobs:
       - name: Clean CocoaPods and install dependencies
         run: |
           cd ios
+          rm -rf Pods Podfile.lock
           pod install --repo-update
           cd ..
 
