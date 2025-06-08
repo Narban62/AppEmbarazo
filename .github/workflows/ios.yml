@@ -56,15 +56,12 @@ jobs:
       - name: Set iOS minimum version in Info.plist
         run: |
           INFO_PLIST="ios/Runner/Info.plist"
-          if grep -q "<key>MinimumOSVersion</key>" "$INFO_PLIST"; then
-            # Reemplaza el valor de MinimumOSVersion sin romper el XML
-            sed -i '' 's|<key>MinimumOSVersion</key>\n\s*<string>.*</string>|<key>MinimumOSVersion</key>\n\t<string>13.0</string>|' "$INFO_PLIST"
+          if /usr/libexec/PlistBuddy -c "Print MinimumOSVersion" "$INFO_PLIST" &>/dev/null; then
+          /usr/libexec/PlistBuddy -c "Set MinimumOSVersion 13.0" "$INFO_PLIST"
           else
-            # Inserta MinimumOSVersion justo debajo de <dict> si no existe
-            sed -i '' '/<dict>/a\
-            \ \ \ \ <key>MinimumOSVersion</key>\
-            \ \ \ \ <string>13.0</string>' "$INFO_PLIST"
+          /usr/libexec/PlistBuddy -c "Add MinimumOSVersion string 13.0" "$INFO_PLIST"
           fi
+
 
       - name: Build iOS (release, no codesign)
         run: flutter build ios --release --no-codesign
