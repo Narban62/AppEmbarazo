@@ -8,8 +8,14 @@ on:
 jobs:
   build-ios:
     runs-on: macos-14
+    defaults:
+      run:
+        shell: bash
 
     steps:
+      - name: Select Xcode version
+        run: sudo xcode-select -s /Applications/Xcode_15.3.app
+
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -24,7 +30,6 @@ jobs:
 
       - name: Set platform iOS 13 in Podfile
         run: |
-          # Si hay línea con platform iOS, reemplazar, si no agregar al inicio
           if grep -q '^platform :ios' ios/Podfile; then
             sed -i '' "s/^platform :ios.*/platform :ios, '13.0'/" ios/Podfile
           else
@@ -38,17 +43,16 @@ jobs:
           pod install --repo-update
           cd ..
 
-      - name: Validate Info.plist
-        run: plutil ios/Runner/Info.plist
-
-      - name: Set iOS minimum version in Info.plist
+      - name: Ensure Info.plist has minimum version
         run: |
-          plutil -extract MinimumOSVersion xml1 -o - ios/Runner/Info.plist || \
-          plutil -insert MinimumOSVersion -string "13.0" ios/Runner/Info.plist || \
-          plutil -replace MinimumOSVersion -string "13.0" ios/Runner/Info.plist
+          if ! plutil -extract MinimumOSVersion xml1 -o - ios/Runner/Info.plist &>/dev/null; then
+            plutil -insert MinimumOSVersion -string "13.0" ios/Runner/Info.plist
+          else
+            plutil -replace MinimumOSVersion -string "13.0" ios/Runner/Info.plist
+          fi
 
-      - name: Build iOS (debug mode, no signing)
-        run: flutter build ios --no-codesign
+      - name: Build iOS (release, no codesign)
+        run: flutter build ios --release --no-codesign
 
       - name: Create .ipa from .app
         run: |
