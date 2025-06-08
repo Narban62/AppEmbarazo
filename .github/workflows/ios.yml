@@ -27,13 +27,13 @@ jobs:
 
       - name: Update Firebase dependencies to stable versions
         run: |
-          # Establecer versiones compatibles en pubspec.yaml
-          sed -i '' "s/firebase_core:.*/firebase_core: ^2.30.0/" pubspec.yaml || echo "firebase_core: ^2.30.0" >> pubspec.yaml
-          sed -i '' "s/firebase_auth:.*/firebase_auth: ^4.17.8/" pubspec.yaml || echo "firebase_auth: ^4.17.8" >> pubspec.yaml
-          sed -i '' "s/firebase_analytics:.*/firebase_analytics: ^10.10.6/" pubspec.yaml || echo "firebase_analytics: ^10.10.6" >> pubspec.yaml
-          sed -i '' "s/firebase_messaging:.*/firebase_messaging: ^14.9.1/" pubspec.yaml || echo "firebase_messaging: ^14.9.1" >> pubspec.yaml
-          sed -i '' "s/firebase_storage:.*/firebase_storage: ^11.6.10/" pubspec.yaml || echo "firebase_storage: ^11.6.10" >> pubspec.yaml
-          sed -i '' "s/cloud_firestore:.*/cloud_firestore: ^4.17.5/" pubspec.yaml || echo "cloud_firestore: ^4.17.5" >> pubspec.yaml
+          # Actualizar las versiones en pubspec.yaml con sed, o añadir si no existen
+          sed -i '' -E "s|(firebase_core:).*|\1 ^2.30.0|" pubspec.yaml || echo "firebase_core: ^2.30.0" >> pubspec.yaml
+          sed -i '' -E "s|(firebase_auth:).*|\1 ^4.17.8|" pubspec.yaml || echo "firebase_auth: ^4.17.8" >> pubspec.yaml
+          sed -i '' -E "s|(firebase_analytics:).*|\1 ^10.10.6|" pubspec.yaml || echo "firebase_analytics: ^10.10.6" >> pubspec.yaml
+          sed -i '' -E "s|(firebase_messaging:).*|\1 ^14.9.1|" pubspec.yaml || echo "firebase_messaging: ^14.9.1" >> pubspec.yaml
+          sed -i '' -E "s|(firebase_storage:).*|\1 ^11.6.10|" pubspec.yaml || echo "firebase_storage: ^11.6.10" >> pubspec.yaml
+          sed -i '' -E "s|(cloud_firestore:).*|\1 ^4.17.5|" pubspec.yaml || echo "cloud_firestore: ^4.17.5" >> pubspec.yaml
 
       - name: Install Flutter dependencies
         run: flutter pub get
@@ -53,12 +53,17 @@ jobs:
           pod install --repo-update
           cd ..
 
-      - name: Ensure Info.plist has minimum version
+      - name: Set iOS minimum version in Info.plist
         run: |
-          if ! plutil -extract MinimumOSVersion xml1 -o - ios/Runner/Info.plist &>/dev/null; then
-            plutil -insert MinimumOSVersion -string "13.0" ios/Runner/Info.plist
+          INFO_PLIST="ios/Runner/Info.plist"
+          if grep -q "<key>MinimumOSVersion</key>" "$INFO_PLIST"; then
+            # Reemplaza el valor de MinimumOSVersion sin romper el XML
+            sed -i '' 's|<key>MinimumOSVersion</key>\n\s*<string>.*</string>|<key>MinimumOSVersion</key>\n\t<string>13.0</string>|' "$INFO_PLIST"
           else
-            plutil -replace MinimumOSVersion -string "13.0" ios/Runner/Info.plist
+            # Inserta MinimumOSVersion justo debajo de <dict> si no existe
+            sed -i '' '/<dict>/a\
+            \ \ \ \ <key>MinimumOSVersion</key>\
+            \ \ \ \ <string>13.0</string>' "$INFO_PLIST"
           fi
 
       - name: Build iOS (release, no codesign)
