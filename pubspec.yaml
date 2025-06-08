@@ -47,6 +47,7 @@ dependencies:
   table_calendar: ^3.0.6
   url_launcher: ^6.3.1
   flutter_datetime_picker_plus: ^2.2.0
+  flutter_launcher_icons: ^0.14.3
 
 
 dev_dependencies:
@@ -134,7 +135,12 @@ flutter:
   # see https://flutter.dev/to/font-from-package
 
 flutter_native_splash:
-  color:  # Color de fondo del splash screen
-  image: assets/images/splash/img.png # Ruta de la imagen del splash screen
+  color: "#F1A5B2"
+  image: assets/images/splash/splash.jpeg # Ruta de la imagen del splash screen
   android: true
   ios: true
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/icon/icon.png"
