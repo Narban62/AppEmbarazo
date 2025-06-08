@@ -22,17 +22,19 @@ jobs:
       - name: Install Flutter dependencies
         run: flutter pub get
 
-      - name: Set iOS 13 deployment target
+      - name: Set platform iOS 13 in Podfile
         run: |
-          sed -i '' 's/IPHONEOS_DEPLOYMENT_TARGET = [0-9.]*/IPHONEOS_DEPLOYMENT_TARGET = 13.0/g' ios/Podfile
-          sed -i '' 's/platform :ios, .*/platform :ios, '13.0'/g' ios/Podfile
-          plutil -replace MinimumOSVersion -string "13.0" ios/Runner/Info.plist
+          sed -i '' "s/^# *platform :ios.*/platform :ios, '13.0'/" ios/Podfile || echo "platform :ios, '13.0'" >> ios/Podfile
 
       - name: Install CocoaPods dependencies
         run: |
           cd ios
           pod install
           cd ..
+
+      - name: Set iOS minimum version in Info.plist
+        run: |
+          plutil -replace MinimumOSVersion -string "13.0" ios/Runner/Info.plist
 
       - name: Build iOS (debug mode, no signing)
         run: flutter build ios --no-codesign
@@ -50,3 +52,4 @@ jobs:
         with:
           name: unsigned-ipa
           path: output/app.ipa
+
