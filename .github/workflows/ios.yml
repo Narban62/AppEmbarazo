@@ -1,0 +1,39 @@
+name: Build iOS IPA (unsigned)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  build-ios:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 'stable'
+
+      - name: Install Flutter dependencies
+        run: flutter pub get
+
+      - name: Build iOS (debug mode, no signing)
+        run: flutter build ios --no-codesign
+
+      - name: Create .ipa from .app
+        run: |
+          mkdir -p Payload
+          cp -r build/ios/iphoneos/Runner.app Payload/
+          zip -r app.ipa Payload
+          mkdir -p output
+          mv app.ipa output/
+
+      - name: Upload unsigned IPA
+        uses: actions/upload-artifact@v3
+        with:
+          name: unsigned-ipa
+          path: output/app.ipa
