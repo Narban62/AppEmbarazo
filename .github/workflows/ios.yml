@@ -13,28 +13,33 @@ jobs:
         shell: bash
 
     steps:
-      - name: Select Xcode version
+      - name: Seleccionar versión de Xcode
         run: sudo xcode-select -s /Applications/Xcode_15.3.app
 
-      - name: Checkout repository
+      - name: Clonar repositorio
         uses: actions/checkout@v4
 
-      - name: Ensure Info.plist encoding is UTF-8
+      - name: Validar y corregir Info.plist
         run: |
-          echo "📄 Validating Info.plist encoding..."
+          echo "🔍 Validando codificación y formato de Info.plist"
           file ios/Runner/Info.plist
+          plutil -lint ios/Runner/Info.plist || {
+            echo "❌ Info.plist no es válido. Corrigiendo a XML..."
+            cp ios/Runner/Info.plist ios/Runner/Info.backup.plist
+            plutil -convert xml1 ios/Runner/Info.plist
+            plutil -lint ios/Runner/Info.plist
+          }
+          echo "✅ Info.plist válido y en formato XML"
 
-      - name: Validate Info.plist format
-        run: plutil -lint ios/Runner/Info.plist
-
-      - name: Set up Flutter
+      - name: Configurar Flutter
         uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.24.3'
           architecture: arm64
 
-      - name: Update Firebase dependencies to stable versions
+      - name: Actualizar dependencias Firebase (estables)
         run: |
+          echo "📦 Actualizando versiones de Firebase"
           sed -i '' -E "s|(firebase_core:).*|\1 ^2.30.0|" pubspec.yaml || echo "firebase_core: ^2.30.0" >> pubspec.yaml
           sed -i '' -E "s|(firebase_auth:).*|\1 ^4.17.8|" pubspec.yaml || echo "firebase_auth: ^4.17.8" >> pubspec.yaml
           sed -i '' -E "s|(firebase_analytics:).*|\1 ^10.10.6|" pubspec.yaml || echo "firebase_analytics: ^10.10.6" >> pubspec.yaml
@@ -42,10 +47,10 @@ jobs:
           sed -i '' -E "s|(firebase_storage:).*|\1 ^11.6.10|" pubspec.yaml || echo "firebase_storage: ^11.6.10" >> pubspec.yaml
           sed -i '' -E "s|(cloud_firestore:).*|\1 ^4.17.5|" pubspec.yaml || echo "cloud_firestore: ^4.17.5" >> pubspec.yaml
 
-      - name: Install Flutter dependencies
+      - name: Instalar dependencias de Flutter
         run: flutter pub get
 
-      - name: Set iOS platform version in Podfile
+      - name: Establecer iOS 13 como plataforma mínima en Podfile
         run: |
           if grep -q '^platform :ios' ios/Podfile; then
             sed -i '' "s/^platform :ios.*/platform :ios, '13.0'/" ios/Podfile
@@ -53,27 +58,38 @@ jobs:
             echo "platform :ios, '13.0'" | cat - ios/Podfile > ios/Podfile.tmp && mv ios/Podfile.tmp ios/Podfile
           fi
 
-      - name: Clean CocoaPods and install dependencies
+      - name: Limpiar CocoaPods y reinstalar dependencias
         run: |
+          echo "🧹 Limpiando e instalando CocoaPods..."
           cd ios
           rm -rf Pods Podfile.lock
           pod install --repo-update
           cd ..
 
-      - name: Build iOS (release, no codesign)
-        run: flutter build ios --release --no-codesign
-
-      - name: Create .ipa from Runner.app
+      - name: Verificar estructura de carpeta iOS
         run: |
+          echo "📁 Estructura iOS:"
+          ls -la ios
+          echo "📁 Estructura del proyecto Flutter:"
+          ls -la
+
+      - name: Build iOS con logs detallados (release, sin codesign)
+        run: |
+          echo "🚧 Iniciando build iOS (verbose)..."
+          flutter build ios --release --no-codesign -v
+        timeout-minutes: 30
+
+      - name: Crear .ipa desde Runner.app
+        run: |
+          echo "📦 Creando IPA desde Runner.app..."
           mkdir -p Payload
           cp -r build/ios/iphoneos/Runner.app Payload/
           zip -r app.ipa Payload
           mkdir -p output
           mv app.ipa output/
 
-      - name: Upload unsigned IPA
+      - name: Subir IPA sin firmar
         uses: actions/upload-artifact@v4
         with:
           name: unsigned-ipa
           path: output/app.ipa
-
