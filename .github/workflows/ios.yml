@@ -22,7 +22,8 @@ jobs:
       - name: Verificar codificación del Info.plist
         run: |
           file ios/Runner/Info.plist
-          iconv -f UTF-8 -t UTF-8 ios/Runner/Info.plist -o ios/Runner/Info.plist
+          iconv -f UTF-8 -t UTF-8 ios/Runner/Info.plist > ios/Runner/Info.utf8.plist && mv ios/Runner/Info.utf8.plist ios/Runner/Info.plist
+
   
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
