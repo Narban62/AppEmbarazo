@@ -18,7 +18,12 @@ jobs:
 
       - name: Checkout repository
         uses: actions/checkout@v4
-
+        
+      - name: Verificar codificación del Info.plist
+        run: |
+          file ios/Runner/Info.plist
+          iconv -f UTF-8 -t UTF-8 ios/Runner/Info.plist -o ios/Runner/Info.plist
+  
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
@@ -52,20 +57,13 @@ jobs:
           pod install --repo-update
           cd ..
 
-      - name: Copiar Info.plist externo
-        run: |
-          cp ios/ci/Info.plist ios/Runner/Info.plist
-
       - name: Validar formato Info.plist
         run: plutil -lint ios/Runner/Info.plist
-
-      - name: Verificar contenido Info.plist (debug)
-        run: cat ios/Runner/Info.plist
 
       - name: Build iOS (release, no codesign)
         run: flutter build ios --release --no-codesign
 
-      - name: Crear .ipa desde .app
+      - name: Create .ipa from .app
         run: |
           mkdir -p Payload
           cp -r build/ios/iphoneos/Runner.app Payload/
