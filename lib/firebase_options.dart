@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -28,15 +25,9 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return windows;
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -65,4 +56,32 @@ class DefaultFirebaseOptions {
     storageBucket: 'test-drive-fc508.appspot.com',
     iosBundleId: 'com.example.appEmbarazo',
   );
+
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyBsNurs1l3q7QdCQREFDdgDKGgsg-hse1k',
+    appId: '1:109149891639:web:78744a14779260e970e3b2',
+    messagingSenderId: '109149891639',
+    projectId: 'test-drive-fc508',
+    authDomain: 'test-drive-fc508.firebaseapp.com',
+    storageBucket: 'test-drive-fc508.appspot.com',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyDaF3uZo24IHIFl7PHQHom83oUOcYfLec0',
+    appId: '1:109149891639:ios:cbdd4b715acb6db270e3b2',
+    messagingSenderId: '109149891639',
+    projectId: 'test-drive-fc508',
+    storageBucket: 'test-drive-fc508.appspot.com',
+    iosBundleId: 'com.example.appEmbarazo',
+  );
+
+  static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'AIzaSyBsNurs1l3q7QdCQREFDdgDKGgsg-hse1k',
+    appId: '1:109149891639:web:f80bea590d8eb3f170e3b2',
+    messagingSenderId: '109149891639',
+    projectId: 'test-drive-fc508',
+    authDomain: 'test-drive-fc508.firebaseapp.com',
+    storageBucket: 'test-drive-fc508.appspot.com',
+  );
+
 }
