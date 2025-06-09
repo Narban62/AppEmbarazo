@@ -1,36 +1,29 @@
-name: pages-build-deployment
+name: Deploy Flutter Web to GitHub Pages
 
 on:
   push:
     branches:
-      - main
+      - main # o la rama principal que uses
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - name: Build site
-        run: |
-          # Build your site here
-          echo "Site built successfully"
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v3
+      - uses: subosito/flutter-action@v2
         with:
-          name: github-pages-${{ github.run_id }} # Append a unique run ID to avoid naming conflicts
-          path: ./public # Replace with the actual path to your build output
+          flutter-version: '3.24.3'
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: github-pages-${{ github.run_id }} # Match the updated artifact name
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Build web
+        run: flutter build web --release
 
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: build/web
