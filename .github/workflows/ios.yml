@@ -18,13 +18,17 @@ jobs:
 
       - name: Checkout repository
         uses: actions/checkout@v4
-        
-      - name: Verificar codificación del Info.plist
-        run: |
-          file ios/Runner/Info.plist
-          iconv -f UTF-8 -t UTF-8 ios/Runner/Info.plist > ios/Runner/Info.utf8.plist && mv ios/Runner/Info.utf8.plist ios/Runner/Info.plist
 
-  
+      - name: Ensure Info.plist encoding is UTF-8
+        run: |
+          echo "📄 Validating Info.plist encoding..."
+          file ios/Runner/Info.plist
+          iconv -f UTF-8 -t UTF-8 ios/Runner/Info.plist -o ios/Runner/Info.utf8.plist
+          mv ios/Runner/Info.utf8.plist ios/Runner/Info.plist
+
+      - name: Validate Info.plist format
+        run: plutil -lint ios/Runner/Info.plist
+
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
@@ -43,7 +47,7 @@ jobs:
       - name: Install Flutter dependencies
         run: flutter pub get
 
-      - name: Set platform iOS 13 in Podfile
+      - name: Set iOS platform version in Podfile
         run: |
           if grep -q '^platform :ios' ios/Podfile; then
             sed -i '' "s/^platform :ios.*/platform :ios, '13.0'/" ios/Podfile
@@ -58,13 +62,10 @@ jobs:
           pod install --repo-update
           cd ..
 
-      - name: Validar formato Info.plist
-        run: plutil -lint ios/Runner/Info.plist
-
       - name: Build iOS (release, no codesign)
         run: flutter build ios --release --no-codesign
 
-      - name: Create .ipa from .app
+      - name: Create .ipa from Runner.app
         run: |
           mkdir -p Payload
           cp -r build/ios/iphoneos/Runner.app Payload/
@@ -77,3 +78,4 @@ jobs:
         with:
           name: unsigned-ipa
           path: output/app.ipa
+
