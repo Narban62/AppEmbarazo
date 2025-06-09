@@ -23,8 +23,6 @@ jobs:
         run: |
           echo "📄 Validating Info.plist encoding..."
           file ios/Runner/Info.plist
-          iconv -f UTF-8 -t UTF-8 ios/Runner/Info.plist -o ios/Runner/Info.utf8.plist
-          mv ios/Runner/Info.utf8.plist ios/Runner/Info.plist
 
       - name: Validate Info.plist format
         run: plutil -lint ios/Runner/Info.plist
