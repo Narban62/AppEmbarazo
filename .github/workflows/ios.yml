@@ -21,15 +21,15 @@ jobs:
 
       - name: Validar y corregir Info.plist
         run: |
-          echo "🔍 Validando codificación y formato de Info.plist"
+          echo "🔍 Validando Info.plist"
           file ios/Runner/Info.plist
           plutil -lint ios/Runner/Info.plist || {
-            echo "❌ Info.plist no es válido. Corrigiendo a XML..."
+            echo "❌ Corrigiendo Info.plist..."
             cp ios/Runner/Info.plist ios/Runner/Info.backup.plist
             plutil -convert xml1 ios/Runner/Info.plist
             plutil -lint ios/Runner/Info.plist
           }
-          echo "✅ Info.plist válido y en formato XML"
+          echo "✅ Info.plist válido"
 
       - name: Configurar Flutter
         uses: subosito/flutter-action@v2
@@ -47,10 +47,10 @@ jobs:
           sed -i '' -E "s|(firebase_storage:).*|\1 ^11.6.10|" pubspec.yaml || echo "firebase_storage: ^11.6.10" >> pubspec.yaml
           sed -i '' -E "s|(cloud_firestore:).*|\1 ^4.17.5|" pubspec.yaml || echo "cloud_firestore: ^4.17.5" >> pubspec.yaml
 
-      - name: Instalar dependencias de Flutter
+      - name: Instalar dependencias Flutter
         run: flutter pub get
 
-      - name: Establecer iOS 13 como plataforma mínima en Podfile
+      - name: Establecer iOS 13 en Podfile
         run: |
           if grep -q '^platform :ios' ios/Podfile; then
             sed -i '' "s/^platform :ios.*/platform :ios, '13.0'/" ios/Podfile
@@ -58,30 +58,28 @@ jobs:
             echo "platform :ios, '13.0'" | cat - ios/Podfile > ios/Podfile.tmp && mv ios/Podfile.tmp ios/Podfile
           fi
 
-      - name: Limpiar CocoaPods y reinstalar dependencias
+      - name: Limpiar CocoaPods e instalar
         run: |
-          echo "🧹 Limpiando e instalando CocoaPods..."
+          echo "🧹 Limpiando Pods..."
           cd ios
           rm -rf Pods Podfile.lock
           pod install --repo-update
           cd ..
 
-      - name: Verificar estructura de carpeta iOS
+      - name: Verificar estructura iOS
         run: |
-          echo "📁 Estructura iOS:"
+          echo "📁 Contenido de ios/"
           ls -la ios
-          echo "📁 Estructura del proyecto Flutter:"
+          echo "📁 Raíz del proyecto"
           ls -la
 
-      - name: Build iOS con logs detallados (release, sin codesign)
-        run: |
-          echo "🚧 Iniciando build iOS (verbose)..."
-          flutter build ios --release --no-codesign -v
+      - name: Build iOS (release sin firma)
+        run: flutter build ios --release --no-codesign
         timeout-minutes: 30
 
-      - name: Crear .ipa desde Runner.app
+      - name: Crear IPA desde Runner.app
         run: |
-          echo "📦 Creando IPA desde Runner.app..."
+          echo "📦 Empaquetando IPA..."
           mkdir -p Payload
           cp -r build/ios/iphoneos/Runner.app Payload/
           zip -r app.ipa Payload
